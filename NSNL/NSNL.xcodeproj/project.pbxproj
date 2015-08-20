@@ -14,6 +14,7 @@
 		FA2B85E11B85A8DA0054AC6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2B85E01B85A8DA0054AC6C /* Images.xcassets */; };
 		FA2B85E41B85A8DA0054AC6C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2B85E21B85A8DA0054AC6C /* LaunchScreen.xib */; };
 		FA2B85F01B85A8DA0054AC6C /* NSNLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B85EF1B85A8DA0054AC6C /* NSNLTests.swift */; };
+		FA2B85FA1B85DD340054AC6C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2B85F91B85DD340054AC6C /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		FA2B85E91B85A8DA0054AC6C /* NSNLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSNLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2B85EE1B85A8DA0054AC6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA2B85EF1B85A8DA0054AC6C /* NSNLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNLTests.swift; sourceTree = "<group>"; };
+		FA2B85F91B85DD340054AC6C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2B85FA1B85DD340054AC6C /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +64,7 @@
 		FA2B85C81B85A8DA0054AC6C = {
 			isa = PBXGroup;
 			children = (
+				FA2B85F91B85DD340054AC6C /* CoreLocation.framework */,
 				FA2B85D31B85A8DA0054AC6C /* NSNL */,
 				FA2B85EC1B85A8DA0054AC6C /* NSNLTests */,
 				FA2B85D21B85A8DA0054AC6C /* Products */,
@@ -347,6 +351,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NSNL/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -358,6 +363,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NSNL/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -416,6 +422,7 @@
 				FA2B85F51B85A8DB0054AC6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA2B85F61B85A8DB0054AC6C /* Build configuration list for PBXNativeTarget "NSNLTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +431,7 @@
 				FA2B85F81B85A8DB0054AC6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

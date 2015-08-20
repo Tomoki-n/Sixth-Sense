@@ -7,15 +7,25 @@
 //
 
 import UIKit
-import MultipeerConnectivity
+import CoreLocation
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController ,CLLocationManagerDelegate{
+    
+    var lm: CLLocationManager! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+
+        lm = CLLocationManager()
+        // 位置情報を取るよう設定
+        // ※ 初回は確認ダイアログ表示
+        lm.requestAlwaysAuthorization()
+        lm.delegate = self
+        lm.startUpdatingHeading() // コンパス更新機能起動
         
-          }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -23,7 +33,14 @@ class ViewController: UIViewController {
     
     }
 
-
+    // コンパスの値を受信
+    func locationManager(manager:CLLocationManager, didUpdateHeading newHeading:CLHeading) {
+    
+               var heading:CLLocationDirection = newHeading.magneticHeading
+        println("result : \(heading)")
+        
+        
+    }
     
     
     
