@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA2B85D01B85A8DA0054AC6C"
+               BlueprintIdentifier = "98EFFC481B85B86B00896E5D"
                BuildableName = "NSNL.app"
                BlueprintName = "NSNL"
                ReferencedContainer = "container:NSNL.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA2B85E81B85A8DA0054AC6C"
+               BlueprintIdentifier = "98EFFC611B85B86B00896E5D"
                BuildableName = "NSNLTests.xctest"
                BlueprintName = "NSNLTests"
                ReferencedContainer = "container:NSNL.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA2B85E81B85A8DA0054AC6C"
+               BlueprintIdentifier = "98EFFC611B85B86B00896E5D"
                BuildableName = "NSNLTests.xctest"
                BlueprintName = "NSNLTests"
                ReferencedContainer = "container:NSNL.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA2B85D01B85A8DA0054AC6C"
+            BlueprintIdentifier = "98EFFC481B85B86B00896E5D"
             BuildableName = "NSNL.app"
             BlueprintName = "NSNL"
             ReferencedContainer = "container:NSNL.xcodeproj">
@@ -76,7 +76,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA2B85D01B85A8DA0054AC6C"
+            BlueprintIdentifier = "98EFFC481B85B86B00896E5D"
             BuildableName = "NSNL.app"
             BlueprintName = "NSNL"
             ReferencedContainer = "container:NSNL.xcodeproj">
@@ -95,7 +95,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA2B85D01B85A8DA0054AC6C"
+            BlueprintIdentifier = "98EFFC481B85B86B00896E5D"
             BuildableName = "NSNL.app"
             BlueprintName = "NSNL"
             ReferencedContainer = "container:NSNL.xcodeproj">
