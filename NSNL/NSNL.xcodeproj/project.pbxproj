@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		FA2B85D71B85A8DA0054AC6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B85D61B85A8DA0054AC6C /* AppDelegate.swift */; };
 		FA2B85DA1B85A8DA0054AC6C /* NSNL.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA2B85D81B85A8DA0054AC6C /* NSNL.xcdatamodeld */; };
-		FA2B85DC1B85A8DA0054AC6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B85DB1B85A8DA0054AC6C /* ViewController.swift */; };
+		FA2B85DC1B85A8DA0054AC6C /* bluetoothViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B85DB1B85A8DA0054AC6C /* bluetoothViewController.swift */; };
 		FA2B85DF1B85A8DA0054AC6C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2B85DD1B85A8DA0054AC6C /* Main.storyboard */; };
 		FA2B85E11B85A8DA0054AC6C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2B85E01B85A8DA0054AC6C /* Images.xcassets */; };
 		FA2B85E41B85A8DA0054AC6C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2B85E21B85A8DA0054AC6C /* LaunchScreen.xib */; };
 		FA2B85F01B85A8DA0054AC6C /* NSNLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B85EF1B85A8DA0054AC6C /* NSNLTests.swift */; };
+		FAF454551B86B513009DB6A2 /* NosightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454541B86B513009DB6A2 /* NosightViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +32,14 @@
 		FA2B85D51B85A8DA0054AC6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA2B85D61B85A8DA0054AC6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA2B85D91B85A8DA0054AC6C /* NSNL.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NSNL.xcdatamodel; sourceTree = "<group>"; };
-		FA2B85DB1B85A8DA0054AC6C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FA2B85DB1B85A8DA0054AC6C /* bluetoothViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bluetoothViewController.swift; sourceTree = "<group>"; };
 		FA2B85DE1B85A8DA0054AC6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA2B85E01B85A8DA0054AC6C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA2B85E31B85A8DA0054AC6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FA2B85E91B85A8DA0054AC6C /* NSNLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSNLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2B85EE1B85A8DA0054AC6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA2B85EF1B85A8DA0054AC6C /* NSNLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNLTests.swift; sourceTree = "<group>"; };
+		FAF454541B86B513009DB6A2 /* NosightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NosightViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				FA2B85D61B85A8DA0054AC6C /* AppDelegate.swift */,
-				FA2B85DB1B85A8DA0054AC6C /* ViewController.swift */,
+				FA2B85DB1B85A8DA0054AC6C /* bluetoothViewController.swift */,
 				FA2B85DD1B85A8DA0054AC6C /* Main.storyboard */,
+				FAF454541B86B513009DB6A2 /* NosightViewController.swift */,
 				FA2B85E01B85A8DA0054AC6C /* Images.xcassets */,
 				FA2B85E21B85A8DA0054AC6C /* LaunchScreen.xib */,
 				FA2B85D81B85A8DA0054AC6C /* NSNL.xcdatamodeld */,
@@ -216,7 +219,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA2B85DC1B85A8DA0054AC6C /* ViewController.swift in Sources */,
+				FA2B85DC1B85A8DA0054AC6C /* bluetoothViewController.swift in Sources */,
+				FAF454551B86B513009DB6A2 /* NosightViewController.swift in Sources */,
 				FA2B85DA1B85A8DA0054AC6C /* NSNL.xcdatamodeld in Sources */,
 				FA2B85D71B85A8DA0054AC6C /* AppDelegate.swift in Sources */,
 			);
@@ -418,6 +422,7 @@
 				FA2B85F51B85A8DB0054AC6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA2B85F61B85A8DB0054AC6C /* Build configuration list for PBXNativeTarget "NSNLTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +431,7 @@
 				FA2B85F81B85A8DB0054AC6C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
