@@ -2,8 +2,8 @@
 //  NSNLTests.swift
 //  NSNLTests
 //
-//  Created by Nishinaka Tomoki on 8/20/15.
-//  Copyright (c) 2015 Nishinaka Tomoki. All rights reserved.
+//  Created by itsuki on 2015/08/20.
+//  Copyright (c) 2015年 itsuki. All rights reserved.
 //
 
 import UIKit

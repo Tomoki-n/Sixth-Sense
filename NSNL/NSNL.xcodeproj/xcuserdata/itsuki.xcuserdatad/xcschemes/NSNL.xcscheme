@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0640"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA2B85D01B85A8DA0054AC6C"
+               BlueprintIdentifier = "98EFFC481B85B86B00896E5D"
                BuildableName = "NSNL.app"
                BlueprintName = "NSNL"
                ReferencedContainer = "container:NSNL.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA2B85E81B85A8DA0054AC6C"
+               BlueprintIdentifier = "98EFFC611B85B86B00896E5D"
                BuildableName = "NSNLTests.xctest"
                BlueprintName = "NSNLTests"
                ReferencedContainer = "container:NSNL.xcodeproj">
@@ -37,16 +37,16 @@
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA2B85E81B85A8DA0054AC6C"
+               BlueprintIdentifier = "98EFFC611B85B86B00896E5D"
                BuildableName = "NSNLTests.xctest"
                BlueprintName = "NSNLTests"
                ReferencedContainer = "container:NSNL.xcodeproj">
@@ -56,27 +56,30 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA2B85D01B85A8DA0054AC6C"
+            BlueprintIdentifier = "98EFFC481B85B86B00896E5D"
             BuildableName = "NSNL.app"
             BlueprintName = "NSNL"
             ReferencedContainer = "container:NSNL.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA2B85D01B85A8DA0054AC6C"
+            BlueprintIdentifier = "98EFFC481B85B86B00896E5D"
             BuildableName = "NSNL.app"
             BlueprintName = "NSNL"
             ReferencedContainer = "container:NSNL.xcodeproj">
@@ -86,16 +89,16 @@
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA2B85D01B85A8DA0054AC6C"
+            BlueprintIdentifier = "98EFFC481B85B86B00896E5D"
             BuildableName = "NSNL.app"
             BlueprintName = "NSNL"
             ReferencedContainer = "container:NSNL.xcodeproj">
