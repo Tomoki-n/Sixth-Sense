@@ -50,15 +50,19 @@ class GameScene: SKScene {
         switch(del.FirstPOS){
         case "FIRSTPOS 0":
             fmuki = 0
+            muki = 0
             break
         case "FIRSTPOS 1":
             fmuki = 1
+            muki = 1
             break
         case "FIRSTPOS 2":
             fmuki = 2
+            muki = 2
             break
         case "FIRSTPOS 3":
             fmuki = 3
+            muki = 3
             break
         default:
             break
