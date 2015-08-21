@@ -170,7 +170,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             if prevpos >= 0 && prevpos<=89 { }
             else {
                 prevpos = Int(heading)
-                self.sendMes("POS"+" "+"0")
+                self.sendMes("0")
             }
         }
         
@@ -178,7 +178,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             if prevpos >= 90 && prevpos<=179 { }
             else {
                 prevpos = Int(heading)
-                self.sendMes("POS"+" "+"1")
+                self.sendMes("1")
             }
         }
     
@@ -186,7 +186,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             if prevpos >= 180 && prevpos<=269 { }
             else {
                 prevpos = Int(heading)
-                self.sendMes("POS"+" "+"2")
+                self.sendMes("2")
             }
         }
     
@@ -194,7 +194,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             if prevpos >= 270 && prevpos <= 359{ }
             else {
                 prevpos = Int(heading)
-                self.sendMes("POS"+" "+"3")
+                self.sendMes("3")
             }
         }
     }

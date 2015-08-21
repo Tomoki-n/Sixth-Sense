@@ -28,6 +28,7 @@ class GameScene: SKScene {
     var actionFlag:Bool = false
     var fmuki:Int = 0
     var muki:Int = 0 // 0:上,1:右,2:下,3:左
+    var soutai:Int = 0
     var walker:SKSpriteNode!
     var shita:SKAction!
     var hidari:SKAction!
@@ -47,26 +48,6 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        switch(del.FirstPOS){
-        case "FIRSTPOS 0":
-            fmuki = 0
-            muki = 0
-            break
-        case "FIRSTPOS 1":
-            fmuki = 1
-            muki = 1
-            break
-        case "FIRSTPOS 2":
-            fmuki = 2
-            muki = 2
-            break
-        case "FIRSTPOS 3":
-            fmuki = 3
-            muki = 3
-            break
-        default:
-            break
-        }
         
         self.physicsWorld.gravity = CGVectorMake(0, 0)
         if let csvPath = NSBundle.mainBundle().pathForResource("Mapdata1", ofType: "csv") {
@@ -94,7 +75,9 @@ class GameScene: SKScene {
         self.view?.addSubview(scrView)
         
         button1 = UIButton(frame: CGRectMake(0, 0, 40, 20))
+        
         button1.backgroundColor = UIColor.whiteColor()
+        
         scrView.addSubview(button1)
         
         world = SKSpriteNode()
@@ -111,10 +94,10 @@ class GameScene: SKScene {
         Map_Create()
         Makewalker()
     }
-    
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        actionFlag = true
-    }
+//    
+//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+//        actionFlag = true
+//    }
     
     func Map_Create(){
         for i in 0..<map_row{
@@ -241,33 +224,98 @@ class GameScene: SKScene {
         Lw = SKAction.repeatAction(Lwalk, count: 1)
         Uw = SKAction.repeatAction(Uwalk, count: 1)
         Rw = SKAction.repeatAction(Rwalk, count: 1)
-        
+    }
+    
+    func first(){
+        switch(del.FirstPOS){
+        case "FIRSTPOS 0":
+            fmuki = 0
+            muki = 0
+            break
+        case "FIRSTPOS 1":
+            fmuki = 1
+            muki = 1
+            break
+        case "FIRSTPOS 2":
+            fmuki = 2
+            muki = 2
+            break
+        case "FIRSTPOS 3":
+            fmuki = 3
+            muki = 3
+            break
+        default:
+            break
+        }
+        println(fmuki)
+
     }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        if actionFlag == true{
+        
+        if del.firstflag == true{
+            first()
+            del.firstflag = false
+        }
+        println(del.posflag)
+        
+        if del.posflag == true{
+            println("pos")
+            del.posflag = false
+            muki = del.POS.toInt()!
+            soutai = (muki + fmuki) % 4
             
-            if muki == 0{
+            switch(soutai){
+            case 0:
+                walker.runAction(Uw)
+                break
+            case 1:
+                walker.runAction(Rw)
+                break
+            case 2:
+                walker.runAction(Dw)
+                break
+            case 3:
+                walker.runAction(Lw)
+                break
+            default:
+                break
+            }
+        }
+        
+        
+        
+        if del.actionflag == true{
+            println("action")
+            switch(soutai){
+            case 0:
                 cMove = Uw
                 wMove = shita
-            }else if muki == 1{
+                break
+            case 1:
                 cMove = Rw
                 wMove = hidari
-            }else if muki == 2{
+                break
+            case 2:
                 cMove = Dw
                 wMove = ue
-            }else if muki == 3{
+                break
+            case 3:
                 cMove = Lw
                 wMove = migi
+                break
+            default:
+                break
             }
+
             if cFlag == false && wFlag == false{
                 cFlag = true
                 wFlag = true
                 walker.runAction(cMove, completion: {self.cFlag = false})
                 world.runAction(wMove, completion: {self.wFlag = false})
             }
-            actionFlag = false
+            del.actionflag = false
         }
     }
 }

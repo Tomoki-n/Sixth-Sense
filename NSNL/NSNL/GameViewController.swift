@@ -69,6 +69,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
             
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
+            scene.size = skView.frame.size
             
             skView.presentScene(scene)
         }
@@ -155,8 +156,9 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
                 println(msg)
                 if(msg=="FIRSTPOS 0"||msg=="FIRSTPOS 1"||msg=="FIRSTPOS 2"||msg=="FIRSTPOS 3"){
                     self.appDelegate.FirstPOS = msg
+                    self.appDelegate.firstflag = true
                 }
-                else if (msg=="POS 0"||msg=="POS 1"||msg=="POS 2"||msg=="POS 3"){
+                else if (msg=="0"||msg=="1"||msg=="2"||msg=="3"){
                    self.appDelegate.POS = msg
                    self.appDelegate.posflag = true
                     
