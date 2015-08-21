@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		985165871B872603005EDD8C /* Status.png in Resources */ = {isa = PBXBuildFile; fileRef = 985165861B872603005EDD8C /* Status.png */; };
+		9851658B1B872A86005EDD8C /* migihe.png in Resources */ = {isa = PBXBuildFile; fileRef = 9851658A1B872A86005EDD8C /* migihe.png */; };
+		9851658D1B872A8D005EDD8C /* susunde.png in Resources */ = {isa = PBXBuildFile; fileRef = 9851658C1B872A8D005EDD8C /* susunde.png */; };
+		9851658F1B873224005EDD8C /* hidarihe.png in Resources */ = {isa = PBXBuildFile; fileRef = 9851658E1B873224005EDD8C /* hidarihe.png */; };
 		FAF454691B86F58D009DB6A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454681B86F58D009DB6A2 /* AppDelegate.swift */; };
 		FAF4546B1B86F58D009DB6A2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FAF4546A1B86F58D009DB6A2 /* GameScene.sks */; };
 		FAF4546D1B86F58D009DB6A2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4546C1B86F58D009DB6A2 /* GameScene.swift */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		985165861B872603005EDD8C /* Status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status.png; sourceTree = "<group>"; };
+		9851658A1B872A86005EDD8C /* migihe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = migihe.png; sourceTree = "<group>"; };
+		9851658C1B872A8D005EDD8C /* susunde.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = susunde.png; sourceTree = "<group>"; };
+		9851658E1B873224005EDD8C /* hidarihe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hidarihe.png; sourceTree = "<group>"; };
 		FAF454631B86F58D009DB6A2 /* NSNL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSNL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF454671B86F58D009DB6A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAF454681B86F58D009DB6A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +148,10 @@
 		FAF454901B86F63D009DB6A2 /* Material */ = {
 			isa = PBXGroup;
 			children = (
+				9851658C1B872A8D005EDD8C /* susunde.png */,
+				9851658E1B873224005EDD8C /* hidarihe.png */,
+				9851658A1B872A86005EDD8C /* migihe.png */,
+				985165861B872603005EDD8C /* Status.png */,
 				FAF454911B86F66D009DB6A2 /* chara02.gif */,
 				FAF454921B86F66D009DB6A2 /* mapchip1.png */,
 				FAF454931B86F66D009DB6A2 /* Mapdata1.csv */,
@@ -235,7 +247,11 @@
 				FAF4546B1B86F58D009DB6A2 /* GameScene.sks in Resources */,
 				FAF454981B86F66D009DB6A2 /* physicdata1.csv in Resources */,
 				FAF454961B86F66D009DB6A2 /* mapchip1.png in Resources */,
+				985165871B872603005EDD8C /* Status.png in Resources */,
 				FAF454721B86F58D009DB6A2 /* Main.storyboard in Resources */,
+				9851658D1B872A8D005EDD8C /* susunde.png in Resources */,
+				9851658F1B873224005EDD8C /* hidarihe.png in Resources */,
+				9851658B1B872A86005EDD8C /* migihe.png in Resources */,
 				FAF454971B86F66D009DB6A2 /* Mapdata1.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

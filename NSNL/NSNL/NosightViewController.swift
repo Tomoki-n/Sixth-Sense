@@ -198,8 +198,6 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             }
         }
     }
-        
-        
-
+    
     
 }

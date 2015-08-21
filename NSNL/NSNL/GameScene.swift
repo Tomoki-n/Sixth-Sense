@@ -44,6 +44,8 @@ class GameScene: SKScene {
     var wFlag:Bool = false
     var scrView:UIScrollView!
     var button1:UIButton!
+    var button2:UIButton!
+    var button3:UIButton!
     var del: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func didMoveToView(view: SKView) {
@@ -66,6 +68,9 @@ class GameScene: SKScene {
             }
         }
         
+        let imageview = UIImageView(image: UIImage(named: "Status.png"))
+
+        imageview.frame = CGRectMake(0, 0, self.size.width * 1 / 5, self.size.height*2)
         scrView = UIScrollView()
         scrView.pagingEnabled = false
         scrView.frame = CGRectMake(self.size.width * 4 / 5, 0, self.size.width * 1 / 5, self.size.height)
@@ -73,12 +78,22 @@ class GameScene: SKScene {
         scrView.backgroundColor = UIColor.blackColor()
         
         self.view?.addSubview(scrView)
+        scrView.addSubview(imageview)
         
-        button1 = UIButton(frame: CGRectMake(0, 0, 40, 20))
+        button1 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button1.setImage(UIImage(named: "susunde.png"), forState: .Normal)
+        button1.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 40)
+        button2 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button2.setImage(UIImage(named: "migihe.png"), forState: .Normal)
+        button2.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 90)
+        button3 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button3.setImage(UIImage(named: "hidarihe.png"), forState: .Normal)
+        button3.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 140)
         
-        button1.backgroundColor = UIColor.whiteColor()
         
         scrView.addSubview(button1)
+        scrView.addSubview(button2)
+        scrView.addSubview(button3)
         
         world = SKSpriteNode()
         world.size = CGSizeMake(CGFloat(map_row) * TILE_SIZE, CGFloat(map_columm) * TILE_SIZE)
