@@ -11,14 +11,18 @@ import SpriteKit
 
 class GameScene: SKScene {
     
+    let WalkerCategory: UInt32 = 0x1 << 1
+    let WallCategory:UInt32 = 0x1 << 0
+    let CHARA_SCALE:CGFloat = 1.8
     let R_SIZE:CGFloat = 31.0
     let C_SIZE:CGFloat = 24.0
     let MAP_COLS:CGFloat = 14.0
     let TILE_SIZE:CGFloat = 32.0
     let SCALE:CGFloat = 0.75
-    var map_row:Int = 25
-    var map_columm:Int = 25
+    var map_row:Int = 52
+    var map_columm:Int = 48
     var map:[[String]] = []
+    var phisic_map:[[String]] = []
     var tilesheet:SKTexture = SKTexture(imageNamed: "mapchip1")
     var world:SKSpriteNode!
     var actionFlag:Bool = false
@@ -42,6 +46,15 @@ class GameScene: SKScene {
                     self.map.append(line.componentsSeparatedByString(","))
                 }
         }
+        
+        if let csvPath = NSBundle.mainBundle().pathForResource("physicdata1", ofType: "csv") {
+            
+            let csvString = NSString(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil) as! String
+            csvString.enumerateLines { (line, stop) -> () in
+                self.phisic_map.append(line.componentsSeparatedByString(","))
+            }
+        }
+        
         world = SKSpriteNode()
         world.size = CGSizeMake(CGFloat(map_row) * TILE_SIZE, CGFloat(map_columm) * TILE_SIZE)
         world.zPosition = 0
@@ -65,6 +78,7 @@ class GameScene: SKScene {
         for i in 0..<map_row{
             for j in 0..<map_columm{
                 let p:Int = self.map[i][j].toInt()!
+                let q:Int = self.phisic_map[i][j].toInt()!
                 
                 var x:CGFloat = CGFloat(CGFloat(p) % self.MAP_COLS * TILE_SIZE / tilesheet.size().width)
                 var y:CGFloat = CGFloat(CGFloat(p) / self.MAP_COLS * TILE_SIZE / tilesheet.size().height)
@@ -74,6 +88,15 @@ class GameScene: SKScene {
                 var Rect:CGRect = CGRectMake(x, y, w, h)
                 var tile:SKTexture = SKTexture(rect: Rect, inTexture: self.tilesheet)
                 var tileSprite:SKSpriteNode = SKSpriteNode(texture: tile)
+                
+                if q == 0{
+                    tileSprite.physicsBody = SKPhysicsBody(texture: tile, size: tileSprite.frame.size)
+
+                    tileSprite.physicsBody!.dynamic = false
+                    tileSprite.physicsBody?.categoryBitMask = WallCategory
+                    tileSprite.physicsBody?.collisionBitMask = WalkerCategory
+                    tileSprite.physicsBody?.contactTestBitMask = WalkerCategory
+                }
                 
                 var position:CGPoint = CGPointMake(CGFloat(i) * self.TILE_SIZE, CGFloat(j) * self.TILE_SIZE)
                 tileSprite.anchorPoint = CGPointMake(0, 0)
@@ -147,7 +170,13 @@ class GameScene: SKScene {
         
         self.walker = SKSpriteNode(texture: texture1)
         self.walker.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+        self.walker.size = CGSizeMake(self.walker.size.width * self.CHARA_SCALE, self.walker.size.height * self.CHARA_SCALE)
         self.walker.zPosition = 1.0
+        
+        self.walker.physicsBody = SKPhysicsBody(texture: texture1, size: walker.frame.size)
+        self.walker.physicsBody!.dynamic = false
+        self.walker.physicsBody?.categoryBitMask = WalkerCategory
+        self.walker.physicsBody?.contactTestBitMask = WallCategory
         self.addChild(walker)
     
 
