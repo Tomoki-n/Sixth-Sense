@@ -13,7 +13,7 @@ class GameScene: SKScene {
     
     let WalkerCategory: UInt32 = 0x1 << 1
     let WallCategory:UInt32 = 0x1 << 0
-    let CHARA_SCALE:CGFloat = 1.8
+    let CHARA_SCALE:CGFloat = 1.2
     let R_SIZE:CGFloat = 31.0
     let C_SIZE:CGFloat = 24.0
     let MAP_COLS:CGFloat = 14.0
@@ -26,6 +26,8 @@ class GameScene: SKScene {
     var tilesheet:SKTexture = SKTexture(imageNamed: "mapchip1")
     var world:SKSpriteNode!
     var actionFlag:Bool = false
+    var fmuki:Int = 0
+    var muki:Int = 0 // 0:上,1:右,2:下,3:左
     var walker:SKSpriteNode!
     var shita:SKAction!
     var hidari:SKAction!
@@ -35,16 +37,40 @@ class GameScene: SKScene {
     var Lw:SKAction!
     var Uw:SKAction!
     var Rw:SKAction!
+    var cMove:SKAction!
+    var wMove:SKAction!
+    var cFlag:Bool = false
+    var wFlag:Bool = false
+    var scrView:UIScrollView!
+    var button1:UIButton!
+    var del: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-
+        switch(del.FirstPOS){
+        case "FIRSTPOS 0":
+            fmuki = 0
+            break
+        case "FIRSTPOS 1":
+            fmuki = 1
+            break
+        case "FIRSTPOS 2":
+            fmuki = 2
+            break
+        case "FIRSTPOS 3":
+            fmuki = 3
+            break
+        default:
+            break
+        }
+        
+        self.physicsWorld.gravity = CGVectorMake(0, 0)
         if let csvPath = NSBundle.mainBundle().pathForResource("Mapdata1", ofType: "csv") {
-
+            
             let csvString = NSString(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil) as! String
-                csvString.enumerateLines { (line, stop) -> () in
-                    self.map.append(line.componentsSeparatedByString(","))
-                }
+            csvString.enumerateLines { (line, stop) -> () in
+                self.map.append(line.componentsSeparatedByString(","))
+            }
         }
         
         if let csvPath = NSBundle.mainBundle().pathForResource("physicdata1", ofType: "csv") {
@@ -55,21 +81,33 @@ class GameScene: SKScene {
             }
         }
         
+        scrView = UIScrollView()
+        scrView.pagingEnabled = false
+        scrView.frame = CGRectMake(self.size.width * 4 / 5, 0, self.size.width * 1 / 5, self.size.height)
+        scrView.contentSize = CGSizeMake(self.size.width * 1 / 5, self.size.height * 2)
+        scrView.backgroundColor = UIColor.blackColor()
+        
+        self.view?.addSubview(scrView)
+        
+        button1 = UIButton(frame: CGRectMake(0, 0, 40, 20))
+        button1.backgroundColor = UIColor.whiteColor()
+        scrView.addSubview(button1)
+        
         world = SKSpriteNode()
         world.size = CGSizeMake(CGFloat(map_row) * TILE_SIZE, CGFloat(map_columm) * TILE_SIZE)
         world.zPosition = 0
         self.addChild(world!)
         
-//        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-//        myLabel.text = "Hello, World!";
-//        myLabel.fontSize = 65;
-//        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
+        //        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
+        //        myLabel.text = "Hello, World!";
+        //        myLabel.fontSize = 65;
+        //        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
-//        self.addChild(myLabel)
+        //        self.addChild(myLabel)
         Map_Create()
         Makewalker()
     }
-   
+    
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         actionFlag = true
     }
@@ -91,18 +129,18 @@ class GameScene: SKScene {
                 
                 if q == 0{
                     tileSprite.physicsBody = SKPhysicsBody(texture: tile, size: tileSprite.frame.size)
-
+                    
                     tileSprite.physicsBody!.dynamic = false
                     tileSprite.physicsBody?.categoryBitMask = WallCategory
                     tileSprite.physicsBody?.collisionBitMask = WalkerCategory
-                    tileSprite.physicsBody?.contactTestBitMask = WalkerCategory
+                    tileSprite.physicsBody?.contactTestBitMask = WallCategory | WalkerCategory
                 }
                 
                 var position:CGPoint = CGPointMake(CGFloat(i) * self.TILE_SIZE, CGFloat(j) * self.TILE_SIZE)
                 tileSprite.anchorPoint = CGPointMake(0, 0)
                 tileSprite.position = position
                 self.world.addChild(tileSprite)
-
+                
             }
         }
     }
@@ -143,7 +181,7 @@ class GameScene: SKScene {
                     h = CGFloat(R_SIZE / clotharmor.size().height)
                 }
                 
-
+                
                 
                 switch (row1) {
                 case 0:
@@ -178,56 +216,53 @@ class GameScene: SKScene {
         self.walker.physicsBody?.categoryBitMask = WalkerCategory
         self.walker.physicsBody?.contactTestBitMask = WallCategory
         self.addChild(walker)
-    
-
+        
+        
         var Dwalk:SKAction = SKAction.animateWithTextures(textures1 as [AnyObject], timePerFrame: 0.2)
         var Lwalk:SKAction = SKAction.animateWithTextures(textures0 as [AnyObject], timePerFrame: 0.2)
         var Uwalk:SKAction = SKAction.animateWithTextures(textures3 as [AnyObject], timePerFrame: 0.2)
         var Rwalk:SKAction = SKAction.animateWithTextures(textures2 as [AnyObject], timePerFrame: 0.2)
         
-        var Down:SKAction = SKAction.moveByX(0, y: -100, duration: 1)
-        var Left:SKAction = SKAction.moveByX(-100, y: 0, duration: 1)
-        var Up:SKAction = SKAction.moveByX(0, y: 100, duration: 1)
-        var Right:SKAction = SKAction.moveByX(100, y: 0, duration: 1)
-
-        shita = SKAction.repeatActionForever(Down)
-        hidari = SKAction.repeatActionForever(Left)
-        ue = SKAction.repeatActionForever(Up)
-        migi = SKAction.repeatActionForever(Right)
+        var Down:SKAction = SKAction.moveByX(0, y: -100, duration: 0.8)
+        var Left:SKAction = SKAction.moveByX(-100, y: 0, duration: 0.8)
+        var Up:SKAction = SKAction.moveByX(0, y: 100, duration: 0.8)
+        var Right:SKAction = SKAction.moveByX(100, y: 0, duration: 0.8)
         
-        Dw = SKAction.repeatActionForever(Dwalk)
-        Lw = SKAction.repeatActionForever(Lwalk)
-        Uw = SKAction.repeatActionForever(Uwalk)
-        Rw = SKAction.repeatActionForever(Rwalk)
+        shita = Down
+        hidari = Left
+        ue = Up
+        migi = Right
         
-//    SKAction *Dwalk = [SKAction animateWithTextures:textures1 timePerFrame:0.2f];
-//    SKAction *Lwalk = [SKAction animateWithTextures:textures0 timePerFrame:0.2f];
-//    SKAction *Uwalk = [SKAction animateWithTextures:textures3 timePerFrame:0.2f];
-//    SKAction *Rwalk = [SKAction animateWithTextures:textures2 timePerFrame:0.2f];
-//    
-//    SKAction *Down = [SKAction moveByX:0 y:-100 duration:1];
-//    SKAction *Left = [SKAction moveByX:-100 y:0 duration:1];
-//    SKAction *Up = [SKAction moveByX:0 y:100 duration:1];
-//    SKAction *Right = [SKAction moveByX:100 y:0 duration:1];
-//    
-//    SITA = [SKAction repeatActionForever:Down];
-//    HIDARI = [SKAction repeatActionForever:Left];
-//    UE = [SKAction repeatActionForever:Up];
-//    MIGI = [SKAction repeatActionForever:Right];
-//
-//    Dw = [SKAction repeatActionForever:Dwalk];
-//    Lw = [SKAction repeatActionForever:Lwalk];
-//    Uw = [SKAction repeatActionForever:Uwalk];
-//    Rw = [SKAction repeatActionForever:Rwalk];
-
+        Dw = SKAction.repeatAction(Dwalk, count: 1)
+        Lw = SKAction.repeatAction(Lwalk, count: 1)
+        Uw = SKAction.repeatAction(Uwalk, count: 1)
+        Rw = SKAction.repeatAction(Rwalk, count: 1)
+        
     }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         if actionFlag == true{
-            //goFront()
-            walker.runAction(Uw)
-            world.runAction(shita)
+            
+            if muki == 0{
+                cMove = Uw
+                wMove = shita
+            }else if muki == 1{
+                cMove = Rw
+                wMove = hidari
+            }else if muki == 2{
+                cMove = Dw
+                wMove = ue
+            }else if muki == 3{
+                cMove = Lw
+                wMove = migi
+            }
+            if cFlag == false && wFlag == false{
+                cFlag = true
+                wFlag = true
+                walker.runAction(cMove, completion: {self.cFlag = false})
+                world.runAction(wMove, completion: {self.wFlag = false})
+            }
             actionFlag = false
         }
     }
