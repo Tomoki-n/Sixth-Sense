@@ -9,21 +9,33 @@
 import Foundation
 import UIKit
 import MultipeerConnectivity
+import CoreLocation
 
-class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,MCSessionDelegate {
+class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,MCSessionDelegate ,CLLocationManagerDelegate {
+
     
     let serviceType = "LCOC-Chat"
     
     var browser : MCBrowserViewController!
     var assistant : MCAdvertiserAssistant!
     var session : MCSession!
-    var peerID: MCPeerID!
+    var peerID: MCPeerID! = nil
     
-    @IBOutlet var ChatView: UITextView!
-    @IBOutlet var messageField: UITextField!
+    var lm: CLLocationManager! = nil
+    var prevpos : Int = 999
+    var nowpos : Int = 999
+    
+    var getid :Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+            lm = CLLocationManager()
+             // 位置情報を取るよう設定
+                    // ※ 初回は確認ダイアログ表示
+            lm.requestAlwaysAuthorization()
+            lm.delegate = self
+            lm.startUpdatingHeading() // コンパス更新機能起動
+
         
         self.peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
         self.session = MCSession(peer: peerID)
@@ -41,51 +53,48 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         // tell the assistant to start advertising our fabulous chat
         self.assistant.start()
  
-        self.presentViewController(self.browser, animated: true, completion: nil)
+    }
+  
+
+
+    @IBAction func SendGo(sender: UIButton) { sendMes("UP") }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        if (getid == 0){
+            getid = 1
+            self.presentViewController(self.browser, animated: true, completion: nil)
+        }
+        
+        if (getid == 1){
+            
+            self.sendMes("FIRSTPOS"+" "+String(stringInterpolationSegment: nowpos))
+        }
     }
     
-    @IBAction func sendChat(sender: UIButton) {
-        // Bundle up the text in the message field, and send it off to all
-        // connected peers
-        
-        let msg = self.messageField.text.dataUsingEncoding(NSUTF8StringEncoding,
-            allowLossyConversion: false)
-        
+    func sendMes(values: String){
+
+        var msg = values.dataUsingEncoding(NSUTF8StringEncoding,allowLossyConversion: false)
+       
         var error : NSError?
         
-        self.session.sendData(msg, toPeers: self.session.connectedPeers,
-            withMode: MCSessionSendDataMode.Unreliable, error: &error)
-        
+        self.session.sendData(msg, toPeers: self.session.connectedPeers, withMode: MCSessionSendDataMode.Unreliable, error: &error)
         if error != nil {
             print("Error sending data: \(error?.localizedDescription)")
         }
         
-        self.updateChat(self.messageField.text, fromPeer: self.peerID)
-        
-        self.messageField.text = ""
-    }
-    
-    func updateChat(text : String, fromPeer peerID: MCPeerID) {
-        // Appends some text to the chat view
-        
-        // If this peer ID is the local device's peer ID, then show the name
-        // as "Me"
-        var name : String
-        
-        switch peerID {
-        case self.peerID:
-            name = "Me"
-        default:
-            name = peerID.displayName
-        }
-        
-        // Add the name to the message and display it
-        let message = "\(name): \(text)\n"
-        self.ChatView.text = self.ChatView.text + message
-        
     }
     
     
+    func Receive(Getmsg :String){
+        
+        
+        //声をだす
+        
+    }
+
+    
+
     func browserViewControllerDidFinish(
         browserViewController: MCBrowserViewController!)  {
             // Called when the browser view controller is dismissed (ie the Done
@@ -108,9 +117,10 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             // This needs to run on the main queue
             dispatch_async(dispatch_get_main_queue()) {
                 
-                var msg = NSString(data: data, encoding: NSUTF8StringEncoding)
+                var msg = NSString(data: data, encoding: NSUTF8StringEncoding) as! String
                 
-                self.updateChat(msg! as String, fromPeer: peerID)
+                self.Receive(msg)
+                
             }
     }
     
@@ -140,5 +150,56 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             // Called when a connected peer changes state (for example, goes offline)
             
     }
+    
+    
+    func locationManager(manager:CLLocationManager, didUpdateHeading newHeading:CLHeading) {
+          var heading:CLLocationDirection = newHeading.magneticHeading
+        
+        if prevpos == 999{
+            nowpos = Int(heading)
+            
+            if heading >= 0 && heading <= 89 {nowpos = 0}
+            else if heading >= 90 && heading <= 179 {nowpos = 1}
+            else if heading >= 180 && heading <= 269{nowpos = 2}
+            else if heading >= 270 && heading <= 359 {nowpos = 3}
+            self.sendMes("FIRSTPOS"+" "+String(stringInterpolationSegment: nowpos))
+            prevpos = nowpos
+        }
+    
+        if heading >= 0 && heading <= 89 {
+            if prevpos >= 0 && prevpos<=89 { }
+            else {
+                prevpos = Int(heading)
+                self.sendMes("POS"+" "+"0")
+            }
+        }
+        
+        else if heading >= 90 && heading <= 179 {
+            if prevpos >= 90 && prevpos<=179 { }
+            else {
+                prevpos = Int(heading)
+                self.sendMes("POS"+" "+"1")
+            }
+        }
+    
+        else if heading >= 180 && heading <= 269 {
+            if prevpos >= 180 && prevpos<=269 { }
+            else {
+                prevpos = Int(heading)
+                self.sendMes("POS"+" "+"2")
+            }
+        }
+    
+        else if heading >= 270 && heading <= 359 {
+            if prevpos >= 270 && prevpos <= 359{ }
+            else {
+                prevpos = Int(heading)
+                self.sendMes("POS"+" "+"3")
+            }
+        }
+    }
+        
+        
+
     
 }

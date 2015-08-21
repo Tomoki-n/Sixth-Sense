@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="43.5" y="355.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Coop View Controller-->
         <scene sceneID="gPi-tT-Ti5">
             <objects>
-                <viewController id="pfL-zU-7Gw" sceneMemberID="viewController">
+                <viewController id="pfL-zU-7Gw" customClass="CoopViewController" customModule="NSNL" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N0r-ez-e4d"/>
                         <viewControllerLayoutGuide type="bottom" id="pgV-xO-IkE"/>
@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="829.5" y="672.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Nosight View Controller-->
         <scene sceneID="Plc-Xy-hUq">
             <objects>
-                <viewController id="jBd-xE-mEh" sceneMemberID="viewController">
+                <viewController id="jBd-xE-mEh" customClass="NosightViewController" customModule="NSNL" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZSB-Zp-NEh"/>
                         <viewControllerLayoutGuide type="bottom" id="tHZ-6Q-qUk"/>
@@ -81,6 +81,18 @@
                     <view key="view" contentMode="scaleToFill" id="gWj-qQ-pBh">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gm-8o-FEf">
+                                <rect key="frame" x="182" y="77" width="301" height="213"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="SendGo:" destination="jBd-xE-mEh" eventType="touchDown" id="ZsR-5u-L6L"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
