@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  NSNL
 //
-//  Created by itsuki on 2015/08/20.
-//  Copyright (c) 2015年 itsuki. All rights reserved.
+//  Created by Nishinaka Tomoki on 8/21/15.
+//  Copyright (c) 2015 Nishinaka Tomoki. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-         return true
+        return true
     }
 
     func applicationWillResignActive(application: UIApplication) {
