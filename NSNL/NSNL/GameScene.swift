@@ -8,7 +8,7 @@
 
 import Foundation
 import SpriteKit
-
+import MultipeerConnectivity
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
     let WalkerCategory: UInt32 = 0x1 << 1

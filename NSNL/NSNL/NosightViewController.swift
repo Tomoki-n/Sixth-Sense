@@ -13,7 +13,7 @@ import CoreLocation
 import OpenAL.ALC
 import OpenAL.AL
 import AudioToolbox
-
+import AVFoundation
 
 class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,MCSessionDelegate ,CLLocationManagerDelegate {
 
@@ -30,49 +30,30 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     var nowpos : Int = 999
     
     var getid :Int = 0
+    var player:AVAudioPlayer?  //音声を制御するための変数
     
-    var buffer :ALuint = 0
-    var source :ALuint = 0
     
+    func play(soundName:String){
+        let soundPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent(soundName)
+        let url:NSURL? = NSURL.fileURLWithPath(soundPath)
+        player = AVAudioPlayer(contentsOfURL: url, error: nil)
+        // Optional Chainingを使う。
+        if let thePlayer = player {
+           // thePlayer.numberOfLoops = -1
+            thePlayer.prepareToPlay()
+            thePlayer.play()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var device:COpaquePointer
-        var context:COpaquePointer
-        
-        device = alcOpenDevice(UnsafePointer(bitPattern: 0))
-        
-        context = alcCreateContext(device, nil)
-        alcMakeContextCurrent(context)
-        
-        var error:ALenum
-        alGetError()
-        alGenBuffers(1,&buffer)
-        
-        alGetError()
-        alGenSources(1, &source)
-        
-        alSourcei(source, AL_LOOPING, AL_TRUE)
-        //alSourcei(source, AL_PITCH, 1.0)
-        //alSourcei(source, AL_GAIN, 0.45)
-        alSource3f(source, AL_POSITION, 10, 20, 30);
-        
-        var data :NSData
-        var format:ALenum
-        var size:ALsizei
-        var freq:ALsizei
-        
-        var bundle:NSBundle =  NSBundle.mainBundle()
-        
-        //var fileURL :CFURLRef = (__bridge CFURLRef) NSURL.fileURLWithPath:bundle pathForResource:fileNameofType:@"caf";
-        alSourcei(source, AL_BUFFER, buffer)
+   
         
         lm = CLLocationManager()
-             // 位置情報を取るよう設定
-                    // ※ 初回は確認ダイアログ表示
-            lm.requestAlwaysAuthorization()
-            lm.delegate = self
-            lm.startUpdatingHeading() // コンパス更新機能起動
+        // 位置情報を取るよう設定
+        // ※ 初回は確認ダイアログ表示
+        lm.requestAlwaysAuthorization()
+        lm.delegate = self
+        lm.startUpdatingHeading() // コンパス更新機能起動
 
         
         self.peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
@@ -125,9 +106,17 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     
     
     func Receive(Getmsg :String){
+        if Getmsg=="1"{
+            play("mae.wav")
+        }
+        else if Getmsg == "2"{
+            play("migi.wav")
+        }
+        else if Getmsg == "3"{
+            play("hidari.wav")
+        }
         
-        
-        //声をだす
+    
         
     }
 

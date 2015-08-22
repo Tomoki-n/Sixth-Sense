@@ -12,6 +12,11 @@
 		9851658D1B872A8D005EDD8C /* susunde.png in Resources */ = {isa = PBXBuildFile; fileRef = 9851658C1B872A8D005EDD8C /* susunde.png */; };
 		9851658F1B873224005EDD8C /* hidarihe.png in Resources */ = {isa = PBXBuildFile; fileRef = 9851658E1B873224005EDD8C /* hidarihe.png */; };
 		985165911B8840DE005EDD8C /* light.png in Resources */ = {isa = PBXBuildFile; fileRef = 985165901B8840DE005EDD8C /* light.png */; };
+		FA517DF11B88545A00FD900B /* hidari.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA517DEE1B88545A00FD900B /* hidari.wav */; };
+		FA517DF21B88545A00FD900B /* mae.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA517DEF1B88545A00FD900B /* mae.wav */; };
+		FA517DF31B88545A00FD900B /* migi.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA517DF01B88545A00FD900B /* migi.wav */; };
+		FA517DF51B8856ED00FD900B /* BluetoothConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA517DF41B8856ED00FD900B /* BluetoothConnection.swift */; };
+		FA517DF71B8859F600FD900B /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA517DF61B8859F600FD900B /* MultipeerConnectivity.framework */; };
 		FAF454691B86F58D009DB6A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454681B86F58D009DB6A2 /* AppDelegate.swift */; };
 		FAF4546B1B86F58D009DB6A2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FAF4546A1B86F58D009DB6A2 /* GameScene.sks */; };
 		FAF4546D1B86F58D009DB6A2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4546C1B86F58D009DB6A2 /* GameScene.swift */; };
@@ -19,7 +24,6 @@
 		FAF454721B86F58D009DB6A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAF454701B86F58D009DB6A2 /* Main.storyboard */; };
 		FAF454741B86F58D009DB6A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF454731B86F58D009DB6A2 /* Images.xcassets */; };
 		FAF454771B86F58D009DB6A2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF454751B86F58D009DB6A2 /* LaunchScreen.xib */; };
-		FAF454831B86F58D009DB6A2 /* NSNLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454821B86F58D009DB6A2 /* NSNLTests.swift */; };
 		FAF4548E1B86F629009DB6A2 /* CoopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4548C1B86F629009DB6A2 /* CoopViewController.swift */; };
 		FAF4548F1B86F629009DB6A2 /* NosightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4548D1B86F629009DB6A2 /* NosightViewController.swift */; };
 		FAF454951B86F66D009DB6A2 /* chara02.gif in Resources */ = {isa = PBXBuildFile; fileRef = FAF454911B86F66D009DB6A2 /* chara02.gif */; };
@@ -32,7 +36,6 @@
 		FAF454A41B88028F009DB6A2 /* MyOpenALSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A01B88028F009DB6A2 /* MyOpenALSupport.swift */; };
 		FAF454A51B88028F009DB6A2 /* oalPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A11B88028F009DB6A2 /* oalPlayback.swift */; };
 		FAF454A61B88028F009DB6A2 /* oalSpatialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A21B88028F009DB6A2 /* oalSpatialView.swift */; };
-		FAF454A71B88028F009DB6A2 /* oalTouchAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A31B88028F009DB6A2 /* oalTouchAppDelegate.swift */; };
 		FAF454AA1B88075B009DB6A2 /* NumTypes+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A91B88075B009DB6A2 /* NumTypes+Conversion.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +55,11 @@
 		9851658C1B872A8D005EDD8C /* susunde.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = susunde.png; sourceTree = "<group>"; };
 		9851658E1B873224005EDD8C /* hidarihe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hidarihe.png; sourceTree = "<group>"; };
 		985165901B8840DE005EDD8C /* light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light.png; sourceTree = "<group>"; };
+		FA517DEE1B88545A00FD900B /* hidari.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hidari.wav; sourceTree = SOURCE_ROOT; };
+		FA517DEF1B88545A00FD900B /* mae.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mae.wav; sourceTree = SOURCE_ROOT; };
+		FA517DF01B88545A00FD900B /* migi.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = migi.wav; sourceTree = SOURCE_ROOT; };
+		FA517DF41B8856ED00FD900B /* BluetoothConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothConnection.swift; sourceTree = "<group>"; };
+		FA517DF61B8859F600FD900B /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 		FAF454631B86F58D009DB6A2 /* NSNL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSNL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF454671B86F58D009DB6A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAF454681B86F58D009DB6A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,8 +70,6 @@
 		FAF454731B86F58D009DB6A2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FAF454761B86F58D009DB6A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		FAF4547C1B86F58D009DB6A2 /* NSNLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSNLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAF454811B86F58D009DB6A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAF454821B86F58D009DB6A2 /* NSNLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNLTests.swift; sourceTree = "<group>"; };
 		FAF4548C1B86F629009DB6A2 /* CoopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoopViewController.swift; sourceTree = "<group>"; };
 		FAF4548D1B86F629009DB6A2 /* NosightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NosightViewController.swift; sourceTree = "<group>"; };
 		FAF454911B86F66D009DB6A2 /* chara02.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = chara02.gif; sourceTree = SOURCE_ROOT; };
@@ -76,7 +82,6 @@
 		FAF454A01B88028F009DB6A2 /* MyOpenALSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOpenALSupport.swift; path = NSNL/MyOpenALSupport.swift; sourceTree = SOURCE_ROOT; };
 		FAF454A11B88028F009DB6A2 /* oalPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = oalPlayback.swift; path = NSNL/oalPlayback.swift; sourceTree = SOURCE_ROOT; };
 		FAF454A21B88028F009DB6A2 /* oalSpatialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = oalSpatialView.swift; path = NSNL/oalSpatialView.swift; sourceTree = SOURCE_ROOT; };
-		FAF454A31B88028F009DB6A2 /* oalTouchAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = oalTouchAppDelegate.swift; path = NSNL/oalTouchAppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		FAF454A91B88075B009DB6A2 /* NumTypes+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumTypes+Conversion.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA517DF71B8859F600FD900B /* MultipeerConnectivity.framework in Frameworks */,
 				FAF4549E1B8726AB009DB6A2 /* AudioToolbox.framework in Frameworks */,
 				FAF4549C1B872691009DB6A2 /* OpenAL.framework in Frameworks */,
 				FAF4549A1B86FC47009DB6A2 /* CoreLocation.framework in Frameworks */,
@@ -105,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				FAF454651B86F58D009DB6A2 /* NSNL */,
-				FAF4547F1B86F58D009DB6A2 /* NSNLTests */,
 				FAF454641B86F58D009DB6A2 /* Products */,
 				FAF4549F1B88021D009DB6A2 /* Frameworks */,
 			);
@@ -125,6 +130,7 @@
 			children = (
 				FAF454A81B8802A2009DB6A2 /* OpenAL */,
 				FAF454681B86F58D009DB6A2 /* AppDelegate.swift */,
+				FA517DF41B8856ED00FD900B /* BluetoothConnection.swift */,
 				FAF4546A1B86F58D009DB6A2 /* GameScene.sks */,
 				FAF4546C1B86F58D009DB6A2 /* GameScene.swift */,
 				FAF4546E1B86F58D009DB6A2 /* GameViewController.swift */,
@@ -148,26 +154,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FAF4547F1B86F58D009DB6A2 /* NSNLTests */ = {
-			isa = PBXGroup;
-			children = (
-				FAF454821B86F58D009DB6A2 /* NSNLTests.swift */,
-				FAF454801B86F58D009DB6A2 /* Supporting Files */,
-			);
-			path = NSNLTests;
-			sourceTree = "<group>";
-		};
-		FAF454801B86F58D009DB6A2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FAF454811B86F58D009DB6A2 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		FAF454901B86F63D009DB6A2 /* Material */ = {
 			isa = PBXGroup;
 			children = (
+				FA517DEE1B88545A00FD900B /* hidari.wav */,
+				FA517DEF1B88545A00FD900B /* mae.wav */,
+				FA517DF01B88545A00FD900B /* migi.wav */,
 				985165901B8840DE005EDD8C /* light.png */,
 				9851658C1B872A8D005EDD8C /* susunde.png */,
 				9851658E1B873224005EDD8C /* hidarihe.png */,
@@ -184,6 +176,7 @@
 		FAF4549F1B88021D009DB6A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA517DF61B8859F600FD900B /* MultipeerConnectivity.framework */,
 				FAF4549D1B8726AB009DB6A2 /* AudioToolbox.framework */,
 				FAF4549B1B872691009DB6A2 /* OpenAL.framework */,
 				FAF454991B86FC47009DB6A2 /* CoreLocation.framework */,
@@ -198,7 +191,6 @@
 				FAF454A01B88028F009DB6A2 /* MyOpenALSupport.swift */,
 				FAF454A11B88028F009DB6A2 /* oalPlayback.swift */,
 				FAF454A21B88028F009DB6A2 /* oalSpatialView.swift */,
-				FAF454A31B88028F009DB6A2 /* oalTouchAppDelegate.swift */,
 			);
 			name = OpenAL;
 			sourceTree = "<group>";
@@ -252,10 +244,11 @@
 				TargetAttributes = {
 					FAF454621B86F58D009DB6A2 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = Z2M8H95Q7Z;
+						DevelopmentTeam = 8589MH68KB;
 					};
 					FAF4547B1B86F58D009DB6A2 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 8589MH68KB;
 						TestTargetID = FAF454621B86F58D009DB6A2;
 					};
 				};
@@ -285,13 +278,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF454771B86F58D009DB6A2 /* LaunchScreen.xib in Resources */,
+				FA517DF11B88545A00FD900B /* hidari.wav in Resources */,
 				FAF454741B86F58D009DB6A2 /* Images.xcassets in Resources */,
+				FA517DF21B88545A00FD900B /* mae.wav in Resources */,
 				FAF454951B86F66D009DB6A2 /* chara02.gif in Resources */,
 				FAF4546B1B86F58D009DB6A2 /* GameScene.sks in Resources */,
 				FAF454981B86F66D009DB6A2 /* physicdata1.csv in Resources */,
 				985165911B8840DE005EDD8C /* light.png in Resources */,
 				FAF454961B86F66D009DB6A2 /* mapchip1.png in Resources */,
 				985165871B872603005EDD8C /* Status.png in Resources */,
+				FA517DF31B88545A00FD900B /* migi.wav in Resources */,
 				FAF454721B86F58D009DB6A2 /* Main.storyboard in Resources */,
 				9851658D1B872A8D005EDD8C /* susunde.png in Resources */,
 				9851658F1B873224005EDD8C /* hidarihe.png in Resources */,
@@ -314,11 +310,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF454A71B88028F009DB6A2 /* oalTouchAppDelegate.swift in Sources */,
 				FAF4546D1B86F58D009DB6A2 /* GameScene.swift in Sources */,
 				FAF4546F1B86F58D009DB6A2 /* GameViewController.swift in Sources */,
 				FAF454691B86F58D009DB6A2 /* AppDelegate.swift in Sources */,
 				FAF4548F1B86F629009DB6A2 /* NosightViewController.swift in Sources */,
+				FA517DF51B8856ED00FD900B /* BluetoothConnection.swift in Sources */,
 				FAF454A61B88028F009DB6A2 /* oalSpatialView.swift in Sources */,
 				FAF454AA1B88075B009DB6A2 /* NumTypes+Conversion.swift in Sources */,
 				FAF454A41B88028F009DB6A2 /* MyOpenALSupport.swift in Sources */,
@@ -331,7 +327,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF454831B86F58D009DB6A2 /* NSNLTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +445,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoki Nishinaka (P7VK32J239)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NSNL/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -464,7 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoki Nishinaka (P7VK32J239)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NSNL/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -478,6 +473,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -489,6 +486,7 @@
 				INFOPLIST_FILE = NSNLTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NSNL.app/NSNL";
 			};
 			name = Debug;
@@ -497,6 +495,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -504,6 +504,7 @@
 				INFOPLIST_FILE = NSNLTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NSNL.app/NSNL";
 			};
 			name = Release;

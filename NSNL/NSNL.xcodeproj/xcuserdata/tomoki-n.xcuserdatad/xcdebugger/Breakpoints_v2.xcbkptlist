@@ -40,13 +40,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NSNL/NosightViewController.swift"
-            timestampString = "461859481.751869"
+            timestampString = "461859798.087052"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "NosightViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -55,13 +55,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NSNL/NosightViewController.swift"
-            timestampString = "461859798.087052"
+            filePath = "NSNL/BluetoothConnection.swift"
+            timestampString = "461922535.886986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "NosightViewController"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "BluetoothConnection"
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
