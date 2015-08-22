@@ -32,7 +32,6 @@
 		FAF454A41B88028F009DB6A2 /* MyOpenALSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A01B88028F009DB6A2 /* MyOpenALSupport.swift */; };
 		FAF454A51B88028F009DB6A2 /* oalPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A11B88028F009DB6A2 /* oalPlayback.swift */; };
 		FAF454A61B88028F009DB6A2 /* oalSpatialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A21B88028F009DB6A2 /* oalSpatialView.swift */; };
-		FAF454A71B88028F009DB6A2 /* oalTouchAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A31B88028F009DB6A2 /* oalTouchAppDelegate.swift */; };
 		FAF454AA1B88075B009DB6A2 /* NumTypes+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A91B88075B009DB6A2 /* NumTypes+Conversion.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +75,6 @@
 		FAF454A01B88028F009DB6A2 /* MyOpenALSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOpenALSupport.swift; path = NSNL/MyOpenALSupport.swift; sourceTree = SOURCE_ROOT; };
 		FAF454A11B88028F009DB6A2 /* oalPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = oalPlayback.swift; path = NSNL/oalPlayback.swift; sourceTree = SOURCE_ROOT; };
 		FAF454A21B88028F009DB6A2 /* oalSpatialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = oalSpatialView.swift; path = NSNL/oalSpatialView.swift; sourceTree = SOURCE_ROOT; };
-		FAF454A31B88028F009DB6A2 /* oalTouchAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = oalTouchAppDelegate.swift; path = NSNL/oalTouchAppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		FAF454A91B88075B009DB6A2 /* NumTypes+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumTypes+Conversion.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -198,7 +196,6 @@
 				FAF454A01B88028F009DB6A2 /* MyOpenALSupport.swift */,
 				FAF454A11B88028F009DB6A2 /* oalPlayback.swift */,
 				FAF454A21B88028F009DB6A2 /* oalSpatialView.swift */,
-				FAF454A31B88028F009DB6A2 /* oalTouchAppDelegate.swift */,
 			);
 			name = OpenAL;
 			sourceTree = "<group>";
@@ -247,6 +244,7 @@
 		FAF4545B1B86F58D009DB6A2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Nishinaka Tomoki";
 				TargetAttributes = {
@@ -314,7 +312,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF454A71B88028F009DB6A2 /* oalTouchAppDelegate.swift in Sources */,
 				FAF4546D1B86F58D009DB6A2 /* GameScene.swift in Sources */,
 				FAF4546F1B86F58D009DB6A2 /* GameViewController.swift in Sources */,
 				FAF454691B86F58D009DB6A2 /* AppDelegate.swift in Sources */,
