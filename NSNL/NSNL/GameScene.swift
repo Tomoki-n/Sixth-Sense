@@ -11,6 +11,8 @@ import SpriteKit
 import MultipeerConnectivity
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
+    let Holl_SCALE:CGFloat = 1.8
+//    var controller:GameViewController!
     let WalkerCategory: UInt32 = 0x1 << 1
     let WallCategory:UInt32 = 0x1 << 0
     let CHARA_SCALE:CGFloat = 1.2
@@ -39,6 +41,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var Uw:SKAction!
     var Rw:SKAction!
     var cMove:SKAction!
+    var cMove2:SKAction!
     var wMove:SKAction!
     var cFlag:Bool = false
     var wFlag:Bool = false
@@ -46,15 +49,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var button1:UIButton!
     var button2:UIButton!
     var button3:UIButton!
+    var centerB:UIButton!
     var del: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-    var atarimuki:Int = -1
+//    var atarimuki:Int = -1
     var myImage:SKSpriteNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
+        let myDrag = UIPanGestureRecognizer(target: self, action: "panGesture:")
+        
+        self.view?.addGestureRecognizer(myDrag)
         
         myImage = SKSpriteNode(imageNamed: "light.png")
+        myImage.size = CGSizeMake(myImage.size.width * Holl_SCALE, myImage.size.height * Holl_SCALE)
         
         self.physicsWorld.contactDelegate = self
         
@@ -90,13 +98,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         button1 = UIButton(frame: CGRectMake(0, 0, 100, 40))
         button1.setImage(UIImage(named: "susunde.png"), forState: .Normal)
         button1.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 40)
+        button1.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button1.tag = 1
         button2 = UIButton(frame: CGRectMake(0, 0, 100, 40))
         button2.setImage(UIImage(named: "migihe.png"), forState: .Normal)
         button2.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 90)
+        button2.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button2.tag = 2
         button3 = UIButton(frame: CGRectMake(0, 0, 100, 40))
         button3.setImage(UIImage(named: "hidarihe.png"), forState: .Normal)
         button3.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 140)
+        button3.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button3.tag = 3
         
+        centerB = UIButton(frame: CGRectMake(0, 0, 40, 40))
+        centerB.backgroundColor = UIColor.whiteColor()
+        centerB.layer.position = CGPoint(x: 40, y: self.size.height - 40)
+        centerB.addTarget(self, action: "oncenterB:", forControlEvents: .TouchUpInside)
+        self.view?.addSubview(centerB)
         
         scrView.addSubview(button1)
         scrView.addSubview(button2)
@@ -121,37 +140,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 //        actionFlag = true
 //    }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        for touch: AnyObject in touches {
-            let location = touch.locationInNode(self)
-            
-            myImage.position = location
-            
-        }
-        
-    }
+//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+//        for touch: AnyObject in touches {
+//            let location = touch.locationInNode(self)
+//            
+//            myImage.position = location
+//            
+//        }
+//        
+//    }
     
-    func didBeginContact(contact: SKPhysicsContact) {
-        
-        var firstBody, secondBody: SKPhysicsBody
-        
-        //first=walker,second=wall
-        if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
-            firstBody = contact.bodyA
-            secondBody = contact.bodyB
-        } else {
-            firstBody = contact.bodyB
-            secondBody = contact.bodyA
-        }
-        
-        // walkerとwallが接したときの処理。
-        if firstBody.categoryBitMask & WalkerCategory != 0 &&
-            secondBody.categoryBitMask & WallCategory != 0 {
-                print("p")
-                atarimuki = soutai
-
-        }
-    }
+//    func didBeginContact(contact: SKPhysicsContact) {
+//        
+//        var firstBody, secondBody: SKPhysicsBody
+//        
+//        //first=walker,second=wall
+//        if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
+//            firstBody = contact.bodyA
+//            secondBody = contact.bodyB
+//        } else {
+//            firstBody = contact.bodyB
+//            secondBody = contact.bodyA
+//        }
+//        
+//        // walkerとwallが接したときの処理。
+//        if firstBody.categoryBitMask & WalkerCategory != 0 &&
+//            secondBody.categoryBitMask & WallCategory != 0 {
+//                print("p")
+//                atarimuki = soutai
+//
+//        }
+//    }
     
     func Map_Create(){
         for i in 0..<map_row{
@@ -269,7 +288,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 //        self.walker.physicsBody!.allowsRotation = false
 //        self.walker.physicsBody?.categoryBitMask = WalkerCategory
 //        self.walker.physicsBody?.contactTestBitMask = WallCategory
-        self.addChild(walker)
+        self.world.addChild(walker)
         
         
         var Dwalk:SKAction = SKAction.animateWithTextures(textures1 as [AnyObject], timePerFrame: 0.2)
@@ -317,31 +336,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         println(fmuki)
 
     }
+
+    internal func panGesture(sender: UIPanGestureRecognizer){
+        var p:CGPoint = sender.translationInView(self.view!)
+        var movePoint:CGPoint = CGPointMake(world.position.x + p.x, world.position.y  - p.y)
+        
+        world.position = movePoint
+        
+        sender.setTranslation(CGPointZero, inView: self.view)
+        
+    }
+
+    internal func onbutton(sender:UIButton){
+        del.controller.sendMes(String(sender.tag))
+    }
+
+    internal func oncenterB(sender:UIButton){
+        self.world.position = CGPointMake(-(self.walker.position.x - self.size.width * 2 / 5), -(self.walker.position.y - self.size.height/2))
+        println(self.myImage.position)
+        println(self.walker.position)
+        println(self.world.position)
+    }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
 
-        if atarimuki == soutai{
-            world.removeAllActions()
-            switch(atarimuki){
-            case 0:
-                world.runAction(SKAction.moveByX(0, y: 10, duration: 0.2))
-                break
-            case 1:
-                world.runAction(SKAction.moveByX(10, y: 0, duration: 0.2))
-                break
-            case 2:
-                world.runAction(SKAction.moveByX(0, y: -10, duration: 0.2))
-                break
-            case 3:
-                world.runAction(SKAction.moveByX(-10, y: 0, duration: 0.2))
-                break
-            default:
-                break
-            }
-
-            atarimuki = -1
-        }
+//        if atarimuki == soutai{
+//            world.removeAllActions()
+//            walker.removeActionForKey("cm2")
+//            switch(atarimuki){
+//            case 0:
+//                walker.runAction(SKAction.moveByX(0, y: 10, duration: 0.2))
+//                break
+//            case 1:
+//                walker.runAction(SKAction.moveByX(10, y: 0, duration: 0.2))
+//                break
+//            case 2:
+//                walker.runAction(SKAction.moveByX(0, y: -10, duration: 0.2))
+//                break
+//            case 3:
+//                walker.runAction(SKAction.moveByX(-10, y: 0, duration: 0.2))
+//                break
+//            default:
+//                break
+//            }
+//
+//            atarimuki = -1
+//        }
         
         if del.firstflag == true{
             first()
@@ -377,18 +418,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             switch(soutai){
             case 0:
                 cMove = Uw
+                cMove2 = ue
                 wMove = shita
                 break
             case 1:
                 cMove = Rw
+                cMove2 = migi
                 wMove = hidari
                 break
             case 2:
                 cMove = Dw
+                cMove2 = shita
                 wMove = ue
                 break
             case 3:
                 cMove = Lw
+                cMove2 = hidari
                 wMove = migi
                 break
             default:
@@ -398,12 +443,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             if cFlag == false{
                 cFlag = true
                 walker.runAction(cMove, completion: {self.cFlag = false})
-                if atarimuki != soutai{
-                    world.runAction(wMove)
-                }else{
-                    world.removeAllActions()
-                    atarimuki = -1
-                }
+                walker.runAction(cMove2, withKey: "cm2")
+                
+//                if atarimuki != soutai{
+//                    walker.runAction(cMove2, withKey: "cm2")
+//                }else{
+//                    atarimuki = -1
+//                }
             }
             del.actionflag = false
         }

@@ -11,6 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var controller:GameViewController!
     var window: UIWindow?
     var FirstPOS:String = ""
     var POS:String = ""
