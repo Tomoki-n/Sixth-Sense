@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 import MultipeerConnectivity
 import CoreLocation
+import OpenAL.ALC
+import OpenAL.AL
+import AudioToolbox
+
 
 class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,MCSessionDelegate ,CLLocationManagerDelegate {
 
@@ -27,9 +31,43 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     
     var getid :Int = 0
     
+    var buffer :ALuint = 0
+    var source :ALuint = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            lm = CLLocationManager()
+        
+        var device:COpaquePointer
+        var context:COpaquePointer
+        
+        device = alcOpenDevice(UnsafePointer(bitPattern: 0))
+        
+        context = alcCreateContext(device, nil)
+        alcMakeContextCurrent(context)
+        
+        var error:ALenum
+        alGetError()
+        alGenBuffers(1,&buffer)
+        
+        alGetError()
+        alGenSources(1, &source)
+        
+        alSourcei(source, AL_LOOPING, AL_TRUE)
+        //alSourcei(source, AL_PITCH, 1.0)
+        //alSourcei(source, AL_GAIN, 0.45)
+        alSource3f(source, AL_POSITION, 10, 20, 30);
+        
+        var data :NSData
+        var format:ALenum
+        var size:ALsizei
+        var freq:ALsizei
+        
+        var bundle:NSBundle =  NSBundle.mainBundle()
+        
+        //var fileURL :CFURLRef = (__bridge CFURLRef) NSURL.fileURLWithPath:bundle pathForResource:fileNameofType:@"caf";
+        alSourcei(source, AL_BUFFER, buffer)
+        
+        lm = CLLocationManager()
              // 位置情報を取るよう設定
                     // ※ 初回は確認ダイアログ表示
             lm.requestAlwaysAuthorization()
@@ -170,7 +208,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             if prevpos >= 0 && prevpos<=89 { }
             else {
                 prevpos = Int(heading)
-                self.sendMes("POS"+" "+"0")
+                self.sendMes("0")
             }
         }
         
@@ -178,7 +216,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             if prevpos >= 90 && prevpos<=179 { }
             else {
                 prevpos = Int(heading)
-                self.sendMes("POS"+" "+"1")
+                self.sendMes("1")
             }
         }
     
@@ -186,7 +224,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             if prevpos >= 180 && prevpos<=269 { }
             else {
                 prevpos = Int(heading)
-                self.sendMes("POS"+" "+"2")
+                self.sendMes("2")
             }
         }
     
@@ -194,12 +232,10 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             if prevpos >= 270 && prevpos <= 359{ }
             else {
                 prevpos = Int(heading)
-                self.sendMes("POS"+" "+"3")
+                self.sendMes("3")
             }
         }
     }
-        
-        
-
+    
     
 }

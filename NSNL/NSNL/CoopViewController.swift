@@ -64,9 +64,16 @@ class CoopViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
     
     
     func Receive(Getmsg :String){
-        
-        
         //声をだす
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
     

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		985165871B872603005EDD8C /* Status.png in Resources */ = {isa = PBXBuildFile; fileRef = 985165861B872603005EDD8C /* Status.png */; };
+		9851658B1B872A86005EDD8C /* migihe.png in Resources */ = {isa = PBXBuildFile; fileRef = 9851658A1B872A86005EDD8C /* migihe.png */; };
+		9851658D1B872A8D005EDD8C /* susunde.png in Resources */ = {isa = PBXBuildFile; fileRef = 9851658C1B872A8D005EDD8C /* susunde.png */; };
+		9851658F1B873224005EDD8C /* hidarihe.png in Resources */ = {isa = PBXBuildFile; fileRef = 9851658E1B873224005EDD8C /* hidarihe.png */; };
+		985165911B8840DE005EDD8C /* light.png in Resources */ = {isa = PBXBuildFile; fileRef = 985165901B8840DE005EDD8C /* light.png */; };
 		FAF454691B86F58D009DB6A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454681B86F58D009DB6A2 /* AppDelegate.swift */; };
 		FAF4546B1B86F58D009DB6A2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FAF4546A1B86F58D009DB6A2 /* GameScene.sks */; };
 		FAF4546D1B86F58D009DB6A2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4546C1B86F58D009DB6A2 /* GameScene.swift */; };
@@ -22,6 +27,13 @@
 		FAF454971B86F66D009DB6A2 /* Mapdata1.csv in Resources */ = {isa = PBXBuildFile; fileRef = FAF454931B86F66D009DB6A2 /* Mapdata1.csv */; };
 		FAF454981B86F66D009DB6A2 /* physicdata1.csv in Resources */ = {isa = PBXBuildFile; fileRef = FAF454941B86F66D009DB6A2 /* physicdata1.csv */; };
 		FAF4549A1B86FC47009DB6A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF454991B86FC47009DB6A2 /* CoreLocation.framework */; };
+		FAF4549C1B872691009DB6A2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF4549B1B872691009DB6A2 /* OpenAL.framework */; };
+		FAF4549E1B8726AB009DB6A2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF4549D1B8726AB009DB6A2 /* AudioToolbox.framework */; };
+		FAF454A41B88028F009DB6A2 /* MyOpenALSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A01B88028F009DB6A2 /* MyOpenALSupport.swift */; };
+		FAF454A51B88028F009DB6A2 /* oalPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A11B88028F009DB6A2 /* oalPlayback.swift */; };
+		FAF454A61B88028F009DB6A2 /* oalSpatialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A21B88028F009DB6A2 /* oalSpatialView.swift */; };
+		FAF454A71B88028F009DB6A2 /* oalTouchAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A31B88028F009DB6A2 /* oalTouchAppDelegate.swift */; };
+		FAF454AA1B88075B009DB6A2 /* NumTypes+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A91B88075B009DB6A2 /* NumTypes+Conversion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +47,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		985165861B872603005EDD8C /* Status.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Status.png; sourceTree = "<group>"; };
+		9851658A1B872A86005EDD8C /* migihe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = migihe.png; sourceTree = "<group>"; };
+		9851658C1B872A8D005EDD8C /* susunde.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = susunde.png; sourceTree = "<group>"; };
+		9851658E1B873224005EDD8C /* hidarihe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hidarihe.png; sourceTree = "<group>"; };
+		985165901B8840DE005EDD8C /* light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light.png; sourceTree = "<group>"; };
 		FAF454631B86F58D009DB6A2 /* NSNL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSNL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF454671B86F58D009DB6A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAF454681B86F58D009DB6A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +71,13 @@
 		FAF454931B86F66D009DB6A2 /* Mapdata1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mapdata1.csv; sourceTree = SOURCE_ROOT; };
 		FAF454941B86F66D009DB6A2 /* physicdata1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = physicdata1.csv; sourceTree = SOURCE_ROOT; };
 		FAF454991B86FC47009DB6A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FAF4549B1B872691009DB6A2 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		FAF4549D1B8726AB009DB6A2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FAF454A01B88028F009DB6A2 /* MyOpenALSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOpenALSupport.swift; path = NSNL/MyOpenALSupport.swift; sourceTree = SOURCE_ROOT; };
+		FAF454A11B88028F009DB6A2 /* oalPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = oalPlayback.swift; path = NSNL/oalPlayback.swift; sourceTree = SOURCE_ROOT; };
+		FAF454A21B88028F009DB6A2 /* oalSpatialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = oalSpatialView.swift; path = NSNL/oalSpatialView.swift; sourceTree = SOURCE_ROOT; };
+		FAF454A31B88028F009DB6A2 /* oalTouchAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = oalTouchAppDelegate.swift; path = NSNL/oalTouchAppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		FAF454A91B88075B009DB6A2 /* NumTypes+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumTypes+Conversion.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF4549E1B8726AB009DB6A2 /* AudioToolbox.framework in Frameworks */,
+				FAF4549C1B872691009DB6A2 /* OpenAL.framework in Frameworks */,
 				FAF4549A1B86FC47009DB6A2 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,10 +104,10 @@
 		FAF4545A1B86F58D009DB6A2 = {
 			isa = PBXGroup;
 			children = (
-				FAF454991B86FC47009DB6A2 /* CoreLocation.framework */,
 				FAF454651B86F58D009DB6A2 /* NSNL */,
 				FAF4547F1B86F58D009DB6A2 /* NSNLTests */,
 				FAF454641B86F58D009DB6A2 /* Products */,
+				FAF4549F1B88021D009DB6A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +123,14 @@
 		FAF454651B86F58D009DB6A2 /* NSNL */ = {
 			isa = PBXGroup;
 			children = (
+				FAF454A81B8802A2009DB6A2 /* OpenAL */,
 				FAF454681B86F58D009DB6A2 /* AppDelegate.swift */,
 				FAF4546A1B86F58D009DB6A2 /* GameScene.sks */,
 				FAF4546C1B86F58D009DB6A2 /* GameScene.swift */,
 				FAF4546E1B86F58D009DB6A2 /* GameViewController.swift */,
 				FAF4548C1B86F629009DB6A2 /* CoopViewController.swift */,
 				FAF4548D1B86F629009DB6A2 /* NosightViewController.swift */,
+				FAF454A91B88075B009DB6A2 /* NumTypes+Conversion.swift */,
 				FAF454701B86F58D009DB6A2 /* Main.storyboard */,
 				FAF454731B86F58D009DB6A2 /* Images.xcassets */,
 				FAF454901B86F63D009DB6A2 /* Material */,
@@ -140,12 +168,39 @@
 		FAF454901B86F63D009DB6A2 /* Material */ = {
 			isa = PBXGroup;
 			children = (
+				985165901B8840DE005EDD8C /* light.png */,
+				9851658C1B872A8D005EDD8C /* susunde.png */,
+				9851658E1B873224005EDD8C /* hidarihe.png */,
+				9851658A1B872A86005EDD8C /* migihe.png */,
+				985165861B872603005EDD8C /* Status.png */,
 				FAF454911B86F66D009DB6A2 /* chara02.gif */,
 				FAF454921B86F66D009DB6A2 /* mapchip1.png */,
 				FAF454931B86F66D009DB6A2 /* Mapdata1.csv */,
 				FAF454941B86F66D009DB6A2 /* physicdata1.csv */,
 			);
 			name = Material;
+			sourceTree = "<group>";
+		};
+		FAF4549F1B88021D009DB6A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAF4549D1B8726AB009DB6A2 /* AudioToolbox.framework */,
+				FAF4549B1B872691009DB6A2 /* OpenAL.framework */,
+				FAF454991B86FC47009DB6A2 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			path = NSNL.xcodeproj;
+			sourceTree = "<group>";
+		};
+		FAF454A81B8802A2009DB6A2 /* OpenAL */ = {
+			isa = PBXGroup;
+			children = (
+				FAF454A01B88028F009DB6A2 /* MyOpenALSupport.swift */,
+				FAF454A11B88028F009DB6A2 /* oalPlayback.swift */,
+				FAF454A21B88028F009DB6A2 /* oalSpatialView.swift */,
+				FAF454A31B88028F009DB6A2 /* oalTouchAppDelegate.swift */,
+			);
+			name = OpenAL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +252,7 @@
 				TargetAttributes = {
 					FAF454621B86F58D009DB6A2 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = Z2M8H95Q7Z;
 					};
 					FAF4547B1B86F58D009DB6A2 = {
 						CreatedOnToolsVersion = 6.4;
@@ -233,8 +289,13 @@
 				FAF454951B86F66D009DB6A2 /* chara02.gif in Resources */,
 				FAF4546B1B86F58D009DB6A2 /* GameScene.sks in Resources */,
 				FAF454981B86F66D009DB6A2 /* physicdata1.csv in Resources */,
+				985165911B8840DE005EDD8C /* light.png in Resources */,
 				FAF454961B86F66D009DB6A2 /* mapchip1.png in Resources */,
+				985165871B872603005EDD8C /* Status.png in Resources */,
 				FAF454721B86F58D009DB6A2 /* Main.storyboard in Resources */,
+				9851658D1B872A8D005EDD8C /* susunde.png in Resources */,
+				9851658F1B873224005EDD8C /* hidarihe.png in Resources */,
+				9851658B1B872A86005EDD8C /* migihe.png in Resources */,
 				FAF454971B86F66D009DB6A2 /* Mapdata1.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,10 +314,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF454A71B88028F009DB6A2 /* oalTouchAppDelegate.swift in Sources */,
 				FAF4546D1B86F58D009DB6A2 /* GameScene.swift in Sources */,
 				FAF4546F1B86F58D009DB6A2 /* GameViewController.swift in Sources */,
 				FAF454691B86F58D009DB6A2 /* AppDelegate.swift in Sources */,
 				FAF4548F1B86F629009DB6A2 /* NosightViewController.swift in Sources */,
+				FAF454A61B88028F009DB6A2 /* oalSpatialView.swift in Sources */,
+				FAF454AA1B88075B009DB6A2 /* NumTypes+Conversion.swift in Sources */,
+				FAF454A41B88028F009DB6A2 /* MyOpenALSupport.swift in Sources */,
+				FAF454A51B88028F009DB6A2 /* oalPlayback.swift in Sources */,
 				FAF4548E1B86F629009DB6A2 /* CoopViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,10 +450,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NSNL/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -395,10 +464,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NSNL/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -455,6 +527,7 @@
 				FAF454881B86F58D009DB6A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAF454891B86F58D009DB6A2 /* Build configuration list for PBXNativeTarget "NSNLTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +536,7 @@
 				FAF4548B1B86F58D009DB6A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

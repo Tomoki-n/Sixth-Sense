@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var FirstPOS:String = ""
     var POS:String = ""
     var UP:String = ""
+    var firstflag:Bool = false
     var posflag :Bool = false
     var actionflag:Bool = false
     
