@@ -72,6 +72,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
             scene.size = skView.frame.size
             
             skView.presentScene(scene)
+
         }
     }
     
@@ -139,6 +140,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
             // button was tapped)
             
             self.dismissViewControllerAnimated(true, completion: nil)
+            appDelegate.controller = self
     }
     
     func browserViewControllerWasCancelled(
@@ -146,6 +148,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
             // Called when the browser view controller is cancelled
             
             self.dismissViewControllerAnimated(true, completion: nil)
+            appDelegate.controller = self
     }
     
     func session(session: MCSession!, didReceiveData data: NSData!,
