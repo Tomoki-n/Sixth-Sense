@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 import MultipeerConnectivity
 import CoreLocation
+import OpenAL.ALC
+import OpenAL.AL
+import AudioToolbox
+
 
 class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,MCSessionDelegate ,CLLocationManagerDelegate {
 
@@ -27,9 +31,43 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     
     var getid :Int = 0
     
+    var buffer :ALuint = 0
+    var source :ALuint = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            lm = CLLocationManager()
+        
+        var device:COpaquePointer
+        var context:COpaquePointer
+        
+        device = alcOpenDevice(UnsafePointer(bitPattern: 0))
+        
+        context = alcCreateContext(device, nil)
+        alcMakeContextCurrent(context)
+        
+        var error:ALenum
+        alGetError()
+        alGenBuffers(1,&buffer)
+        
+        alGetError()
+        alGenSources(1, &source)
+        
+        alSourcei(source, AL_LOOPING, AL_TRUE)
+        //alSourcei(source, AL_PITCH, 1.0)
+        //alSourcei(source, AL_GAIN, 0.45)
+        alSource3f(source, AL_POSITION, 10, 20, 30);
+        
+        var data :NSData
+        var format:ALenum
+        var size:ALsizei
+        var freq:ALsizei
+        
+        var bundle:NSBundle =  NSBundle.mainBundle()
+        
+        //var fileURL :CFURLRef = (__bridge CFURLRef) NSURL.fileURLWithPath:bundle pathForResource:fileNameofType:@"caf";
+        alSourcei(source, AL_BUFFER, buffer)
+        also
+        lm = CLLocationManager()
              // 位置情報を取るよう設定
                     // ※ 初回は確認ダイアログ表示
             lm.requestAlwaysAuthorization()

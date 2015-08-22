@@ -121,6 +121,10 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
         
         //声をだす
         
+    
+    
+    
+    
     }
     
     

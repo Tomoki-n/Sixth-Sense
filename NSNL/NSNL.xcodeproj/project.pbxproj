@@ -22,6 +22,8 @@
 		FAF454971B86F66D009DB6A2 /* Mapdata1.csv in Resources */ = {isa = PBXBuildFile; fileRef = FAF454931B86F66D009DB6A2 /* Mapdata1.csv */; };
 		FAF454981B86F66D009DB6A2 /* physicdata1.csv in Resources */ = {isa = PBXBuildFile; fileRef = FAF454941B86F66D009DB6A2 /* physicdata1.csv */; };
 		FAF4549A1B86FC47009DB6A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF454991B86FC47009DB6A2 /* CoreLocation.framework */; };
+		FAF4549C1B872691009DB6A2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF4549B1B872691009DB6A2 /* OpenAL.framework */; };
+		FAF4549E1B8726AB009DB6A2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF4549D1B8726AB009DB6A2 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		FAF454931B86F66D009DB6A2 /* Mapdata1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mapdata1.csv; sourceTree = SOURCE_ROOT; };
 		FAF454941B86F66D009DB6A2 /* physicdata1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = physicdata1.csv; sourceTree = SOURCE_ROOT; };
 		FAF454991B86FC47009DB6A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FAF4549B1B872691009DB6A2 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		FAF4549D1B8726AB009DB6A2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF4549E1B8726AB009DB6A2 /* AudioToolbox.framework in Frameworks */,
+				FAF4549C1B872691009DB6A2 /* OpenAL.framework in Frameworks */,
 				FAF4549A1B86FC47009DB6A2 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +84,8 @@
 		FAF4545A1B86F58D009DB6A2 = {
 			isa = PBXGroup;
 			children = (
+				FAF4549D1B8726AB009DB6A2 /* AudioToolbox.framework */,
+				FAF4549B1B872691009DB6A2 /* OpenAL.framework */,
 				FAF454991B86FC47009DB6A2 /* CoreLocation.framework */,
 				FAF454651B86F58D009DB6A2 /* NSNL */,
 				FAF4547F1B86F58D009DB6A2 /* NSNLTests */,
