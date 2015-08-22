@@ -24,6 +24,11 @@
 		FAF4549A1B86FC47009DB6A2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF454991B86FC47009DB6A2 /* CoreLocation.framework */; };
 		FAF4549C1B872691009DB6A2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF4549B1B872691009DB6A2 /* OpenAL.framework */; };
 		FAF4549E1B8726AB009DB6A2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAF4549D1B8726AB009DB6A2 /* AudioToolbox.framework */; };
+		FAF454A41B88028F009DB6A2 /* MyOpenALSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A01B88028F009DB6A2 /* MyOpenALSupport.swift */; };
+		FAF454A51B88028F009DB6A2 /* oalPlayback.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A11B88028F009DB6A2 /* oalPlayback.swift */; };
+		FAF454A61B88028F009DB6A2 /* oalSpatialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A21B88028F009DB6A2 /* oalSpatialView.swift */; };
+		FAF454A71B88028F009DB6A2 /* oalTouchAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A31B88028F009DB6A2 /* oalTouchAppDelegate.swift */; };
+		FAF454AA1B88075B009DB6A2 /* NumTypes+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454A91B88075B009DB6A2 /* NumTypes+Conversion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +63,11 @@
 		FAF454991B86FC47009DB6A2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		FAF4549B1B872691009DB6A2 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		FAF4549D1B8726AB009DB6A2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FAF454A01B88028F009DB6A2 /* MyOpenALSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyOpenALSupport.swift; path = NSNL/MyOpenALSupport.swift; sourceTree = SOURCE_ROOT; };
+		FAF454A11B88028F009DB6A2 /* oalPlayback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = oalPlayback.swift; path = NSNL/oalPlayback.swift; sourceTree = SOURCE_ROOT; };
+		FAF454A21B88028F009DB6A2 /* oalSpatialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = oalSpatialView.swift; path = NSNL/oalSpatialView.swift; sourceTree = SOURCE_ROOT; };
+		FAF454A31B88028F009DB6A2 /* oalTouchAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = oalTouchAppDelegate.swift; path = NSNL/oalTouchAppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		FAF454A91B88075B009DB6A2 /* NumTypes+Conversion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NumTypes+Conversion.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +94,10 @@
 		FAF4545A1B86F58D009DB6A2 = {
 			isa = PBXGroup;
 			children = (
-				FAF4549D1B8726AB009DB6A2 /* AudioToolbox.framework */,
-				FAF4549B1B872691009DB6A2 /* OpenAL.framework */,
-				FAF454991B86FC47009DB6A2 /* CoreLocation.framework */,
 				FAF454651B86F58D009DB6A2 /* NSNL */,
 				FAF4547F1B86F58D009DB6A2 /* NSNLTests */,
 				FAF454641B86F58D009DB6A2 /* Products */,
+				FAF4549F1B88021D009DB6A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,12 +113,14 @@
 		FAF454651B86F58D009DB6A2 /* NSNL */ = {
 			isa = PBXGroup;
 			children = (
+				FAF454A81B8802A2009DB6A2 /* OpenAL */,
 				FAF454681B86F58D009DB6A2 /* AppDelegate.swift */,
 				FAF4546A1B86F58D009DB6A2 /* GameScene.sks */,
 				FAF4546C1B86F58D009DB6A2 /* GameScene.swift */,
 				FAF4546E1B86F58D009DB6A2 /* GameViewController.swift */,
 				FAF4548C1B86F629009DB6A2 /* CoopViewController.swift */,
 				FAF4548D1B86F629009DB6A2 /* NosightViewController.swift */,
+				FAF454A91B88075B009DB6A2 /* NumTypes+Conversion.swift */,
 				FAF454701B86F58D009DB6A2 /* Main.storyboard */,
 				FAF454731B86F58D009DB6A2 /* Images.xcassets */,
 				FAF454901B86F63D009DB6A2 /* Material */,
@@ -154,6 +164,28 @@
 				FAF454941B86F66D009DB6A2 /* physicdata1.csv */,
 			);
 			name = Material;
+			sourceTree = "<group>";
+		};
+		FAF4549F1B88021D009DB6A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAF4549D1B8726AB009DB6A2 /* AudioToolbox.framework */,
+				FAF4549B1B872691009DB6A2 /* OpenAL.framework */,
+				FAF454991B86FC47009DB6A2 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			path = NSNL.xcodeproj;
+			sourceTree = "<group>";
+		};
+		FAF454A81B8802A2009DB6A2 /* OpenAL */ = {
+			isa = PBXGroup;
+			children = (
+				FAF454A01B88028F009DB6A2 /* MyOpenALSupport.swift */,
+				FAF454A11B88028F009DB6A2 /* oalPlayback.swift */,
+				FAF454A21B88028F009DB6A2 /* oalSpatialView.swift */,
+				FAF454A31B88028F009DB6A2 /* oalTouchAppDelegate.swift */,
+			);
+			name = OpenAL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +293,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF454A71B88028F009DB6A2 /* oalTouchAppDelegate.swift in Sources */,
 				FAF4546D1B86F58D009DB6A2 /* GameScene.swift in Sources */,
 				FAF4546F1B86F58D009DB6A2 /* GameViewController.swift in Sources */,
 				FAF454691B86F58D009DB6A2 /* AppDelegate.swift in Sources */,
 				FAF4548F1B86F629009DB6A2 /* NosightViewController.swift in Sources */,
+				FAF454A61B88028F009DB6A2 /* oalSpatialView.swift in Sources */,
+				FAF454AA1B88075B009DB6A2 /* NumTypes+Conversion.swift in Sources */,
+				FAF454A41B88028F009DB6A2 /* MyOpenALSupport.swift in Sources */,
+				FAF454A51B88028F009DB6A2 /* oalPlayback.swift in Sources */,
 				FAF4548E1B86F629009DB6A2 /* CoopViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

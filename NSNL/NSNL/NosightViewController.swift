@@ -66,7 +66,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         
         //var fileURL :CFURLRef = (__bridge CFURLRef) NSURL.fileURLWithPath:bundle pathForResource:fileNameofType:@"caf";
         alSourcei(source, AL_BUFFER, buffer)
-        also
+        
         lm = CLLocationManager()
              // 位置情報を取るよう設定
                     // ※ 初回は確認ダイアログ表示
