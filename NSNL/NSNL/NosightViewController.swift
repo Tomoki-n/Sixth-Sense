@@ -46,40 +46,8 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
-   
-=======
-        
-        var device:COpaquePointer
-        var context:COpaquePointer
-        
-        device = alcOpenDevice(UnsafePointer(bitPattern: 0))
-        
-        context = alcCreateContext(device, nil)
-        alcMakeContextCurrent(context)
-        
-        var error:ALenum
-        alGetError()
-        alGenBuffers(1,&buffer)
-        
-        alGetError()
-        alGenSources(1, &source)
-        
-        alSourcei(source, AL_LOOPING, AL_TRUE)
-        //alSourcei(source, AL_PITCH, 1.0)
-        //alSourcei(source, AL_GAIN, 0.45)
-        alSource3f(source, AL_POSITION, 10, 20, 30);
-        
-        var data :NSData
-        var format:ALenum
-        var size:ALsizei
-        var freq:ALsizei
-        
-        var bundle:NSBundle =  NSBundle.mainBundle()
-        
-        //var fileURL :CFURLRef = (__bridge CFURLRef) NSURL.fileURLWithPath:bundle pathForResource:fileNameofType:@"caf";
-//        alSourcei(source, AL_BUFFER, buffer)
->>>>>>> 3adb21e905bab3b7f068120c0eae8df423dc8a69
+
+  
         
         lm = CLLocationManager()
         // 位置情報を取るよう設定

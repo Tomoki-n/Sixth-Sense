@@ -11,6 +11,7 @@ import SpriteKit
 import MultipeerConnectivity
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
+    let SHOW_NUM:Bool = true
     let Holl_SCALE:CGFloat = 1.8
 //    var controller:GameViewController!
     let WalkerCategory: UInt32 = 0x1 << 1
@@ -18,14 +19,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     let CHARA_SCALE:CGFloat = 1.2
     let R_SIZE:CGFloat = 31.0
     let C_SIZE:CGFloat = 24.0
-    let MAP_COLS:CGFloat = 14.0
+    let MAP_COLS:CGFloat = 8.0
     let TILE_SIZE:CGFloat = 32.0
     let SCALE:CGFloat = 0.75
     var map_row:Int = 52
     var map_columm:Int = 48
     var map:[[String]] = []
     var physic_map:[[String]] = []
-    var tilesheet:SKTexture = SKTexture(imageNamed: "mapchip1")
+    var tilesheet:SKTexture = SKTexture(imageNamed: "mapchip2")
     var world:SKSpriteNode!
     var actionFlag:Bool = false
     var fmuki:Int = 0
@@ -53,6 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var del: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 //    var atarimuki:Int = -1
     var myImage:SKSpriteNode!
+    var mapimage:SKSpriteNode!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -61,13 +63,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         self.view?.addGestureRecognizer(myDrag)
         
+        if SHOW_NUM == false{
         myImage = SKSpriteNode(imageNamed: "light.png")
         myImage.size = CGSizeMake(myImage.size.width * Holl_SCALE, myImage.size.height * Holl_SCALE)
         
         self.physicsWorld.contactDelegate = self
         
+        }
         self.physicsWorld.gravity = CGVectorMake(0, 0)
-        if let csvPath = NSBundle.mainBundle().pathForResource("Mapdata1", ofType: "csv") {
+        if let csvPath = NSBundle.mainBundle().pathForResource("Mapdata2", ofType: "csv") {
             
             let csvString = NSString(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil) as! String
             csvString.enumerateLines { (line, stop) -> () in
@@ -92,8 +96,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         scrView.contentSize = CGSizeMake(self.size.width * 1 / 5, self.size.height * 2)
         scrView.backgroundColor = UIColor.blackColor()
         
+        if SHOW_NUM == false{
         self.view?.addSubview(scrView)
         scrView.addSubview(imageview)
+        }
         
         button1 = UIButton(frame: CGRectMake(0, 0, 100, 40))
         button1.setImage(UIImage(named: "susunde.png"), forState: .Normal)
@@ -115,25 +121,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         centerB.backgroundColor = UIColor.whiteColor()
         centerB.layer.position = CGPoint(x: 40, y: self.size.height - 40)
         centerB.addTarget(self, action: "oncenterB:", forControlEvents: .TouchUpInside)
+        if SHOW_NUM == false{
         self.view?.addSubview(centerB)
         
         scrView.addSubview(button1)
         scrView.addSubview(button2)
         scrView.addSubview(button3)
         
+        }
+        
         world = SKSpriteNode()
         world.size = CGSizeMake(CGFloat(map_row) * TILE_SIZE, CGFloat(map_columm) * TILE_SIZE)
         world.zPosition = 0
-        self.addChild(world!)
         
+        if SHOW_NUM == false{
+        self.addChild(world!)
+        }
         //        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         //        myLabel.text = "Hello, World!";
         //        myLabel.fontSize = 65;
         //        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame));
         
         //        self.addChild(myLabel)
+        if SHOW_NUM == false{
         Map_Create()
         Makewalker()
+        }else{
+            Map_Number()
+        }
     }
     
 //    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -172,16 +187,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 //        }
 //    }
     
+
+    func Map_Number(){
+        var maptex:SKTexture = SKTexture(imageNamed: "mapchip2.png")
+        mapimage = SKSpriteNode(texture: maptex)
+        mapimage.xScale = SCALE
+        mapimage.yScale = SCALE
+        mapimage.anchorPoint = CGPointMake(0, 0)
+        self.addChild(mapimage)
+        var mr:Int = Int(tilesheet.size().height / TILE_SIZE)
+        var mc:Int = Int(tilesheet.size().width / TILE_SIZE)
+        for i in 0..<mc{
+            for j in 0..<mr{
+
+                
+                var position:CGPoint = CGPointMake(CGFloat(i) * self.TILE_SIZE, CGFloat(j) * self.TILE_SIZE)
+                var pointLabel:SKLabelNode = SKLabelNode(fontNamed: "Bold")
+                pointLabel.text = String(i + j * mc)
+                pointLabel.position = CGPointMake(position.x + TILE_SIZE / 2, position.y + TILE_SIZE / 2)
+                pointLabel.fontColor = UIColor.whiteColor()
+                pointLabel.fontSize = 14.0
+                pointLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
+                mapimage.addChild(pointLabel)
+                
+            }
+        }
+    }
+
+    
     func Map_Create(){
         for i in 0..<map_row{
             for j in 0..<map_columm{
                 let p:Int = self.map[i][j].toInt()!
                 let q:Int = self.physic_map[i][j].toInt()!
                 
-                var x:CGFloat = CGFloat(CGFloat(p) % self.MAP_COLS * TILE_SIZE / tilesheet.size().width)
-                var y:CGFloat = CGFloat(CGFloat(p) / self.MAP_COLS * TILE_SIZE / tilesheet.size().height)
+                var x:CGFloat = CGFloat(CGFloat(p % Int(self.MAP_COLS)) * TILE_SIZE / tilesheet.size().width)
+                var y:CGFloat = CGFloat(CGFloat(p / Int(self.MAP_COLS)) * TILE_SIZE / tilesheet.size().height)
                 var w:CGFloat = CGFloat(TILE_SIZE / tilesheet.size().width)
                 var h:CGFloat = CGFloat(TILE_SIZE / tilesheet.size().height)
+                
+                print(x)
+                print(",")
+                print(y)
+                print(",")
+                print(w)
+                print(",")
+                println(h)
+                println(p)
                 
                 var Rect:CGRect = CGRectMake(x, y, w, h)
                 var tile:SKTexture = SKTexture(rect: Rect, inTexture: self.tilesheet)
@@ -195,7 +247,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                     tileSprite.physicsBody?.contactTestBitMask = WalkerCategory
                 }
                 
-                var position:CGPoint = CGPointMake(CGFloat(i) * self.TILE_SIZE, CGFloat(j) * self.TILE_SIZE)
+                var position:CGPoint = CGPointMake(CGFloat(j) * self.TILE_SIZE,self.world.size.height -  CGFloat(i) * self.TILE_SIZE)
                 tileSprite.anchorPoint = CGPointMake(0, 0)
                 tileSprite.position = position
                 self.world.addChild(tileSprite)
@@ -339,9 +391,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 
     internal func panGesture(sender: UIPanGestureRecognizer){
         var p:CGPoint = sender.translationInView(self.view!)
-        var movePoint:CGPoint = CGPointMake(world.position.x + p.x, world.position.y  - p.y)
         
+        if SHOW_NUM == false{
+        var movePoint:CGPoint = CGPointMake(world.position.x + p.x, world.position.y  - p.y)
         world.position = movePoint
+        }else{
+            var movePoint:CGPoint = CGPointMake(mapimage.position.x + p.x, mapimage.position.y  - p.y)
+            mapimage.position = movePoint
+            
+        }
         
         sender.setTranslation(CGPointZero, inView: self.view)
         

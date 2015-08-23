@@ -12,6 +12,8 @@
 		9851658D1B872A8D005EDD8C /* susunde.png in Resources */ = {isa = PBXBuildFile; fileRef = 9851658C1B872A8D005EDD8C /* susunde.png */; };
 		9851658F1B873224005EDD8C /* hidarihe.png in Resources */ = {isa = PBXBuildFile; fileRef = 9851658E1B873224005EDD8C /* hidarihe.png */; };
 		985165911B8840DE005EDD8C /* light.png in Resources */ = {isa = PBXBuildFile; fileRef = 985165901B8840DE005EDD8C /* light.png */; };
+		98708E0E1B8987A50059EFCC /* mapchip2.png in Resources */ = {isa = PBXBuildFile; fileRef = 98708E0D1B8987A50059EFCC /* mapchip2.png */; };
+		98708E121B898BF20059EFCC /* Mapdata2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98708E111B898BF20059EFCC /* Mapdata2.csv */; };
 		FA517DF11B88545A00FD900B /* hidari.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA517DEE1B88545A00FD900B /* hidari.wav */; };
 		FA517DF21B88545A00FD900B /* mae.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA517DEF1B88545A00FD900B /* mae.wav */; };
 		FA517DF31B88545A00FD900B /* migi.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA517DF01B88545A00FD900B /* migi.wav */; };
@@ -55,6 +57,8 @@
 		9851658C1B872A8D005EDD8C /* susunde.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = susunde.png; sourceTree = "<group>"; };
 		9851658E1B873224005EDD8C /* hidarihe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hidarihe.png; sourceTree = "<group>"; };
 		985165901B8840DE005EDD8C /* light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light.png; sourceTree = "<group>"; };
+		98708E0D1B8987A50059EFCC /* mapchip2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapchip2.png; sourceTree = "<group>"; };
+		98708E111B898BF20059EFCC /* Mapdata2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mapdata2.csv; sourceTree = "<group>"; };
 		FA517DEE1B88545A00FD900B /* hidari.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hidari.wav; sourceTree = SOURCE_ROOT; };
 		FA517DEF1B88545A00FD900B /* mae.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mae.wav; sourceTree = SOURCE_ROOT; };
 		FA517DF01B88545A00FD900B /* migi.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = migi.wav; sourceTree = SOURCE_ROOT; };
@@ -157,6 +161,8 @@
 		FAF454901B86F63D009DB6A2 /* Material */ = {
 			isa = PBXGroup;
 			children = (
+				98708E111B898BF20059EFCC /* Mapdata2.csv */,
+				98708E0D1B8987A50059EFCC /* mapchip2.png */,
 				FA517DEE1B88545A00FD900B /* hidari.wav */,
 				FA517DEF1B88545A00FD900B /* mae.wav */,
 				FA517DF01B88545A00FD900B /* migi.wav */,
@@ -245,7 +251,7 @@
 				TargetAttributes = {
 					FAF454621B86F58D009DB6A2 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 8589MH68KB;
+						DevelopmentTeam = Z2M8H95Q7Z;
 					};
 					FAF4547B1B86F58D009DB6A2 = {
 						CreatedOnToolsVersion = 6.4;
@@ -282,11 +288,13 @@
 				FA517DF11B88545A00FD900B /* hidari.wav in Resources */,
 				FAF454741B86F58D009DB6A2 /* Images.xcassets in Resources */,
 				FA517DF21B88545A00FD900B /* mae.wav in Resources */,
+				98708E0E1B8987A50059EFCC /* mapchip2.png in Resources */,
 				FAF454951B86F66D009DB6A2 /* chara02.gif in Resources */,
 				FAF4546B1B86F58D009DB6A2 /* GameScene.sks in Resources */,
 				FAF454981B86F66D009DB6A2 /* physicdata1.csv in Resources */,
 				985165911B8840DE005EDD8C /* light.png in Resources */,
 				FAF454961B86F66D009DB6A2 /* mapchip1.png in Resources */,
+				98708E121B898BF20059EFCC /* Mapdata2.csv in Resources */,
 				985165871B872603005EDD8C /* Status.png in Resources */,
 				FA517DF31B88545A00FD900B /* migi.wav in Resources */,
 				FAF454721B86F58D009DB6A2 /* Main.storyboard in Resources */,
@@ -446,7 +454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoki Nishinaka (P7VK32J239)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NSNL/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -460,7 +468,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tomoki Nishinaka (P7VK32J239)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NSNL/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -474,8 +482,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Itsuki Tanaka (UAV6J88U94)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Itsuki Tanaka (UAV6J88U94)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -496,8 +504,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Itsuki Tanaka (UAV6J88U94)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Itsuki Tanaka (UAV6J88U94)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
