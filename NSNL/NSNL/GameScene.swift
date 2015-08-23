@@ -11,7 +11,7 @@ import SpriteKit
 import MultipeerConnectivity
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
-    let SHOW_NUM:Bool = true
+    let SHOW_NUM:Bool = false
     let Holl_SCALE:CGFloat = 1.8
 //    var controller:GameViewController!
     let WalkerCategory: UInt32 = 0x1 << 1
