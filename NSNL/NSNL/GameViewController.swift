@@ -172,9 +172,12 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
                 }
                 else if (msg=="UP"){
                     self.appDelegate.UP = msg
-                    self.appDelegate.actionflag = true
+                    self.appDelegate.upflag = true
                 }
-                
+                else if (msg=="DOWN"){
+                    self.appDelegate.DOWN = msg
+                    self.appDelegate.downflag = true
+                }
                 //self.Receive(msg)
                 
             }

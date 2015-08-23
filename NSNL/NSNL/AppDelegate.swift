@@ -16,9 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var FirstPOS:String = ""
     var POS:String = ""
     var UP:String = ""
+    var DOWN:String = ""
+  
+    
+    
     var firstflag:Bool = false
     var posflag :Bool = false
-    var actionflag:Bool = false
+    var upflag:Bool = false
+    var downflag:Bool = false
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

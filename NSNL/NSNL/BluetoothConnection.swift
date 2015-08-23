@@ -97,8 +97,7 @@ class BluetoothConnection:NSObject,MCSessionDelegate,MCBrowserViewControllerDele
                     
                 }
                 else if (msg=="UP"){
-                    self.appDelegate.UP = msg
-                    self.appDelegate.actionflag = true
+             
                 }
                 
                 //self.Receive(msg)

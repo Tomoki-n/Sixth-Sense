@@ -90,6 +90,7 @@
                                 </state>
                                 <connections>
                                     <action selector="SendGo:" destination="zMN-he-m64" eventType="touchDown" id="JsF-oD-MVC"/>
+                                    <action selector="SendUP:" destination="zMN-he-m64" eventType="touchUpInside" id="1UO-Yl-zZj"/>
                                 </connections>
                             </button>
                         </subviews>

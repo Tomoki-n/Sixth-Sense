@@ -80,6 +80,10 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     @IBAction func SendGo(sender: UIButton) { sendMes("UP") }
     
     
+    @IBAction func SendUP(sender: UIButton) {
+        sendMes("DOWN")
+        
+    }
     override func viewDidAppear(animated: Bool) {
         if (getid == 0){
             getid = 1

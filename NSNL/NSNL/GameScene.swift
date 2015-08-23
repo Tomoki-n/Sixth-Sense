@@ -472,7 +472,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         
         
-        if del.actionflag == true{
+        if del.upflag == true{
             switch(soutai){
             case 0:
                 cMove = Uw
@@ -509,7 +509,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 //                    atarimuki = -1
 //                }
             }
-            del.actionflag = false
+            del.upflag = false
         }
     }
 }
