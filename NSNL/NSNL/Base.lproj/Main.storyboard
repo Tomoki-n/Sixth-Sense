@@ -36,28 +36,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frL-bo-UrF">
-                                <rect key="frame" x="292" y="198" width="83" height="30"/>
-                                <state key="normal" title="NO　SIGHT">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="zMN-he-m64" kind="modal" id="ESu-oL-ket"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NO　SIGHT　NO　LIFE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8f-Bo-5WR">
-                                <rect key="frame" x="240" y="118" width="187" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OIH-NS-gf1">
+                                <rect key="frame" x="-10" y="-35" width="677" height="410"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SIXTH SENCES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfQ-U0-zhn">
+                                <rect key="frame" x="46" y="28" width="297" height="53"/>
+                                <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="33"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zl-2n-SYm">
-                                <rect key="frame" x="311" y="270" width="44" height="30"/>
-                                <state key="normal" title="COOP">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wnr-Ne-kJB">
+                                <rect key="frame" x="33" y="315" width="149" height="30"/>
+                                <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="19"/>
+                                <state key="normal" title="NO SIGHT">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LVB-YS-i5n" kind="modal" id="Co3-yn-dhF"/>
+                                    <segue destination="zMN-he-m64" kind="modal" id="t2z-Pb-oZ4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7L-6X-ghT">
+                                <rect key="frame" x="211" y="312" width="149" height="35"/>
+                                <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="19"/>
+                                <state key="normal" title="CO-OP">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LVB-YS-i5n" kind="modal" id="ETl-yt-s8Y"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -104,4 +111,7 @@
             <point key="canvasLocation" x="995.5" y="337.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="top.jpg" width="1920" height="1080"/>
+    </resources>
 </document>
