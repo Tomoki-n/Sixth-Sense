@@ -14,6 +14,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     let SHOW_NUM:Bool = false
     let Holl_SCALE:CGFloat = 1.8
 //    var controller:GameViewController!
+    let GhostCategory: UInt32 = 0x1 << 2
     let WalkerCategory: UInt32 = 0x1 << 1
     let WallCategory:UInt32 = 0x1 << 0
     let CHARA_SCALE:CGFloat = 1.2
@@ -65,7 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button11,button12,button13,button14,button15:UIButton!
     var centerB:UIButton!
     var del: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//    var atarimuki:Int = -1
+    var atarimuki:Int = -1
     var myImage:SKSpriteNode!
     var mapimage:SKSpriteNode!
     var ghost:SKSpriteNode!
@@ -85,7 +86,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if SHOW_NUM == false{
         myImage = SKSpriteNode(imageNamed: "light.png")
         myImage.size = CGSizeMake(myImage.size.width * Holl_SCALE, myImage.size.height * Holl_SCALE)
-        
+            myImage.position = CGPointMake(self.size.width * 2 / 5, self.size.height / 2)
+        myImage.zPosition = 2.0
+            self.addChild(myImage)
         self.physicsWorld.contactDelegate = self
         
         }
@@ -287,27 +290,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 //        
 //    }
     
-//    func didBeginContact(contact: SKPhysicsContact) {
-//        
-//        var firstBody, secondBody: SKPhysicsBody
-//        
-//        //first=walker,second=wall
-//        if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
-//            firstBody = contact.bodyA
-//            secondBody = contact.bodyB
-//        } else {
-//            firstBody = contact.bodyB
-//            secondBody = contact.bodyA
-//        }
-//        
-//        // walkerとwallが接したときの処理。
-//        if firstBody.categoryBitMask & WalkerCategory != 0 &&
-//            secondBody.categoryBitMask & WallCategory != 0 {
-//                print("p")
-//                atarimuki = soutai
-//
-//        }
-//    }
+    func didBeginContact(contact: SKPhysicsContact) {
+        
+        var firstBody, secondBody: SKPhysicsBody
+        
+        //first=walker,second=wall
+        if contact.bodyA.categoryBitMask > contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        // walkerとwallが接したときの処理。
+        if firstBody.categoryBitMask & WalkerCategory != 0 &&
+            secondBody.categoryBitMask & WallCategory != 0 {
+                atarimuki = soutai
+                println("HIT")
+        }
+    }
     
 
     func Map_Number(){
@@ -479,13 +481,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
         
         self.walker = SKSpriteNode(texture: texture1)
-        self.walker.position = CGPoint(x: self.size.width * 2 / 5, y: self.size.height/2)
+        self.walker.position = CGPoint(x: self.world.size.width / 2, y: self.size.height/2)
         self.walker.size = CGSizeMake(self.walker.size.width * self.CHARA_SCALE, self.walker.size.height * self.CHARA_SCALE)
         self.walker.zPosition = 1.0
         
-        myImage.position = self.walker.position
-        myImage.zPosition = 2.0
-        self.addChild(myImage)
         
         walker.physicsBody = SKPhysicsBody(texture: texture1, size: walker.frame.size)
         walker.physicsBody!.affectedByGravity = false
@@ -502,8 +501,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 //        self.walker.physicsBody?.categoryBitMask = WalkerCategory
 //        self.walker.physicsBody?.contactTestBitMask = WallCategory
         self.world.addChild(walker)
+        self.world.position = CGPointMake(-(self.walker.position.x - self.size.width * 2 / 5), -(self.walker.position.y - self.size.height/2))
         
-        println(walker.position)
         
         var Dwalk:SKAction = SKAction.animateWithTextures(textures1 as [AnyObject], timePerFrame: 0.2)
         var Lwalk:SKAction = SKAction.animateWithTextures(textures0 as [AnyObject], timePerFrame: 0.2)
@@ -600,8 +599,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         ghost.physicsBody!.friction = 0
         ghost.physicsBody!.allowsRotation = false
         ghost.physicsBody!.usesPreciseCollisionDetection = true
-        ghost.physicsBody?.categoryBitMask = WalkerCategory
-        ghost.physicsBody?.contactTestBitMask = WallCategory
+        ghost.physicsBody?.categoryBitMask = GhostCategory
+//        ghost.physicsBody?.contactTestBitMask = WallCategory
         
         self.world.addChild(ghost)
         
@@ -707,37 +706,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 
     internal func oncenterB(sender:UIButton){
         self.world.position = CGPointMake(-(self.walker.position.x - self.size.width * 2 / 5), -(self.walker.position.y - self.size.height/2))
-        println(self.myImage.position)
-        println(self.walker.position)
-        println(self.world.position)
         
     }
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
 
-//        if atarimuki == soutai{
-//            world.removeAllActions()
+        if atarimuki == soutai{
+            del.downflag = false
+            walker.removeAllActions()
+//            walker.removeActionForKey("cm1")
 //            walker.removeActionForKey("cm2")
-//            switch(atarimuki){
-//            case 0:
-//                walker.runAction(SKAction.moveByX(0, y: 10, duration: 0.2))
-//                break
-//            case 1:
-//                walker.runAction(SKAction.moveByX(10, y: 0, duration: 0.2))
-//                break
-//            case 2:
-//                walker.runAction(SKAction.moveByX(0, y: -10, duration: 0.2))
-//                break
-//            case 3:
-//                walker.runAction(SKAction.moveByX(-10, y: 0, duration: 0.2))
-//                break
-//            default:
-//                break
-//            }
-//
-//            atarimuki = -1
-//        }
+            println(atarimuki)
+            switch(atarimuki){
+            case 0:
+                walker.runAction(SKAction.moveByX(0, y: 20, duration: 0.2))
+                break
+            case 1:
+                walker.runAction(SKAction.moveByX(20, y: 0, duration: 0.2))
+                break
+            case 2:
+                walker.runAction(SKAction.moveByX(0, y: -20, duration: 0.2))
+                break
+            case 3:
+                walker.runAction(SKAction.moveByX(-20, y: 0, duration: 0.2))
+                break
+            default:
+                break
+            }
+
+            atarimuki = -1
+        }
         
         if del.firstflag == true{
             first()
@@ -770,6 +769,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         
         if del.upflag == true{
+            del.upflag = false
             switch(soutai){
             case 0:
                 cMove = Uw2
@@ -794,13 +794,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             walker.runAction(cMove, withKey: "cm1")
                 walker.runAction(cMove2, withKey: "cm2")
             
-            del.upflag = false
         }
         
         if del.downflag == true{
+            del.downflag = false
             walker.removeActionForKey("cm1")
             walker.removeActionForKey("cm2")
-            del.downflag = false
         }
     }
 }
