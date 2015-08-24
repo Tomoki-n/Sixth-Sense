@@ -23,12 +23,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     let GHOST_SIZE:CGFloat = 32.0
     let TILE_SIZE:CGFloat = 32.0
     let SCALE:CGFloat = 0.75
-    var map_row:Int = 52
-    var map_columm:Int = 48
+    var map_row:Int = 50 //たて
+    var map_columm:Int = 71 //よこ
     var map:[[String]] = []
+    var map2:[[String]] = []
+    var map3:[[String]] = []
+    var map4:[[String]] = []
+    var map5:[[String]] = []
     var physic_map:[[String]] = []
     var tilesheet:SKTexture = SKTexture(imageNamed: "mapchip2")
+    var tilesheet2:SKTexture = SKTexture(imageNamed: "mapchip3")
+    var wld:SKSpriteNode!
     var world:SKSpriteNode!
+    var world2:SKSpriteNode!
+    var world3:SKSpriteNode!
+    var world4:SKSpriteNode!
+    var world5:SKSpriteNode!
     var actionFlag:Bool = false
     var fmuki:Int = 0
     var muki:Int = 0 // 0:上,1:右,2:下,3:左
@@ -80,15 +90,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         }
         self.physicsWorld.gravity = CGVectorMake(0, 0)
-        if let csvPath = NSBundle.mainBundle().pathForResource("Mapdata2", ofType: "csv") {
+        if let csvPath = NSBundle.mainBundle().pathForResource("layer1", ofType: "csv") {
             
             let csvString = NSString(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil) as! String
             csvString.enumerateLines { (line, stop) -> () in
                 self.map.append(line.componentsSeparatedByString(","))
             }
         }
+        if let csvPath = NSBundle.mainBundle().pathForResource("tlayer1", ofType: "csv") {
+            
+            let csvString = NSString(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil) as! String
+            csvString.enumerateLines { (line, stop) -> () in
+                self.map2.append(line.componentsSeparatedByString(","))
+            }
+        }
+        if let csvPath = NSBundle.mainBundle().pathForResource("layer2", ofType: "csv") {
+            
+            let csvString = NSString(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil) as! String
+            csvString.enumerateLines { (line, stop) -> () in
+                self.map3.append(line.componentsSeparatedByString(","))
+            }
+        }
+        if let csvPath = NSBundle.mainBundle().pathForResource("layer3", ofType: "csv") {
+            
+            let csvString = NSString(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil) as! String
+            csvString.enumerateLines { (line, stop) -> () in
+                self.map4.append(line.componentsSeparatedByString(","))
+            }
+        }
+        if let csvPath = NSBundle.mainBundle().pathForResource("tlayer2", ofType: "csv") {
+            
+            let csvString = NSString(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil) as! String
+            csvString.enumerateLines { (line, stop) -> () in
+                self.map5.append(line.componentsSeparatedByString(","))
+            }
+        }
         
-        if let csvPath = NSBundle.mainBundle().pathForResource("physicdata2", ofType: "csv") {
+        if let csvPath = NSBundle.mainBundle().pathForResource("physicdata3", ofType: "csv") {
             let csvString = NSString(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil) as! String
             csvString.enumerateLines { (line, stop) -> () in
                 self.physic_map.append(line.componentsSeparatedByString(","))
@@ -205,11 +243,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
      }
         
         world = SKSpriteNode()
-        world.size = CGSizeMake(CGFloat(map_row) * TILE_SIZE, CGFloat(map_columm) * TILE_SIZE)
+        world.size = CGSizeMake(CGFloat(map_columm) * TILE_SIZE, CGFloat(map_row) * TILE_SIZE)
         world.zPosition = 0
+        world.anchorPoint = CGPointMake(0, 0)
+        world.position = CGPointMake(0, 0)
+ 
         
         if SHOW_NUM == false{
-        self.addChild(world!)
+            self.addChild(world!)
+            print(world.position)
+//            self.addChild(world2!)
+//            self.addChild(world3!)
+//            self.addChild(world4!)
+//            self.addChild(world5!)
         }
         //        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         //        myLabel.text = "Hello, World!";
@@ -293,28 +339,68 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     func Map_Create(){
         var mr:Int = Int(tilesheet.size().height / TILE_SIZE)
+        var mr2:Int = Int(tilesheet2.size().height / TILE_SIZE)
         var mc:Int = Int(tilesheet.size().width / TILE_SIZE)
         for i in 0..<map_row{
             for j in 0..<map_columm{
-                let p:Int = self.map[i][j].toInt()!
+                let m1:Int = self.map[i][j].toInt()!
+                let m2:Int = self.map2[i][j].toInt()!
+                let m3:Int = self.map3[i][j].toInt()!
+                let m4:Int = self.map4[i][j].toInt()!
+                let m5:Int = self.map5[i][j].toInt()!
                 let q:Int = self.physic_map[i][j].toInt()!
+                var p:Int = 0
+                var temp:Int = 0
+                var tempsheet:SKTexture!
                 
-                var x:CGFloat = CGFloat(CGFloat(p % Int(self.MAP_COLS)) * TILE_SIZE / tilesheet.size().width)
-                var y:CGFloat = CGFloat(CGFloat((mr-1) - (p / Int(self.MAP_COLS))) * TILE_SIZE / tilesheet.size().height)
-                var w:CGFloat = CGFloat(TILE_SIZE / tilesheet.size().width)
-                var h:CGFloat = CGFloat(TILE_SIZE / tilesheet.size().height)
+                for k in 1...5{
                 
-                println(y)
+                    switch(k){
+                    case 1:
+                        p = m1
+                        tempsheet = tilesheet
+                        temp = mr
+                        break
+                    case 2:
+                        p = m2
+                        tempsheet = tilesheet2
+                        temp = mr2
+                        break
+                    case 3:
+                        p = m3
+                        tempsheet = tilesheet
+                        temp = mr
+                        break
+                    case 4:
+                        p = m4
+                        tempsheet = tilesheet
+                        temp = mr
+                        break
+                    case 5:
+                        p = m5
+                        tempsheet = tilesheet2
+                        temp = mr2
+                        break
+                    default:
+                        break
+                    }
+                    
+                    if p != -1{
+                var x:CGFloat = CGFloat(CGFloat(p % Int(self.MAP_COLS)) * TILE_SIZE / tempsheet.size().width)
+                var y:CGFloat = CGFloat(CGFloat((temp-1) - (p / Int(self.MAP_COLS))) * TILE_SIZE / tempsheet.size().height)
+                var w:CGFloat = CGFloat(TILE_SIZE / tempsheet.size().width)
+                var h:CGFloat = CGFloat(TILE_SIZE / tempsheet.size().height)
+                
                 
                 var Rect:CGRect = CGRectMake(x, y, w, h)
-                var tile:SKTexture = SKTexture(rect: Rect, inTexture: self.tilesheet)
+                        var tile:SKTexture = SKTexture(rect: Rect, inTexture: tempsheet)
                 var tileSprite:SKSpriteNode = SKSpriteNode(texture: tile)
                 
                 var position:CGPoint = CGPointMake(CGFloat(j) * self.TILE_SIZE,self.world.size.height -  CGFloat(i) * self.TILE_SIZE)
                 tileSprite.anchorPoint = CGPointMake(0, 0)
                 tileSprite.position = position
                 
-                if q == 0{
+                if q == 0 && p == m1{
                     tileSprite.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(TILE_SIZE, TILE_SIZE), center: CGPointMake(TILE_SIZE / 2, TILE_SIZE / 2))
                     tileSprite.physicsBody!.dynamic = false
                     tileSprite.physicsBody?.categoryBitMask = WallCategory
@@ -323,6 +409,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 }
                 
                 self.world.addChild(tileSprite)
+                 
+                    }
+                }
                 
             }
         }
@@ -414,6 +503,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 //        self.walker.physicsBody?.contactTestBitMask = WallCategory
         self.world.addChild(walker)
         
+        println(walker.position)
         
         var Dwalk:SKAction = SKAction.animateWithTextures(textures1 as [AnyObject], timePerFrame: 0.2)
         var Lwalk:SKAction = SKAction.animateWithTextures(textures0 as [AnyObject], timePerFrame: 0.2)
