@@ -60,6 +60,7 @@
 		98AF96F71B8B30A90026A629 /* taikukan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96F41B8B30A90026A629 /* taikukan.mp3 */; };
 		98AF96F81B8B30A90026A629 /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96F51B8B30A90026A629 /* water.mp3 */; };
 		98AF96FA1B8B3A330026A629 /* muon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96F91B8B3A330026A629 /* muon.mp3 */; };
+		98AF96FE1B8B69540026A629 /* leader.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96FD1B8B69540026A629 /* leader.png */; };
 		FA1660371B8AE86A0093F492 /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1660361B8AE86A0093F492 /* return.png */; };
 		FA1660B51B8AFBFC0093F492 /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA1660A81B8AFBFC0093F492 /* 1.wav */; };
 		FA1660B61B8AFBFC0093F492 /* 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA1660A91B8AFBFC0093F492 /* 2.wav */; };
@@ -180,6 +181,7 @@
 		98AF96F41B8B30A90026A629 /* taikukan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = taikukan.mp3; sourceTree = "<group>"; };
 		98AF96F51B8B30A90026A629 /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
 		98AF96F91B8B3A330026A629 /* muon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = muon.mp3; sourceTree = "<group>"; };
+		98AF96FD1B8B69540026A629 /* leader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leader.png; sourceTree = "<group>"; };
 		FA1660361B8AE86A0093F492 /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = SOURCE_ROOT; };
 		FA1660A81B8AFBFC0093F492 /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = SOURCE_ROOT; };
 		FA1660A91B8AFBFC0093F492 /* 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2.wav; sourceTree = SOURCE_ROOT; };
@@ -392,6 +394,7 @@
 				98002ABC1B8AACF5009308DE /* iTunesArtwork */,
 				98002ABD1B8AACF5009308DE /* iTunesArtwork@2x */,
 				FA5AA5501B8AB021009BAB5D /* thunder.wav */,
+				98AF96FD1B8B69540026A629 /* leader.png */,
 				98002AAC1B8AAC75009308DE /* top.jpg */,
 				98708E111B898BF20059EFCC /* Mapdata2.csv */,
 				98708E0D1B8987A50059EFCC /* mapchip2.png */,
@@ -589,6 +592,7 @@
 				98002AC31B8AACF5009308DE /* Icon-76@2x.png in Resources */,
 				FA1660D91B8B05B30093F492 /* 112.png in Resources */,
 				9851658D1B872A8D005EDD8C /* susunde.png in Resources */,
+				98AF96FE1B8B69540026A629 /* leader.png in Resources */,
 				98AF96D21B8B0C2D0026A629 /* physicdata3.csv in Resources */,
 				FA1660B81B8AFBFC0093F492 /* 4.wav in Resources */,
 				98002AC51B8AACF5009308DE /* Icon-Small-40@2x.png in Resources */,
