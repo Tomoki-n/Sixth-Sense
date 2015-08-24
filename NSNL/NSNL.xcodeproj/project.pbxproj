@@ -56,6 +56,9 @@
 		98AF96F01B8B1E0A0026A629 /* ef7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96E01B8B1E0A0026A629 /* ef7.mp3 */; };
 		98AF96F11B8B1E0A0026A629 /* ef8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96E11B8B1E0A0026A629 /* ef8.mp3 */; };
 		98AF96F21B8B1E0A0026A629 /* ef9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96E21B8B1E0A0026A629 /* ef9.wav */; };
+		98AF96F61B8B30A90026A629 /* rouka.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96F31B8B30A90026A629 /* rouka.mp3 */; };
+		98AF96F71B8B30A90026A629 /* taikukan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96F41B8B30A90026A629 /* taikukan.mp3 */; };
+		98AF96F81B8B30A90026A629 /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96F51B8B30A90026A629 /* water.mp3 */; };
 		FA1660371B8AE86A0093F492 /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1660361B8AE86A0093F492 /* return.png */; };
 		FA1660B51B8AFBFC0093F492 /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA1660A81B8AFBFC0093F492 /* 1.wav */; };
 		FA1660B61B8AFBFC0093F492 /* 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA1660A91B8AFBFC0093F492 /* 2.wav */; };
@@ -172,6 +175,9 @@
 		98AF96E01B8B1E0A0026A629 /* ef7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ef7.mp3; sourceTree = "<group>"; };
 		98AF96E11B8B1E0A0026A629 /* ef8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ef8.mp3; sourceTree = "<group>"; };
 		98AF96E21B8B1E0A0026A629 /* ef9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ef9.wav; sourceTree = "<group>"; };
+		98AF96F31B8B30A90026A629 /* rouka.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rouka.mp3; sourceTree = "<group>"; };
+		98AF96F41B8B30A90026A629 /* taikukan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = taikukan.mp3; sourceTree = "<group>"; };
+		98AF96F51B8B30A90026A629 /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
 		FA1660361B8AE86A0093F492 /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = SOURCE_ROOT; };
 		FA1660A81B8AFBFC0093F492 /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = SOURCE_ROOT; };
 		FA1660A91B8AFBFC0093F492 /* 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2.wav; sourceTree = SOURCE_ROOT; };
@@ -343,6 +349,9 @@
 				98AF96E01B8B1E0A0026A629 /* ef7.mp3 */,
 				98AF96E11B8B1E0A0026A629 /* ef8.mp3 */,
 				98AF96E21B8B1E0A0026A629 /* ef9.wav */,
+				98AF96F31B8B30A90026A629 /* rouka.mp3 */,
+				98AF96F41B8B30A90026A629 /* taikukan.mp3 */,
+				98AF96F51B8B30A90026A629 /* water.mp3 */,
 				FA5AA5521B8AB186009BAB5D /* physicdata2.csv */,
 				98AF96D11B8B0C2D0026A629 /* physicdata3.csv */,
 				98AF96C31B8AB1A20026A629 /* physicdata2.csv */,
@@ -505,7 +514,9 @@
 			files = (
 				98AF96EF1B8B1E0A0026A629 /* ef6.mp3 in Resources */,
 				98AF96EE1B8B1E0A0026A629 /* ef5.mp3 in Resources */,
+				98AF96F81B8B30A90026A629 /* water.mp3 in Resources */,
 				98AF96E91B8B1E0A0026A629 /* e7.mp3 in Resources */,
+				98AF96F61B8B30A90026A629 /* rouka.mp3 in Resources */,
 				98AF96CA1B8B08A70026A629 /* layer1.csv in Resources */,
 				FA1660CE1B8B05B30093F492 /* 10.png in Resources */,
 				98002AAB1B8AAC5E009308DE /* Main.storyboard in Resources */,
@@ -515,6 +526,7 @@
 				98002AC91B8AACF5009308DE /* Icon-Small@2x.png in Resources */,
 				FA1660DD1B8B0B500093F492 /* 114.png in Resources */,
 				FA1660B91B8AFBFC0093F492 /* 5.wav in Resources */,
+				98AF96F71B8B30A90026A629 /* taikukan.mp3 in Resources */,
 				FA1660B71B8AFBFC0093F492 /* 3.wav in Resources */,
 				98AF96C21B8AADDE0026A629 /* ghost2.png in Resources */,
 				98002ACA1B8AACF5009308DE /* Icon.png in Resources */,
