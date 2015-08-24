@@ -271,14 +271,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if SHOW_NUM == false{
             Map_Create()
             Makewalker()
-            MakeGhost(2, ghostpos:zahyou(0, tiley: 49))
-            MakeGhost(1, ghostpos:zahyou(18, tiley: 49))
-            MakeGhost(1, ghostpos:zahyou(19, tiley: 49))
-            MakeGhost(1, ghostpos:zahyou(20, tiley: 49))
-            ghostMove(2, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3], mode: "R")
-            ghostMove(3, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3], mode: "R")
-            ghostMove(4, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3], mode: "R")
+            MakeGhost(2, ghostpos:zahyou(0, tiley: 50))
+            MakeGhost(1, ghostpos:zahyou(19, tiley: 50))
+            MakeGhost(1, ghostpos:zahyou(20, tiley: 50))
+            MakeGhost(1, ghostpos:zahyou(21, tiley: 50))
+            ghostMove(2, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3], mode: "R")
+            ghostMove(3, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3], mode: "R")
+            ghostMove(4, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3], mode: "R")
             
+            MakeGhost(3, ghostpos: zahyou(52, tiley: 17))
+            ghostMove(5, Gmove: ["w","d","w","d","w","d","w","d","w","d","w","d","w","l"], moveCnt: [1,1,1,1,1,1,1,1,1,1,1,1,2,1], mode: "N")
         }else{
             Map_Number()
         }
@@ -496,7 +498,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }
         }
         
-        self.walker = SKSpriteNode(texture: texture1)
+        self.walker = SKSpriteNode(texture: texture3)
         self.walker.position = CGPoint(x: self.world.size.width / 2, y: self.size.height/2)
         self.walker.size = CGSizeMake(self.walker.size.width * self.CHARA_SCALE, self.walker.size.height * self.CHARA_SCALE)
         self.walker.zPosition = 1.0
@@ -694,15 +696,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             break
         case "FIRSTPOS 2":
             fmuki = 2
-            muki = 2
             break
         case "FIRSTPOS 3":
             fmuki = 3
-            muki = 3
             break
         default:
             break
         }
+
+        soutai = fmuki
         println(fmuki)
 
     }
