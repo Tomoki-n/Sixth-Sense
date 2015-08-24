@@ -31,19 +31,39 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     
     var getid :Int = 0
     var player:AVAudioPlayer?  //音声を制御するための変数
+    var bgmplayer:AVAudioPlayer?  //bgm音声を制御するための変数
     
     
-    func play(soundName:String){
+    func play(soundName:String,state:Int){
         let soundPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent(soundName)
         let url:NSURL? = NSURL.fileURLWithPath(soundPath)
         player = AVAudioPlayer(contentsOfURL: url, error: nil)
         // Optional Chainingを使う。
         if let thePlayer = player {
-           // thePlayer.numberOfLoops = -1
+           
+            if(state==1){thePlayer.numberOfLoops = -1}
             thePlayer.prepareToPlay()
             thePlayer.play()
         }
     }
+    
+    func bgmplay(soundName:String,state:Int){
+        let soundPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent(soundName)
+        let url:NSURL? = NSURL.fileURLWithPath(soundPath)
+        bgmplayer = AVAudioPlayer(contentsOfURL: url, error: nil)
+        // Optional Chainingを使う。
+        if let thePlayer = bgmplayer {
+            
+            if(state==1){thePlayer.numberOfLoops = -1}
+            thePlayer.prepareToPlay()
+            thePlayer.play()
+        }
+    }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -91,7 +111,8 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         }
         
         if (getid == 1){
-            
+            getid = 2
+            bgmplay("thunder.wav", state: 1)
             self.sendMes("FIRSTPOS"+" "+String(stringInterpolationSegment: nowpos))
         }
     }
@@ -112,13 +133,13 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     
     func Receive(Getmsg :String){
         if Getmsg=="1"{
-            play("mae.wav")
+            play("mae.wav",state: 0)
         }
         else if Getmsg == "2"{
-            play("migi.wav")
+            play("migi.wav",state: 0)
         }
         else if Getmsg == "3"{
-            play("hidari.wav")
+            play("hidari.wav",state: 0)
         }
         
     
@@ -232,4 +253,10 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     }
     
     
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+        if event.type == UIEventType.Motion && event.subtype == UIEventSubtype.MotionShake {
+            // シェイク動作終了時の処理
+            println("シェイク")
+        }
+    }
 }
