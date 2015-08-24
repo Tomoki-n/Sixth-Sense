@@ -59,6 +59,7 @@
 		98AF96F61B8B30A90026A629 /* rouka.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96F31B8B30A90026A629 /* rouka.mp3 */; };
 		98AF96F71B8B30A90026A629 /* taikukan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96F41B8B30A90026A629 /* taikukan.mp3 */; };
 		98AF96F81B8B30A90026A629 /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96F51B8B30A90026A629 /* water.mp3 */; };
+		98AF96FA1B8B3A330026A629 /* muon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96F91B8B3A330026A629 /* muon.mp3 */; };
 		FA1660371B8AE86A0093F492 /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1660361B8AE86A0093F492 /* return.png */; };
 		FA1660B51B8AFBFC0093F492 /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA1660A81B8AFBFC0093F492 /* 1.wav */; };
 		FA1660B61B8AFBFC0093F492 /* 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA1660A91B8AFBFC0093F492 /* 2.wav */; };
@@ -178,6 +179,7 @@
 		98AF96F31B8B30A90026A629 /* rouka.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = rouka.mp3; sourceTree = "<group>"; };
 		98AF96F41B8B30A90026A629 /* taikukan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = taikukan.mp3; sourceTree = "<group>"; };
 		98AF96F51B8B30A90026A629 /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
+		98AF96F91B8B3A330026A629 /* muon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = muon.mp3; sourceTree = "<group>"; };
 		FA1660361B8AE86A0093F492 /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = SOURCE_ROOT; };
 		FA1660A81B8AFBFC0093F492 /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = SOURCE_ROOT; };
 		FA1660A91B8AFBFC0093F492 /* 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2.wav; sourceTree = SOURCE_ROOT; };
@@ -333,6 +335,7 @@
 				FA1660CD1B8B05B30093F492 /* 112.png */,
 				FA1660DA1B8B05BA0093F492 /* 113.png */,
 				FA1660DC1B8B0B500093F492 /* 114.png */,
+				98AF96F91B8B3A330026A629 /* muon.mp3 */,
 				98AF96D31B8B1E0A0026A629 /* e1.wav */,
 				98AF96D41B8B1E0A0026A629 /* e2.wav */,
 				98AF96D51B8B1E0A0026A629 /* e3.wav */,
@@ -598,6 +601,7 @@
 				FA1660DF1B8B0BE90093F492 /* 14.wav in Resources */,
 				FA1660BD1B8AFBFC0093F492 /* 9.wav in Resources */,
 				98AF96D01B8B08B00026A629 /* tlayer2.csv in Resources */,
+				98AF96FA1B8B3A330026A629 /* muon.mp3 in Resources */,
 				98AF96ED1B8B1E0A0026A629 /* ef4.m4a in Resources */,
 				FA1660D21B8B05B30093F492 /* 14.png in Resources */,
 				FAF454971B86F66D009DB6A2 /* Mapdata1.csv in Resources */,
