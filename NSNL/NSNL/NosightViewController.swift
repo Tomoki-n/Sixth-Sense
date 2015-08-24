@@ -151,7 +151,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     
     @IBAction func SendUP(sender: UIButton) {
         sendMes("DOWN")
-        walkerplay(plece, state: 2)
+        walkerplay("muon.mp3", state: 2)
     }
     override func viewDidAppear(animated: Bool) {
         if (getid == 0){
