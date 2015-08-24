@@ -19,6 +19,7 @@
 		FA517DF31B88545A00FD900B /* migi.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA517DF01B88545A00FD900B /* migi.wav */; };
 		FA517DF51B8856ED00FD900B /* BluetoothConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA517DF41B8856ED00FD900B /* BluetoothConnection.swift */; };
 		FA517DF71B8859F600FD900B /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA517DF61B8859F600FD900B /* MultipeerConnectivity.framework */; };
+		FA5AA54D1B8A17DA009BAB5D /* image in Resources */ = {isa = PBXBuildFile; fileRef = FA5AA54C1B8A17DA009BAB5D /* image */; };
 		FAF454691B86F58D009DB6A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454681B86F58D009DB6A2 /* AppDelegate.swift */; };
 		FAF4546B1B86F58D009DB6A2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FAF4546A1B86F58D009DB6A2 /* GameScene.sks */; };
 		FAF4546D1B86F58D009DB6A2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4546C1B86F58D009DB6A2 /* GameScene.swift */; };
@@ -64,6 +65,7 @@
 		FA517DF01B88545A00FD900B /* migi.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = migi.wav; sourceTree = SOURCE_ROOT; };
 		FA517DF41B8856ED00FD900B /* BluetoothConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothConnection.swift; sourceTree = "<group>"; };
 		FA517DF61B8859F600FD900B /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
+		FA5AA54C1B8A17DA009BAB5D /* image */ = {isa = PBXFileReference; lastKnownFileType = folder; path = image; sourceTree = SOURCE_ROOT; };
 		FAF454631B86F58D009DB6A2 /* NSNL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSNL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF454671B86F58D009DB6A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAF454681B86F58D009DB6A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		FAF454901B86F63D009DB6A2 /* Material */ = {
 			isa = PBXGroup;
 			children = (
+				FA5AA54C1B8A17DA009BAB5D /* image */,
 				98708E111B898BF20059EFCC /* Mapdata2.csv */,
 				98708E0D1B8987A50059EFCC /* mapchip2.png */,
 				FA517DEE1B88545A00FD900B /* hidari.wav */,
@@ -251,7 +254,7 @@
 				TargetAttributes = {
 					FAF454621B86F58D009DB6A2 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = Z2M8H95Q7Z;
+						DevelopmentTeam = 8589MH68KB;
 					};
 					FAF4547B1B86F58D009DB6A2 = {
 						CreatedOnToolsVersion = 6.4;
@@ -298,6 +301,7 @@
 				985165871B872603005EDD8C /* Status.png in Resources */,
 				FA517DF31B88545A00FD900B /* migi.wav in Resources */,
 				FAF454721B86F58D009DB6A2 /* Main.storyboard in Resources */,
+				FA5AA54D1B8A17DA009BAB5D /* image in Resources */,
 				9851658D1B872A8D005EDD8C /* susunde.png in Resources */,
 				9851658F1B873224005EDD8C /* hidarihe.png in Resources */,
 				9851658B1B872A86005EDD8C /* migihe.png in Resources */,
@@ -482,8 +486,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Itsuki Tanaka (UAV6J88U94)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Itsuki Tanaka (UAV6J88U94)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -504,8 +508,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Itsuki Tanaka (UAV6J88U94)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Itsuki Tanaka (UAV6J88U94)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
