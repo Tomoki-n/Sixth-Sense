@@ -34,12 +34,6 @@
 		98AF96C21B8AADDE0026A629 /* ghost2.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96C01B8AADDE0026A629 /* ghost2.png */; };
 		98AF96C41B8AB1A20026A629 /* physicdata2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96C31B8AB1A20026A629 /* physicdata2.csv */; };
 		98AF96C61B8B08970026A629 /* mapchip3.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96C51B8B08970026A629 /* mapchip3.png */; };
-		98AF96CA1B8B08A70026A629 /* layer1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96C71B8B08A70026A629 /* layer1.csv */; };
-		98AF96CB1B8B08A70026A629 /* layer2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96C81B8B08A70026A629 /* layer2.csv */; };
-		98AF96CC1B8B08A70026A629 /* layer3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96C91B8B08A70026A629 /* layer3.csv */; };
-		98AF96CF1B8B08B00026A629 /* tlayer1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96CD1B8B08B00026A629 /* tlayer1.csv */; };
-		98AF96D01B8B08B00026A629 /* tlayer2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96CE1B8B08B00026A629 /* tlayer2.csv */; };
-		98AF96D21B8B0C2D0026A629 /* physicdata3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96D11B8B0C2D0026A629 /* physicdata3.csv */; };
 		98AF96E31B8B1E0A0026A629 /* e1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96D31B8B1E0A0026A629 /* e1.wav */; };
 		98AF96E41B8B1E0A0026A629 /* e2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96D41B8B1E0A0026A629 /* e2.wav */; };
 		98AF96E51B8B1E0A0026A629 /* e3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96D51B8B1E0A0026A629 /* e3.wav */; };
@@ -61,6 +55,13 @@
 		98AF96F81B8B30A90026A629 /* water.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96F51B8B30A90026A629 /* water.mp3 */; };
 		98AF96FA1B8B3A330026A629 /* muon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96F91B8B3A330026A629 /* muon.mp3 */; };
 		98AF96FE1B8B69540026A629 /* leader.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96FD1B8B69540026A629 /* leader.png */; };
+		98AF97021B8B80040026A629 /* layer1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96FF1B8B80040026A629 /* layer1.csv */; };
+		98AF97031B8B80040026A629 /* layer2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF97001B8B80040026A629 /* layer2.csv */; };
+		98AF97041B8B80040026A629 /* layer3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF97011B8B80040026A629 /* layer3.csv */; };
+		98AF97081B8B801A0026A629 /* physicdata3.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF97051B8B801A0026A629 /* physicdata3.csv */; };
+		98AF97091B8B801A0026A629 /* tlayer1.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF97061B8B801A0026A629 /* tlayer1.csv */; };
+		98AF970A1B8B801A0026A629 /* tlayer2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF97071B8B801A0026A629 /* tlayer2.csv */; };
+		98AF970C1B8B84850026A629 /* ghost3.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AF970B1B8B84850026A629 /* ghost3.png */; };
 		FA1660371B8AE86A0093F492 /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1660361B8AE86A0093F492 /* return.png */; };
 		FA1660B51B8AFBFC0093F492 /* 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA1660A81B8AFBFC0093F492 /* 1.wav */; };
 		FA1660B61B8AFBFC0093F492 /* 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA1660A91B8AFBFC0093F492 /* 2.wav */; };
@@ -156,12 +157,6 @@
 		98AF96C01B8AADDE0026A629 /* ghost2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ghost2.png; sourceTree = "<group>"; };
 		98AF96C31B8AB1A20026A629 /* physicdata2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = physicdata2.csv; sourceTree = "<group>"; };
 		98AF96C51B8B08970026A629 /* mapchip3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapchip3.png; sourceTree = "<group>"; };
-		98AF96C71B8B08A70026A629 /* layer1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = layer1.csv; sourceTree = "<group>"; };
-		98AF96C81B8B08A70026A629 /* layer2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = layer2.csv; sourceTree = "<group>"; };
-		98AF96C91B8B08A70026A629 /* layer3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = layer3.csv; sourceTree = "<group>"; };
-		98AF96CD1B8B08B00026A629 /* tlayer1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tlayer1.csv; sourceTree = "<group>"; };
-		98AF96CE1B8B08B00026A629 /* tlayer2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tlayer2.csv; sourceTree = "<group>"; };
-		98AF96D11B8B0C2D0026A629 /* physicdata3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = physicdata3.csv; sourceTree = "<group>"; };
 		98AF96D31B8B1E0A0026A629 /* e1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = e1.wav; sourceTree = "<group>"; };
 		98AF96D41B8B1E0A0026A629 /* e2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = e2.wav; sourceTree = "<group>"; };
 		98AF96D51B8B1E0A0026A629 /* e3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = e3.wav; sourceTree = "<group>"; };
@@ -183,6 +178,13 @@
 		98AF96F51B8B30A90026A629 /* water.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = water.mp3; sourceTree = "<group>"; };
 		98AF96F91B8B3A330026A629 /* muon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = muon.mp3; sourceTree = "<group>"; };
 		98AF96FD1B8B69540026A629 /* leader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leader.png; sourceTree = "<group>"; };
+		98AF96FF1B8B80040026A629 /* layer1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = layer1.csv; sourceTree = "<group>"; };
+		98AF97001B8B80040026A629 /* layer2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = layer2.csv; sourceTree = "<group>"; };
+		98AF97011B8B80040026A629 /* layer3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = layer3.csv; sourceTree = "<group>"; };
+		98AF97051B8B801A0026A629 /* physicdata3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = physicdata3.csv; sourceTree = "<group>"; };
+		98AF97061B8B801A0026A629 /* tlayer1.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tlayer1.csv; sourceTree = "<group>"; };
+		98AF97071B8B801A0026A629 /* tlayer2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tlayer2.csv; sourceTree = "<group>"; };
+		98AF970B1B8B84850026A629 /* ghost3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ghost3.png; sourceTree = "<group>"; };
 		FA1660361B8AE86A0093F492 /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = SOURCE_ROOT; };
 		FA1660A81B8AFBFC0093F492 /* 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 1.wav; sourceTree = SOURCE_ROOT; };
 		FA1660A91B8AFBFC0093F492 /* 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 2.wav; sourceTree = SOURCE_ROOT; };
@@ -320,12 +322,14 @@
 		FAF454901B86F63D009DB6A2 /* Material */ = {
 			isa = PBXGroup;
 			children = (
+				98AF96FF1B8B80040026A629 /* layer1.csv */,
+				98AF97001B8B80040026A629 /* layer2.csv */,
+				98AF97011B8B80040026A629 /* layer3.csv */,
+				98AF97051B8B801A0026A629 /* physicdata3.csv */,
+				98AF97061B8B801A0026A629 /* tlayer1.csv */,
+				98AF97071B8B801A0026A629 /* tlayer2.csv */,
+				98AF970B1B8B84850026A629 /* ghost3.png */,
 				98AF96C51B8B08970026A629 /* mapchip3.png */,
-				98AF96C71B8B08A70026A629 /* layer1.csv */,
-				98AF96C81B8B08A70026A629 /* layer2.csv */,
-				98AF96C91B8B08A70026A629 /* layer3.csv */,
-				98AF96CD1B8B08B00026A629 /* tlayer1.csv */,
-				98AF96CE1B8B08B00026A629 /* tlayer2.csv */,
 				FA1660C21B8B05B20093F492 /* 10.png */,
 				FA1660C31B8B05B20093F492 /* 11.png */,
 				FA1660C41B8B05B20093F492 /* 12.png */,
@@ -361,7 +365,6 @@
 				98AF96F41B8B30A90026A629 /* taikukan.mp3 */,
 				98AF96F51B8B30A90026A629 /* water.mp3 */,
 				FA5AA5521B8AB186009BAB5D /* physicdata2.csv */,
-				98AF96D11B8B0C2D0026A629 /* physicdata3.csv */,
 				98AF96C31B8AB1A20026A629 /* physicdata2.csv */,
 				FA1660A81B8AFBFC0093F492 /* 1.wav */,
 				FA1660A91B8AFBFC0093F492 /* 2.wav */,
@@ -526,22 +529,26 @@
 				98AF96F81B8B30A90026A629 /* water.mp3 in Resources */,
 				98AF96E91B8B1E0A0026A629 /* e7.mp3 in Resources */,
 				98AF96F61B8B30A90026A629 /* rouka.mp3 in Resources */,
-				98AF96CA1B8B08A70026A629 /* layer1.csv in Resources */,
 				FA1660CE1B8B05B30093F492 /* 10.png in Resources */,
 				98002AAB1B8AAC5E009308DE /* Main.storyboard in Resources */,
 				98002AC61B8AACF5009308DE /* Icon-Small-50.png in Resources */,
 				FA517DF11B88545A00FD900B /* hidari.wav in Resources */,
 				98AF96F11B8B1E0A0026A629 /* ef8.mp3 in Resources */,
 				98002AC91B8AACF5009308DE /* Icon-Small@2x.png in Resources */,
+				98AF97091B8B801A0026A629 /* tlayer1.csv in Resources */,
 				FA1660DD1B8B0B500093F492 /* 114.png in Resources */,
 				FA1660B91B8AFBFC0093F492 /* 5.wav in Resources */,
 				98AF96F71B8B30A90026A629 /* taikukan.mp3 in Resources */,
 				FA1660B71B8AFBFC0093F492 /* 3.wav in Resources */,
 				98AF96C21B8AADDE0026A629 /* ghost2.png in Resources */,
 				98002ACA1B8AACF5009308DE /* Icon.png in Resources */,
+				98AF970A1B8B801A0026A629 /* tlayer2.csv in Resources */,
 				FAF454741B86F58D009DB6A2 /* Images.xcassets in Resources */,
 				FA1660D11B8B05B30093F492 /* 13.png in Resources */,
+				98AF97041B8B80040026A629 /* layer3.csv in Resources */,
+				98AF97021B8B80040026A629 /* layer1.csv in Resources */,
 				98002AC01B8AACF5009308DE /* Icon-72.png in Resources */,
+				98AF97081B8B801A0026A629 /* physicdata3.csv in Resources */,
 				FA517DF21B88545A00FD900B /* mae.wav in Resources */,
 				98AF96F01B8B1E0A0026A629 /* ef7.mp3 in Resources */,
 				FA1660BC1B8AFBFC0093F492 /* 8.wav in Resources */,
@@ -556,6 +563,7 @@
 				FA1660B51B8AFBFC0093F492 /* 1.wav in Resources */,
 				FA1660D51B8B05B30093F492 /* 17.png in Resources */,
 				98002AC71B8AACF5009308DE /* Icon-Small-50@2x.png in Resources */,
+				98AF97031B8B80040026A629 /* layer2.csv in Resources */,
 				98002AC11B8AACF5009308DE /* Icon-72@2x.png in Resources */,
 				FA5AA5511B8AB021009BAB5D /* thunder.wav in Resources */,
 				98AF96EC1B8B1E0A0026A629 /* ef3.m4a in Resources */,
@@ -569,13 +577,12 @@
 				FA1660D31B8B05B30093F492 /* 15.png in Resources */,
 				FA1660D61B8B05B30093F492 /* 18.png in Resources */,
 				98002ACB1B8AACF5009308DE /* Icon@2x.png in Resources */,
+				98AF970C1B8B84850026A629 /* ghost3.png in Resources */,
 				FA1660BA1B8AFBFC0093F492 /* 6.wav in Resources */,
 				FAF454961B86F66D009DB6A2 /* mapchip1.png in Resources */,
 				98002AC41B8AACF5009308DE /* Icon-Small-40.png in Resources */,
 				98AF96E81B8B1E0A0026A629 /* e6.mp3 in Resources */,
-				98AF96CB1B8B08A70026A629 /* layer2.csv in Resources */,
 				98AF96E31B8B1E0A0026A629 /* e1.wav in Resources */,
-				98AF96CC1B8B08A70026A629 /* layer3.csv in Resources */,
 				98002AAD1B8AAC75009308DE /* top.jpg in Resources */,
 				98AF96EA1B8B1E0A0026A629 /* ef1.wav in Resources */,
 				FA1660C11B8AFBFC0093F492 /* 13.wav in Resources */,
@@ -596,18 +603,15 @@
 				FA1660D91B8B05B30093F492 /* 112.png in Resources */,
 				9851658D1B872A8D005EDD8C /* susunde.png in Resources */,
 				98AF96FE1B8B69540026A629 /* leader.png in Resources */,
-				98AF96D21B8B0C2D0026A629 /* physicdata3.csv in Resources */,
 				FA1660B81B8AFBFC0093F492 /* 4.wav in Resources */,
 				98002AC51B8AACF5009308DE /* Icon-Small-40@2x.png in Resources */,
 				FA1660CF1B8B05B30093F492 /* 11.png in Resources */,
 				98002ACD1B8AACF5009308DE /* iTunesArtwork@2x in Resources */,
-				98AF96CF1B8B08B00026A629 /* tlayer1.csv in Resources */,
 				98002ABF1B8AACF5009308DE /* Icon-60@3x.png in Resources */,
 				98AF96E51B8B1E0A0026A629 /* e3.wav in Resources */,
 				98AF96C41B8AB1A20026A629 /* physicdata2.csv in Resources */,
 				FA1660DF1B8B0BE90093F492 /* 14.wav in Resources */,
 				FA1660BD1B8AFBFC0093F492 /* 9.wav in Resources */,
-				98AF96D01B8B08B00026A629 /* tlayer2.csv in Resources */,
 				98AF96FA1B8B3A330026A629 /* muon.mp3 in Resources */,
 				98AF96ED1B8B1E0A0026A629 /* ef4.m4a in Resources */,
 				FA1660D21B8B05B30093F492 /* 14.png in Resources */,
