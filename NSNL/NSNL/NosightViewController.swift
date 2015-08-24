@@ -133,14 +133,45 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     
     func Receive(Getmsg :String){
         if Getmsg=="1"{
-            play("mae.wav",state: 0)
+            play("1.wav",state: 0)
         }
         else if Getmsg == "2"{
-            play("migi.wav",state: 0)
+            play("2.wav",state: 0)
         }
         else if Getmsg == "3"{
-            play("hidari.wav",state: 0)
+            play("3.wav",state: 0)
         }
+        else if Getmsg == "4"{
+            play("4.wav",state: 0)
+        }
+        else if Getmsg == "5"{
+            play("5.wav",state: 0)
+        }
+        else if Getmsg == "6"{
+            play("6.wav",state: 0)
+        }
+        else if Getmsg == "7"{
+            play("7.wav",state: 0)
+        }
+        else if Getmsg == "8"{
+            play("8.wav",state: 0)
+        }
+        else if Getmsg == "9"{
+            play("9.wav",state: 0)
+        }
+        else if Getmsg == "10"{
+            play("10.wav",state: 0)
+        }
+        else if Getmsg == "11"{
+            play("11.wav",state: 0)
+        }
+        else if Getmsg == "12"{
+            play("12.wav",state: 0)
+        }
+        else if Getmsg == "13"{
+            play("13.wav",state: 0)
+        }
+        
         
     
         
