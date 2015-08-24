@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var POS:String = ""
     var UP:String = ""
     var DOWN:String = ""
-  
+    var cnt:Float = 0
     
     
     var firstflag:Bool = false

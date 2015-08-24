@@ -55,6 +55,8 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
         self.assistant = MCAdvertiserAssistant(serviceType:serviceType,
             discoveryInfo:nil, session:self.session)
         
+        NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "onUpdate:", userInfo: nil, repeats: true)
+        
         // tell the assistant to start advertising our fabulous chat
         self.assistant.start()
 
@@ -209,5 +211,12 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
             // Called when a connected peer changes state (for example, goes offline)
             
     }
+    
+    func onUpdate(timer : NSTimer){
+        
+        appDelegate.cnt += 0.1
+        
+    }
+    
     
 }

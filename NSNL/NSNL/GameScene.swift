@@ -77,6 +77,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var move:[CGFloat] = []
     var ghosts:[SKSpriteNode] = []
     var ghost_count:Int = 0
+    var disFlag:Bool = false
+    var sound:NosightViewController!
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -227,6 +229,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         centerB.setImage(UIImage(named: "return.png"), forState: .Normal)
         centerB.layer.position = CGPoint(x: 40, y: self.size.height - 40)
         centerB.addTarget(self, action: "oncenterB:", forControlEvents: .TouchUpInside)
+        
+        button15 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button15.setImage(UIImage(named: "stop.png"), forState: .Normal)
+        button15.layer.position = CGPoint(x: 40, y: self.size.height - 90)
+        button15.addTarget(self, action: "oncenterB:", forControlEvents: .TouchUpInside)
+        button15.tag = 15
+        
         if SHOW_NUM == false{
         self.view?.addSubview(centerB)
         
@@ -244,6 +253,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         scrView.addSubview(button12)
         scrView.addSubview(button13)
         scrView.addSubview(button14)
+        self.view?.addSubview(button15)
             
      }
         
@@ -271,16 +281,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if SHOW_NUM == false{
             Map_Create()
             Makewalker()
-            MakeGhost(2, ghostpos:zahyou(0, tiley: 50))
-            MakeGhost(1, ghostpos:zahyou(19, tiley: 50))
-            MakeGhost(1, ghostpos:zahyou(20, tiley: 50))
-            MakeGhost(1, ghostpos:zahyou(21, tiley: 50))
+            MakeGhost(2, ghostpos:zahyou(3, tiley: 49))
+            MakeGhost(1, ghostpos:zahyou(19, tiley: 48))
+            MakeGhost(1, ghostpos:zahyou(20, tiley: 48))
+            MakeGhost(1, ghostpos:zahyou(21, tiley: 48))
             ghostMove(2, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3], mode: "R")
             ghostMove(3, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3], mode: "R")
             ghostMove(4, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3], mode: "R")
             
             MakeGhost(3, ghostpos: zahyou(52, tiley: 17))
             ghostMove(5, Gmove: ["w","d","w","d","w","d","w","d","w","d","w","d","w","l"], moveCnt: [1,1,1,1,1,1,1,1,1,1,1,1,2,1], mode: "N")
+            MakeGhost(1, ghostpos:zahyou(20, tiley: 50))
         }else{
             Map_Number()
         }
@@ -327,6 +338,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 println("HIT")
                 del.controller.sendMes("hit")
         }
+    }
+    
+    func distance(var gst:SKSpriteNode) -> CGFloat{
+        var disx:CGFloat = gst.position.x - self.walker.position.x
+        var disy:CGFloat = gst.position.y - self.walker.position.y
+
+
+        return sqrt(disx*disx + disy*disy)
     }
     
 
@@ -606,7 +625,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }
         }
         
-        self.ghost = SKSpriteNode(texture: texture1)
+        self.ghost = SKSpriteNode(texture: texture3)
         self.ghost.position = ghostpos
 //        self.ghost.position = CGPoint(x: self.size.width, y: self.size.height / 2)
         self.ghost.size = CGSizeMake(self.ghost.size.width * self.CHARA_SCALE, self.ghost.size.height * self.CHARA_SCALE)
@@ -688,11 +707,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         switch(del.FirstPOS){
         case "FIRSTPOS 0":
             fmuki = 0
-            muki = 0
             break
         case "FIRSTPOS 1":
             fmuki = 1
-            muki = 1
             break
         case "FIRSTPOS 2":
             fmuki = 2
@@ -704,7 +721,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             break
         }
 
-        soutai = fmuki
         println(fmuki)
 
     }
@@ -726,7 +742,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
 
     internal func onbutton(sender:UIButton){
+        sound.Receive(String(sender.tag))
         del.controller.sendMes(String(sender.tag))
+        
     }
 
     internal func oncenterB(sender:UIButton){
@@ -734,8 +752,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
     }
     
+    func sendmes(mes:String){
+        del.controller.sendMes(mes)
+    }
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        
+        println(distance(ghosts[5]))
+        println(12 * TILE_SIZE)
+        
+        if distance(ghosts[5]) < 12 * TILE_SIZE{
+            if disFlag == false{
+                println("test")
+                sendmes("31")
+                disFlag = true
+            }
+        }
 
         if atarimuki == soutai{
             del.downflag = false

@@ -100,6 +100,14 @@
 		FA5AA54F1B8AA913009BAB5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5AA54E1B8AA913009BAB5D /* UIKit.framework */; };
 		FA5AA5511B8AB021009BAB5D /* thunder.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA5AA5501B8AB021009BAB5D /* thunder.wav */; };
 		FA5AA5531B8AB186009BAB5D /* physicdata2.csv in Resources */ = {isa = PBXBuildFile; fileRef = FA5AA5521B8AB186009BAB5D /* physicdata2.csv */; };
+		FAEA233D1B8BA38E00CEFA2A /* daremo.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAEA23371B8BA38E00CEFA2A /* daremo.wav */; };
+		FAEA233E1B8BA38E00CEFA2A /* daruma.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAEA23381B8BA38E00CEFA2A /* daruma.wav */; };
+		FAEA233F1B8BA38E00CEFA2A /* hdaremo.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAEA23391B8BA38E00CEFA2A /* hdaremo.wav */; };
+		FAEA23401B8BA38E00CEFA2A /* hdaruma.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAEA233A1B8BA38E00CEFA2A /* hdaruma.wav */; };
+		FAEA23411B8BA38E00CEFA2A /* mdaremo.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAEA233B1B8BA38E00CEFA2A /* mdaremo.wav */; };
+		FAEA23421B8BA38E00CEFA2A /* mdaruma.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAEA233C1B8BA38E00CEFA2A /* mdaruma.wav */; };
+		FAEA23441B8BABBD00CEFA2A /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEA23431B8BABBD00CEFA2A /* stop.png */; };
+		FAEA23461B8BAD9100CEFA2A /* stop.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAEA23451B8BAD9100CEFA2A /* stop.wav */; };
 		FAF454691B86F58D009DB6A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF454681B86F58D009DB6A2 /* AppDelegate.swift */; };
 		FAF4546B1B86F58D009DB6A2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FAF4546A1B86F58D009DB6A2 /* GameScene.sks */; };
 		FAF4546D1B86F58D009DB6A2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4546C1B86F58D009DB6A2 /* GameScene.swift */; };
@@ -223,6 +231,14 @@
 		FA5AA54E1B8AA913009BAB5D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA5AA5501B8AB021009BAB5D /* thunder.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = thunder.wav; sourceTree = SOURCE_ROOT; };
 		FA5AA5521B8AB186009BAB5D /* physicdata2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = physicdata2.csv; sourceTree = SOURCE_ROOT; };
+		FAEA23371B8BA38E00CEFA2A /* daremo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = daremo.wav; sourceTree = "<group>"; };
+		FAEA23381B8BA38E00CEFA2A /* daruma.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = daruma.wav; sourceTree = "<group>"; };
+		FAEA23391B8BA38E00CEFA2A /* hdaremo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hdaremo.wav; sourceTree = "<group>"; };
+		FAEA233A1B8BA38E00CEFA2A /* hdaruma.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hdaruma.wav; sourceTree = "<group>"; };
+		FAEA233B1B8BA38E00CEFA2A /* mdaremo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mdaremo.wav; sourceTree = "<group>"; };
+		FAEA233C1B8BA38E00CEFA2A /* mdaruma.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mdaruma.wav; sourceTree = "<group>"; };
+		FAEA23431B8BABBD00CEFA2A /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = SOURCE_ROOT; };
+		FAEA23451B8BAD9100CEFA2A /* stop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = stop.wav; sourceTree = SOURCE_ROOT; };
 		FAF454631B86F58D009DB6A2 /* NSNL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSNL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF454671B86F58D009DB6A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAF454681B86F58D009DB6A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -322,6 +338,13 @@
 		FAF454901B86F63D009DB6A2 /* Material */ = {
 			isa = PBXGroup;
 			children = (
+				FAEA23431B8BABBD00CEFA2A /* stop.png */,
+				FAEA23371B8BA38E00CEFA2A /* daremo.wav */,
+				FAEA23381B8BA38E00CEFA2A /* daruma.wav */,
+				FAEA23391B8BA38E00CEFA2A /* hdaremo.wav */,
+				FAEA233A1B8BA38E00CEFA2A /* hdaruma.wav */,
+				FAEA233B1B8BA38E00CEFA2A /* mdaremo.wav */,
+				FAEA233C1B8BA38E00CEFA2A /* mdaruma.wav */,
 				98AF96FF1B8B80040026A629 /* layer1.csv */,
 				98AF97001B8B80040026A629 /* layer2.csv */,
 				98AF97011B8B80040026A629 /* layer3.csv */,
@@ -404,6 +427,7 @@
 				98002AAC1B8AAC75009308DE /* top.jpg */,
 				98708E111B898BF20059EFCC /* Mapdata2.csv */,
 				98708E0D1B8987A50059EFCC /* mapchip2.png */,
+				FAEA23451B8BAD9100CEFA2A /* stop.wav */,
 				FA517DEE1B88545A00FD900B /* hidari.wav */,
 				FA517DEF1B88545A00FD900B /* mae.wav */,
 				FA517DF01B88545A00FD900B /* migi.wav */,
@@ -557,6 +581,7 @@
 				FAF454951B86F66D009DB6A2 /* chara02.gif in Resources */,
 				98002AC81B8AACF5009308DE /* Icon-Small.png in Resources */,
 				98AF96E41B8B1E0A0026A629 /* e2.wav in Resources */,
+				FAEA23421B8BA38E00CEFA2A /* mdaruma.wav in Resources */,
 				FA1660371B8AE86A0093F492 /* return.png in Resources */,
 				FA1660B61B8AFBFC0093F492 /* 2.wav in Resources */,
 				FAF4546B1B86F58D009DB6A2 /* GameScene.sks in Resources */,
@@ -564,6 +589,7 @@
 				FA1660D51B8B05B30093F492 /* 17.png in Resources */,
 				98002AC71B8AACF5009308DE /* Icon-Small-50@2x.png in Resources */,
 				98AF97031B8B80040026A629 /* layer2.csv in Resources */,
+				FAEA23441B8BABBD00CEFA2A /* stop.png in Resources */,
 				98002AC11B8AACF5009308DE /* Icon-72@2x.png in Resources */,
 				FA5AA5511B8AB021009BAB5D /* thunder.wav in Resources */,
 				98AF96EC1B8B1E0A0026A629 /* ef3.m4a in Resources */,
@@ -571,6 +597,7 @@
 				98AF96C61B8B08970026A629 /* mapchip3.png in Resources */,
 				FAF454981B86F66D009DB6A2 /* physicdata1.csv in Resources */,
 				FA1660C01B8AFBFC0093F492 /* 12.wav in Resources */,
+				FAEA233F1B8BA38E00CEFA2A /* hdaremo.wav in Resources */,
 				985165911B8840DE005EDD8C /* light.png in Resources */,
 				FA5AA5531B8AB186009BAB5D /* physicdata2.csv in Resources */,
 				FA1660BE1B8AFBFC0093F492 /* 10.wav in Resources */,
@@ -603,10 +630,12 @@
 				FA1660D91B8B05B30093F492 /* 112.png in Resources */,
 				9851658D1B872A8D005EDD8C /* susunde.png in Resources */,
 				98AF96FE1B8B69540026A629 /* leader.png in Resources */,
+				FAEA23461B8BAD9100CEFA2A /* stop.wav in Resources */,
 				FA1660B81B8AFBFC0093F492 /* 4.wav in Resources */,
 				98002AC51B8AACF5009308DE /* Icon-Small-40@2x.png in Resources */,
 				FA1660CF1B8B05B30093F492 /* 11.png in Resources */,
 				98002ACD1B8AACF5009308DE /* iTunesArtwork@2x in Resources */,
+				FAEA23411B8BA38E00CEFA2A /* mdaremo.wav in Resources */,
 				98002ABF1B8AACF5009308DE /* Icon-60@3x.png in Resources */,
 				98AF96E51B8B1E0A0026A629 /* e3.wav in Resources */,
 				98AF96C41B8AB1A20026A629 /* physicdata2.csv in Resources */,
@@ -614,10 +643,13 @@
 				FA1660BD1B8AFBFC0093F492 /* 9.wav in Resources */,
 				98AF96FA1B8B3A330026A629 /* muon.mp3 in Resources */,
 				98AF96ED1B8B1E0A0026A629 /* ef4.m4a in Resources */,
+				FAEA233E1B8BA38E00CEFA2A /* daruma.wav in Resources */,
 				FA1660D21B8B05B30093F492 /* 14.png in Resources */,
+				FAEA23401B8BA38E00CEFA2A /* hdaruma.wav in Resources */,
 				FAF454971B86F66D009DB6A2 /* Mapdata1.csv in Resources */,
 				98002ACC1B8AACF5009308DE /* iTunesArtwork in Resources */,
 				FA1660D41B8B05B30093F492 /* 16.png in Resources */,
+				FAEA233D1B8BA38E00CEFA2A /* daremo.wav in Resources */,
 				FA1660DB1B8B05BA0093F492 /* 113.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

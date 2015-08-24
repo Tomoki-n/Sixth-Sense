@@ -203,7 +203,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         else if Getmsg == "19"{ememyplay("e5.mp3",state: 0)}
         else if Getmsg == "20"{ememyplay("e6.mp3",state: 0)}
         else if Getmsg == "21"{ememyplay("e7.mp3",state: 0)}
-        
+
         else if Getmsg == "22"{efplay("ef1.wav",state: 0)}
         else if Getmsg == "23"{efplay("ef2.m4a",state: 0)}
         else if Getmsg == "24"{efplay("ef3.m4a",state: 0)}
@@ -220,7 +220,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         else if Getmsg == "34"{efplay("hdaremo.wav",state: 0)}
         else if Getmsg == "35"{efplay("mdaruma.wav",state: 0)}
         else if Getmsg == "36"{efplay("mdaruma.wav",state: 0)}
-            
+        else if Getmsg == "999"{play("stop.wav", state: 0)}
             
         else if Getmsg == "hit"{
             walkerplay("muon.mp3", state: 1)
