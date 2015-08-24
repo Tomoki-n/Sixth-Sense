@@ -32,8 +32,6 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     var getid :Int = 0
     var player:AVAudioPlayer?  //音声を制御するための変数
     var bgmplayer:AVAudioPlayer?  //bgm音声を制御するための変数
-    var ememyplayer:AVAudioPlayer?  //ememy音声を制御するための変数
-    var efplayer:AVAudioPlayer?  //エフェクト音声を制御するための変数
     
     
     func play(soundName:String,state:Int){
@@ -55,31 +53,6 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         bgmplayer = AVAudioPlayer(contentsOfURL: url, error: nil)
         // Optional Chainingを使う。
         if let thePlayer = bgmplayer {
-            
-            if(state==1){thePlayer.numberOfLoops = -1}
-            thePlayer.prepareToPlay()
-            thePlayer.play()
-        }
-    }
-    
-    func ememyplay(soundName:String,state:Int){
-        let soundPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent(soundName)
-        let url:NSURL? = NSURL.fileURLWithPath(soundPath)
-        ememyplayer = AVAudioPlayer(contentsOfURL: url, error: nil)
-        // Optional Chainingを使う。
-        if let thePlayer = ememyplayer {
-            
-            if(state==1){thePlayer.numberOfLoops = -1}
-            thePlayer.prepareToPlay()
-            thePlayer.play()
-        }
-    }
-    func efplay(soundName:String,state:Int){
-        let soundPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent(soundName)
-        let url:NSURL? = NSURL.fileURLWithPath(soundPath)
-        efplayer = AVAudioPlayer(contentsOfURL: url, error: nil)
-        // Optional Chainingを使う。
-        if let thePlayer = efplayer {
             
             if(state==1){thePlayer.numberOfLoops = -1}
             thePlayer.prepareToPlay()
@@ -198,11 +171,9 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         else if Getmsg == "13"{
             play("13.wav",state: 0)
         }
-        else if Getmsg == "14"{
-            play("14.wav",state: 0)
-        }
         
         
+    
         
     }
 

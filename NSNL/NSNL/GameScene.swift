@@ -110,42 +110,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
         
         button1 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button1.setImage(UIImage(named: "15.png"), forState: .Normal)
+        button1.setImage(UIImage(named: "12.png"), forState: .Normal)
         button1.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 40)
         button1.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button1.tag = 1
         button2 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button2.setImage(UIImage(named: "112.png"), forState: .Normal)
+        button2.setImage(UIImage(named: "13.png"), forState: .Normal)
         button2.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 90)
         button2.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button2.tag = 2
         button3 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button3.setImage(UIImage(named: "11.png"), forState: .Normal)
+        button3.setImage(UIImage(named: "14.png"), forState: .Normal)
         button3.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 140)
         button3.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button3.tag = 3
         button4 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button4.setImage(UIImage(named: "14.png"), forState: .Normal)
+        button4.setImage(UIImage(named: "15.png"), forState: .Normal)
         button4.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 190)
         button4.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button4.tag = 4
         button5 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button5.setImage(UIImage(named: "113.png"), forState: .Normal)
+        button5.setImage(UIImage(named: "16.png"), forState: .Normal)
         button5.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 240)
         button5.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button5.tag = 5
         button6 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button6.setImage(UIImage(named: "13.png"), forState: .Normal)
+        button6.setImage(UIImage(named: "17.png"), forState: .Normal)
         button6.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 290)
         button6.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button6.tag = 6
         button7 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button7.setImage(UIImage(named: "18.png"), forState: .Normal)
+        button7.setImage(UIImage(named: "113.png"), forState: .Normal)
         button7.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 340)
         button7.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button7.tag = 7
         button8 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button8.setImage(UIImage(named: "10.png"), forState: .Normal)
+        button8.setImage(UIImage(named: "19.png"), forState: .Normal)
         button8.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 390)
         button8.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button8.tag = 8
@@ -160,25 +160,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         button10.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button10.tag = 10
         button11 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button11.setImage(UIImage(named: "12.png"), forState: .Normal)
+        button11.setImage(UIImage(named: "112.png"), forState: .Normal)
         button11.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 540)
         button11.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button11.tag = 11
         button12 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button12.setImage(UIImage(named: "16.png"), forState: .Normal)
+        button12.setImage(UIImage(named: "11.png"), forState: .Normal)
         button12.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 590)
         button12.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button12.tag = 12
         button13 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button13.setImage(UIImage(named: "17.png"), forState: .Normal)
+        button13.setImage(UIImage(named: "10.png"), forState: .Normal)
         button13.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 640)
         button13.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button13.tag = 13
-        button14 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button14.setImage(UIImage(named: "114.png"), forState: .Normal)
-        button14.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 690)
-        button14.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
-        button14.tag = 14
         
         centerB = UIButton(frame: CGRectMake(0, 0, 40, 40))
         centerB.setImage(UIImage(named: "return.png"), forState: .Normal)
@@ -200,9 +195,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         scrView.addSubview(button11)
         scrView.addSubview(button12)
         scrView.addSubview(button13)
-        scrView.addSubview(button14)
             
-     }
+            
+            
+
+            
+            
+        }
         
         world = SKSpriteNode()
         world.size = CGSizeMake(CGFloat(map_row) * TILE_SIZE, CGFloat(map_columm) * TILE_SIZE)
