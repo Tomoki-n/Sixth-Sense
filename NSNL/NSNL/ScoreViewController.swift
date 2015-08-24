@@ -38,11 +38,13 @@ class ScoreViewController: UIViewController {
                 //配列に追加していく
                 scores.append(score as! Float)
             }
+       /*
             
          first.text = String(stringInterpolationSegment: scores[0])
          second.text = String(stringInterpolationSegment: scores[1])
          third.text = String(stringInterpolationSegment: scores[2])
-            
+         */
+       
         }
         
         

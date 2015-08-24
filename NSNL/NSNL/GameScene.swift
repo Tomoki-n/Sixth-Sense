@@ -9,13 +9,16 @@
 import Foundation
 import SpriteKit
 import MultipeerConnectivity
+import AVFoundation
+
 class GameScene: SKScene, SKPhysicsContactDelegate{
     
     let SHOW_NUM:Bool = false
     let Holl_SCALE:CGFloat = 1.8
 //    var controller:GameViewController!
-    let GhostCategory: UInt32 = 0x1 << 2
-    let WalkerCategory: UInt32 = 0x1 << 1
+    let GoalCategory: UInt32 = 0x1 << 2
+    let GhostCategory: UInt32 = 0x1 << 1
+    let WalkerCategory: UInt32 = 0x1 << 3
     let WallCategory:UInt32 = 0x1 << 0
     let CHARA_SCALE:CGFloat = 1.2
     let R_SIZE:CGFloat = 31.0
@@ -78,7 +81,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var ghosts:[SKSpriteNode] = []
     var ghost_count:Int = 0
     var disFlag:Bool = false
+    var dis2Flag:Bool = false
+    var dis3Flag:Bool = false
+    var player:AVAudioPlayer?  //音声を制御するための変数
     var sound:NosightViewController!
+    
+    
+    var myAlialLabel: UILabel = UILabel()
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -232,9 +241,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         button15 = UIButton(frame: CGRectMake(0, 0, 100, 40))
         button15.setImage(UIImage(named: "stop.png"), forState: .Normal)
-        button15.layer.position = CGPoint(x: 40, y: self.size.height - 90)
-        button15.addTarget(self, action: "oncenterB:", forControlEvents: .TouchUpInside)
-        button15.tag = 15
+        button15.layer.position = CGPoint(x: 60, y: self.size.height - 120)
+        button15.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button15.tag = 999
+        
+        //let myAlialLabel: UILabel = UILabel()
+        myAlialLabel.font = UIFont(name:"ArialHebew", size:UIFont.labelFontSize())
+        myAlialLabel.text = "0"
+        myAlialLabel.frame = CGRect(x:0, y: 0, width: 300, height: 150)
+        myAlialLabel.layer.position = CGPoint(x:160 , y:20)
+        myAlialLabel.textColor = UIColor.whiteColor()
+        myAlialLabel.textAlignment = NSTextAlignment.Left
+        self.view?.addSubview(myAlialLabel)
         
         if SHOW_NUM == false{
         self.view?.addSubview(centerB)
@@ -281,17 +299,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if SHOW_NUM == false{
             Map_Create()
             Makewalker()
-            MakeGhost(2, ghostpos:zahyou(3, tiley: 49))
-            MakeGhost(1, ghostpos:zahyou(19, tiley: 48))
-            MakeGhost(1, ghostpos:zahyou(20, tiley: 48))
-            MakeGhost(1, ghostpos:zahyou(21, tiley: 48))
+            MakeGhost(2, ghostpos: zahyou(68, tiley: 7), gCategory: GoalCategory)
+            MakeGhost(1, ghostpos:zahyou(19, tiley: 48), gCategory: GhostCategory)
+            MakeGhost(1, ghostpos:zahyou(20, tiley: 48), gCategory: GhostCategory)
+            MakeGhost(1, ghostpos:zahyou(21, tiley: 48), gCategory: GhostCategory)
             ghostMove(2, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3], mode: "R")
             ghostMove(3, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3], mode: "R")
             ghostMove(4, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3,5,3], mode: "R")
             
-            MakeGhost(3, ghostpos: zahyou(52, tiley: 17))
+            MakeGhost(3, ghostpos: zahyou(52, tiley: 17), gCategory: GhostCategory)
             ghostMove(5, Gmove: ["w","d","w","d","w","d","w","d","w","d","w","d","w","l"], moveCnt: [1,1,1,1,1,1,1,1,1,1,1,1,2,1], mode: "N")
-            MakeGhost(1, ghostpos:zahyou(20, tiley: 50))
+            MakeGhost(1, ghostpos:zahyou(20, tiley: 50), gCategory: GhostCategory)
         }else{
             Map_Number()
         }
@@ -337,9 +355,64 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 atarimuki = soutai
                 println("HIT")
                 del.controller.sendMes("hit")
+        }else if firstBody.categoryBitMask & WalkerCategory != 0 &&
+            secondBody.categoryBitMask & GhostCategory != 0{
+                println("DEAD")
+                
+        }else if firstBody.categoryBitMask & WalkerCategory != 0 &&
+            secondBody.categoryBitMask & GoalCategory != 0{
+                
+                println("END")
+                let ud = NSUserDefaults.standardUserDefaults()
+        /*
+                //空の配列を用意
+                var scores: [Float] = []
+                
+                //前回の保存内容があるかどうかを判定
+                if((ud.objectForKey("score")) != nil){
+                    
+                    //objectsを配列として確定させ、前回の保存内容を格納
+                    let objects = ud.objectForKey("score") as? NSArray
+                    
+                    //各名前を格納するための変数を宣言
+                    var score:AnyObject
+                    
+                    //前回の保存内容が格納された配列の中身を一つずつ取り出す
+                    for score in objects!{
+                        //配列に追加していく
+                        scores.append(score as! Float)
+                    }
+                    if scores[1] > del.cnt{
+                        scores[1] = del.cnt
+                    }
+                    else if scores[2] > del.cnt{
+                        scores[2] = del.cnt
+                    }
+                    else if scores[3] > del.cnt{
+                        scores[3] = del.cnt
+                    }
+                    
+                    ud.setObject(scores, forKey: "score")
+                    ud.synchronize()
+                    
+                }
+                else{
+                    var scores:[Float] = []
+                    scores.append(del.cnt)
+                    scores.append(40000.0)
+                    scores.append(50000.0)
+                    ud.setObject(scores, forKey: "score")
+                    ud.synchronize()
+                    
+                }
+*/
+                del.gameset = true
         }
+        
+        
+        
+        
     }
-    
     func distance(var gst:SKSpriteNode) -> CGFloat{
         var disx:CGFloat = gst.position.x - self.walker.position.x
         var disy:CGFloat = gst.position.y - self.walker.position.y
@@ -531,7 +604,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         walker.physicsBody!.allowsRotation = false
         walker.physicsBody!.usesPreciseCollisionDetection = true
         walker.physicsBody?.categoryBitMask = WalkerCategory
-        walker.physicsBody?.contactTestBitMask = WallCategory
+        walker.physicsBody?.contactTestBitMask = WallCategory | GhostCategory | GoalCategory
         
 //        self.walker.physicsBody = SKPhysicsBody(texture: texture1, size: walker.frame.size)
 //        self.walker.physicsBody!.allowsRotation = false
@@ -567,7 +640,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         Rw2 = SKAction.repeatActionForever(Rwalk)
     }
     
-    func MakeGhost(var ghostnum:Int , var ghostpos:CGPoint){
+    func MakeGhost(var ghostnum:Int , var ghostpos:CGPoint, var gCategory:UInt32){
         ghost_count++
         var ghostsozai:String = "ghost" + String(ghostnum) + ".png"
         var clotharmor:SKTexture = SKTexture(imageNamed: ghostsozai)
@@ -639,7 +712,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         ghost.physicsBody!.friction = 0
         ghost.physicsBody!.allowsRotation = false
         ghost.physicsBody!.usesPreciseCollisionDetection = true
-        ghost.physicsBody?.categoryBitMask = GhostCategory
+        ghost.physicsBody?.categoryBitMask = gCategory
 //        ghost.physicsBody?.contactTestBitMask = WallCategory
         
         ghosts.append(ghost)
@@ -742,11 +815,47 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
 
     internal func onbutton(sender:UIButton){
-        sound.Receive(String(sender.tag))
+        Receive(String(sender.tag))
         del.controller.sendMes(String(sender.tag))
         
     }
+    func play(soundName:String,state:Int){
+        let soundPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent(soundName)
+        let url:NSURL? = NSURL.fileURLWithPath(soundPath)
+        player = AVAudioPlayer(contentsOfURL: url, error: nil)
+        // Optional Chainingを使う。
+        if let thePlayer = player {
+            
+            if(state==1){thePlayer.numberOfLoops = -1}
+            thePlayer.prepareToPlay()
+            thePlayer.play()
+        }
+    }
+    
+    func Receive(Getmsg :String){
+        if Getmsg=="1"{play("1.wav",state: 0)}
+        else if Getmsg == "2"{play("2.wav",state: 0)}
+        else if Getmsg == "3"{play("3.wav",state: 0)}
+        else if Getmsg == "4"{play("4.wav",state: 0)}
+        else if Getmsg == "5"{play("5.wav",state: 0)}
+        else if Getmsg == "6"{play("6.wav",state: 0)}
+        else if Getmsg == "7"{play("7.wav",state: 0)}
+        else if Getmsg == "8"{play("8.wav",state: 0)}
+        else if Getmsg == "9"{play("9.wav",state: 0)}
+        else if Getmsg == "10"{play("10.wav",state: 0)}
+        else if Getmsg == "11"{play("11.wav",state: 0)}
+        else if Getmsg == "12"{play("12.wav",state: 0)}
+        else if Getmsg == "13"{play("13.wav",state: 0)}
+        else if Getmsg == "14"{play("14.wav",state: 0)}
+            
+        
+        else if Getmsg == "999"{play("stop.wav", state: 0)}
+            
+        
+        
+    }
 
+    
     internal func oncenterB(sender:UIButton){
         self.world.position = CGPointMake(-(self.walker.position.x - self.size.width * 2 / 5), -(self.walker.position.y - self.size.height/2))
         
@@ -758,18 +867,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        myAlialLabel.text = "TIME:" + String(stringInterpolationSegment: Int(del.cnt))
         
-        println(distance(ghosts[5]))
-        println(12 * TILE_SIZE)
         
-        if distance(ghosts[5]) < 12 * TILE_SIZE{
+        if walker.position.x <= zahyou(21, tiley: 0).x{
             if disFlag == false{
-                println("test")
-                sendmes("31")
+                sendmes("33")
                 disFlag = true
             }
         }
 
+        if walker.position.y  >= zahyou(0, tiley: 34).y{
+            if dis2Flag == false{
+                sendmes("25")
+                dis2Flag = true
+            }
+        }
+        
+        if walker.position.x >= zahyou(65, tiley: 0).x && walker.position.y >= zahyou(0, tiley: 27).y && walker.position.y <= zahyou(0, tiley: 30).y{
+            if dis3Flag == false{
+                dis3Flag = true
+            }
+        }
+        
         if atarimuki == soutai{
             del.downflag = false
             walker.removeAllActions()

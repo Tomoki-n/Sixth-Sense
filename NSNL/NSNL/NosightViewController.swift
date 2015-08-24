@@ -293,6 +293,8 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     
     func locationManager(manager:CLLocationManager, didUpdateHeading newHeading:CLHeading) {
           var heading:CLLocationDirection = newHeading.magneticHeading
+       
+        
         
         if prevpos == 999{
             nowpos = Int(heading)
@@ -312,7 +314,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
                 self.sendMes("0")
             }
         }
-        
+
         else if heading >= 95 && heading <= 174 {
             if prevpos >= 90 && prevpos<=179 { }
             else {

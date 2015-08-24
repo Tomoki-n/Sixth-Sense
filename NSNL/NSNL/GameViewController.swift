@@ -213,9 +213,19 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
     }
     
     func onUpdate(timer : NSTimer){
+        if(appDelegate.gameset){
+            appDelegate.gameset = false
+            // 遷移するViewを定義する.
+            let mySecondViewController: UIViewController = ScoreViewController()
         
+            // アニメーションを設定する.
+            mySecondViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
+        
+            // Viewの移動する.
+            self.presentViewController(mySecondViewController, animated: true, completion: nil)
+        }
         appDelegate.cnt += 0.1
-        
+        //println(appDelegate.cnt)
     }
     
     
