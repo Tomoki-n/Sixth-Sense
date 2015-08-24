@@ -213,7 +213,15 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         else if Getmsg == "28"{efplay("ef7.mp3",state: 0)}
         else if Getmsg == "29"{efplay("ef8.mp3",state: 0)}
         else if Getmsg == "30"{efplay("ef9.wav",state: 0)}
-
+            
+        else if Getmsg == "31"{efplay("daruma.wav",state: 0)}
+        else if Getmsg == "32"{efplay("daremo.wav",state: 0)}
+        else if Getmsg == "33"{efplay("hdaruma.wav",state: 0)}
+        else if Getmsg == "34"{efplay("hdaremo.wav",state: 0)}
+        else if Getmsg == "35"{efplay("mdaruma.wav",state: 0)}
+        else if Getmsg == "36"{efplay("mdaruma.wav",state: 0)}
+            
+            
         else if Getmsg == "hit"{
             walkerplay("muon.mp3", state: 1)
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
