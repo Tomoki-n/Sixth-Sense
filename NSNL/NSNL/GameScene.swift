@@ -41,6 +41,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var Lw:SKAction!
     var Uw:SKAction!
     var Rw:SKAction!
+    var Dw2:SKAction!
+    var Lw2:SKAction!
+    var Uw2:SKAction!
+    var Rw2:SKAction!
     var cMove:SKAction!
     var cMove2:SKAction!
     var wMove:SKAction!
@@ -62,7 +66,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         let myDrag = UIPanGestureRecognizer(target: self, action: "panGesture:")
         
         self.view?.addGestureRecognizer(myDrag)
-        
+        self.backgroundColor = UIColor.blackColor()
         if SHOW_NUM == false{
         myImage = SKSpriteNode(imageNamed: "light.png")
         myImage.size = CGSizeMake(myImage.size.width * Holl_SCALE, myImage.size.height * Holl_SCALE)
@@ -79,8 +83,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }
         }
         
-        if let csvPath = NSBundle.mainBundle().pathForResource("physicdata1", ofType: "csv") {
-            
+        if let csvPath = NSBundle.mainBundle().pathForResource("physicdata2", ofType: "csv") {
             let csvString = NSString(contentsOfFile: csvPath, encoding: NSUTF8StringEncoding, error: nil) as! String
             csvString.enumerateLines { (line, stop) -> () in
                 self.physic_map.append(line.componentsSeparatedByString(","))
@@ -217,6 +220,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     func Map_Create(){
         for i in 0..<map_row{
+            println()
             for j in 0..<map_columm{
                 let p:Int = self.map[i][j].toInt()!
                 let q:Int = self.physic_map[i][j].toInt()!
@@ -226,30 +230,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 var w:CGFloat = CGFloat(TILE_SIZE / tilesheet.size().width)
                 var h:CGFloat = CGFloat(TILE_SIZE / tilesheet.size().height)
                 
-                print(x)
-                print(",")
-                print(y)
-                print(",")
-                print(w)
-                print(",")
-                println(h)
-                println(p)
+                print(q)
                 
                 var Rect:CGRect = CGRectMake(x, y, w, h)
                 var tile:SKTexture = SKTexture(rect: Rect, inTexture: self.tilesheet)
                 var tileSprite:SKSpriteNode = SKSpriteNode(texture: tile)
                 
+                var position:CGPoint = CGPointMake(CGFloat(j) * self.TILE_SIZE,self.world.size.height -  CGFloat(i) * self.TILE_SIZE)
+                tileSprite.anchorPoint = CGPointMake(0, 0)
+                tileSprite.position = position
+                
                 if q == 0{
-                    tileSprite.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(TILE_SIZE, TILE_SIZE))
+                    tileSprite.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(TILE_SIZE, TILE_SIZE), center: CGPointMake(TILE_SIZE / 2, TILE_SIZE / 2))
                     tileSprite.physicsBody!.dynamic = false
                     tileSprite.physicsBody?.categoryBitMask = WallCategory
                     tileSprite.physicsBody?.collisionBitMask = WalkerCategory
                     tileSprite.physicsBody?.contactTestBitMask = WalkerCategory
                 }
                 
-                var position:CGPoint = CGPointMake(CGFloat(j) * self.TILE_SIZE,self.world.size.height -  CGFloat(i) * self.TILE_SIZE)
-                tileSprite.anchorPoint = CGPointMake(0, 0)
-                tileSprite.position = position
                 self.world.addChild(tileSprite)
                 
             }
@@ -353,15 +351,128 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         var Up:SKAction = SKAction.moveByX(0, y: 80, duration: 0.8)
         var Right:SKAction = SKAction.moveByX(80, y: 0, duration: 0.8)
         
-        shita = Down
-        hidari = Left
-        ue = Up
-        migi = Right
+        shita = SKAction.repeatActionForever(Down)
+        hidari = SKAction.repeatActionForever(Left)
+        ue = SKAction.repeatActionForever(Up)
+        migi = SKAction.repeatActionForever(Right)
         
         Dw = SKAction.repeatAction(Dwalk, count: 1)
         Lw = SKAction.repeatAction(Lwalk, count: 1)
         Uw = SKAction.repeatAction(Uwalk, count: 1)
         Rw = SKAction.repeatAction(Rwalk, count: 1)
+        
+        Dw2 = SKAction.repeatActionForever(Dwalk)
+        Lw2 = SKAction.repeatActionForever(Lwalk)
+        Uw2 = SKAction.repeatActionForever(Uwalk)
+        Rw2 = SKAction.repeatActionForever(Rwalk)
+    }
+    
+    func MakeGhost(){
+        var clotharmor:SKTexture = SKTexture(imageNamed: "chara02.gif")
+        var textures0:NSMutableArray = NSMutableArray()
+        var textures1:NSMutableArray = NSMutableArray()
+        var textures2:NSMutableArray = NSMutableArray()
+        var textures3:NSMutableArray = NSMutableArray()
+        
+        var texture0:SKTexture!
+        var texture1:SKTexture!
+        var texture2:SKTexture!
+        var texture3:SKTexture!
+        
+        for row1 in 0..<4{
+            for col1 in 3..<7{
+                var x:CGFloat = 0
+                var y:CGFloat = 0
+                var w:CGFloat = 0
+                var h:CGFloat = 0
+                
+                if(col1 != 6){
+                    x = CGFloat(CGFloat(col1) * self.C_SIZE / clotharmor.size().width)
+                    y = CGFloat(CGFloat(row1) * self.R_SIZE / clotharmor.size().height)
+                    w = CGFloat(C_SIZE / clotharmor.size().width)
+                    h = CGFloat(R_SIZE / clotharmor.size().height)
+                }else{
+                    x = CGFloat(4 * self.C_SIZE / clotharmor.size().width)
+                    y = CGFloat(CGFloat(row1) * self.R_SIZE / clotharmor.size().height)
+                    w = CGFloat(C_SIZE / clotharmor.size().width)
+                    h = CGFloat(R_SIZE / clotharmor.size().height)
+                }
+                
+                
+                
+                switch (row1) {
+                case 0:
+                    texture0 = SKTexture(rect: CGRectMake(x, y, w, h), inTexture: clotharmor)
+                    textures0.addObject(texture0)
+                    break
+                case 1:
+                    texture1 = SKTexture(rect: CGRectMake(x, y, w, h), inTexture: clotharmor)
+                    textures1.addObject(texture1)
+                    break
+                case 2:
+                    texture2 = SKTexture(rect: CGRectMake(x, y, w, h), inTexture: clotharmor)
+                    textures2.addObject(texture2)
+                    break
+                case 3:
+                    texture3 = SKTexture(rect: CGRectMake(x, y, w, h), inTexture: clotharmor)
+                    textures3.addObject(texture3)
+                    break
+                default:
+                    break
+                }
+            }
+        }
+        
+        self.walker = SKSpriteNode(texture: texture1)
+        self.walker.position = CGPoint(x: self.size.width * 2 / 5, y: self.size.height/2)
+        self.walker.size = CGSizeMake(self.walker.size.width * self.CHARA_SCALE, self.walker.size.height * self.CHARA_SCALE)
+        self.walker.zPosition = 1.0
+        
+        myImage.position = self.walker.position
+        myImage.zPosition = 2.0
+        self.addChild(myImage)
+        
+        walker.physicsBody = SKPhysicsBody(texture: texture1, size: walker.frame.size)
+        walker.physicsBody!.affectedByGravity = false
+        walker.physicsBody!.restitution = 1.0
+        walker.physicsBody!.linearDamping = 0
+        walker.physicsBody!.friction = 0
+        walker.physicsBody!.allowsRotation = false
+        walker.physicsBody!.usesPreciseCollisionDetection = true
+        walker.physicsBody?.categoryBitMask = WalkerCategory
+        walker.physicsBody?.contactTestBitMask = WallCategory
+        
+        //        self.walker.physicsBody = SKPhysicsBody(texture: texture1, size: walker.frame.size)
+        //        self.walker.physicsBody!.allowsRotation = false
+        //        self.walker.physicsBody?.categoryBitMask = WalkerCategory
+        //        self.walker.physicsBody?.contactTestBitMask = WallCategory
+        self.world.addChild(walker)
+        
+        
+        var Dwalk:SKAction = SKAction.animateWithTextures(textures1 as [AnyObject], timePerFrame: 0.2)
+        var Lwalk:SKAction = SKAction.animateWithTextures(textures0 as [AnyObject], timePerFrame: 0.2)
+        var Uwalk:SKAction = SKAction.animateWithTextures(textures3 as [AnyObject], timePerFrame: 0.2)
+        var Rwalk:SKAction = SKAction.animateWithTextures(textures2 as [AnyObject], timePerFrame: 0.2)
+        
+        var Down:SKAction = SKAction.moveByX(0, y: -80, duration: 0.8)
+        var Left:SKAction = SKAction.moveByX(-80, y: 0, duration: 0.8)
+        var Up:SKAction = SKAction.moveByX(0, y: 80, duration: 0.8)
+        var Right:SKAction = SKAction.moveByX(80, y: 0, duration: 0.8)
+        
+        shita = SKAction.repeatActionForever(Down)
+        hidari = SKAction.repeatActionForever(Left)
+        ue = SKAction.repeatActionForever(Up)
+        migi = SKAction.repeatActionForever(Right)
+        
+        Dw = SKAction.repeatAction(Dwalk, count: 1)
+        Lw = SKAction.repeatAction(Lwalk, count: 1)
+        Uw = SKAction.repeatAction(Uwalk, count: 1)
+        Rw = SKAction.repeatAction(Rwalk, count: 1)
+        
+        Dw2 = SKAction.repeatActionForever(Dwalk)
+        Lw2 = SKAction.repeatActionForever(Lwalk)
+        Uw2 = SKAction.repeatActionForever(Uwalk)
+        Rw2 = SKAction.repeatActionForever(Rwalk)
     }
     
     func first(){
@@ -475,41 +586,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if del.upflag == true{
             switch(soutai){
             case 0:
-                cMove = Uw
+                cMove = Uw2
                 cMove2 = ue
-                wMove = shita
                 break
             case 1:
-                cMove = Rw
+                cMove = Rw2
                 cMove2 = migi
-                wMove = hidari
                 break
             case 2:
-                cMove = Dw
+                cMove = Dw2
                 cMove2 = shita
-                wMove = ue
                 break
             case 3:
-                cMove = Lw
+                cMove = Lw2
                 cMove2 = hidari
-                wMove = migi
                 break
             default:
                 break
             }
 
-            if cFlag == false{
-                cFlag = true
-                walker.runAction(cMove, completion: {self.cFlag = false})
+            walker.runAction(cMove, withKey: "cm1")
                 walker.runAction(cMove2, withKey: "cm2")
-                
-//                if atarimuki != soutai{
-//                    walker.runAction(cMove2, withKey: "cm2")
-//                }else{
-//                    atarimuki = -1
-//                }
-            }
+            
             del.upflag = false
+        }
+        
+        if del.downflag == true{
+            walker.removeActionForKey("cm1")
+            walker.removeActionForKey("cm2")
+            del.downflag = false
         }
     }
 }
