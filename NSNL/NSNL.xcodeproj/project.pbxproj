@@ -207,13 +207,10 @@
 		FAF454901B86F63D009DB6A2 /* Material */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				FA5AA5521B8AB186009BAB5D /* physicdata2.csv */,
-=======
 				98AF96C31B8AB1A20026A629 /* physicdata2.csv */,
 				98AF96BF1B8AADDE0026A629 /* ghost1.png */,
 				98AF96C01B8AADDE0026A629 /* ghost2.png */,
->>>>>>> 0d444f1a6807cba9a21f64374504736755f8f3e4
 				98002AAE1B8AACF5009308DE /* Icon-60@2x.png */,
 				98002AAF1B8AACF5009308DE /* Icon-60@3x.png */,
 				98002AB01B8AACF5009308DE /* Icon-72.png */,
