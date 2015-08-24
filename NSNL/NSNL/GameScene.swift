@@ -24,8 +24,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     let GHOST_SIZE:CGFloat = 32.0
     let TILE_SIZE:CGFloat = 32.0
     let SCALE:CGFloat = 0.75
-    var map_row:Int = 50 //たて
-    var map_columm:Int = 71 //よこ
+    var map_row:Int = 52 //たて
+    var map_columm:Int = 73 //よこ
     var map:[[String]] = []
     var map2:[[String]] = []
     var map3:[[String]] = []
@@ -75,6 +75,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var gr3:SKAction!
     var gr4:SKAction!
     var move:[CGFloat] = []
+    var ghosts:[SKSpriteNode] = []
+    var ghost_count:Int = 0
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -269,11 +271,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         if SHOW_NUM == false{
             Map_Create()
             Makewalker()
-            MakeGhost()
-            ghostMove([8,1,5,2,5,3,5,0],mode: "R")
+            MakeGhost(2, ghostpos:zahyou(0, tiley: 49))
+            MakeGhost(1, ghostpos:zahyou(18, tiley: 49))
+            MakeGhost(1, ghostpos:zahyou(19, tiley: 49))
+            MakeGhost(1, ghostpos:zahyou(20, tiley: 49))
+            ghostMove(2, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3], mode: "R")
+            ghostMove(3, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3], mode: "R")
+            ghostMove(4, Gmove: ["w","u","w","u","w","u","w","u","w","u","w","u","w","d","w","d","w","d","w","d","w","d","w","d"], moveCnt:[10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3,10,3], mode: "R")
+            
         }else{
             Map_Number()
         }
+    }
+    
+    func zahyou(var tilex:CGFloat, var tiley:CGFloat) -> CGPoint{
+        var wx:CGFloat = (tilex) * TILE_SIZE + TILE_SIZE / 2
+        var wy:CGFloat = (CGFloat(map_row) - tiley) * TILE_SIZE + TILE_SIZE / 2
+        var wpoint:CGPoint = CGPointMake(wx, wy)
+        return wpoint
     }
     
 //    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -531,8 +546,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         Rw2 = SKAction.repeatActionForever(Rwalk)
     }
     
-    func MakeGhost(){
-        var clotharmor:SKTexture = SKTexture(imageNamed: "ghost1.png")
+    func MakeGhost(var ghostnum:Int , var ghostpos:CGPoint){
+        ghost_count++
+        var ghostsozai:String = "ghost" + String(ghostnum) + ".png"
+        var clotharmor:SKTexture = SKTexture(imageNamed: ghostsozai)
         var textures0:NSMutableArray = NSMutableArray()
         var textures1:NSMutableArray = NSMutableArray()
         var textures2:NSMutableArray = NSMutableArray()
@@ -588,7 +605,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
         
         self.ghost = SKSpriteNode(texture: texture1)
-        self.ghost.position = CGPoint(x: self.size.width, y: self.size.height / 2)
+        self.ghost.position = ghostpos
+//        self.ghost.position = CGPoint(x: self.size.width, y: self.size.height / 2)
         self.ghost.size = CGSizeMake(self.ghost.size.width * self.CHARA_SCALE, self.ghost.size.height * self.CHARA_SCALE)
         self.ghost.zPosition = 1.0
         
@@ -603,7 +621,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         ghost.physicsBody?.categoryBitMask = GhostCategory
 //        ghost.physicsBody?.contactTestBitMask = WallCategory
         
-        self.world.addChild(ghost)
+        ghosts.append(ghost)
+        self.world.addChild(ghosts[ghost_count-1])
         
         
         var Dwalk:SKAction = SKAction.animateWithTextures(textures3 as [AnyObject], timePerFrame: 0.2)
@@ -623,28 +642,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
     }
     
-    func ghostMove(var Gmove:[CGFloat], var mode:String){
+    func ghostMove(var ghostnum:Int, var Gmove:[String], var moveCnt:[Int], var mode:String){
         var seq:[SKAction] = []
+        var tempgr:SKAction!
         for i in 0..<Gmove.count{
             switch(Gmove[i]){
-            case 0://下
-                seq.append(gr1)
+            case "d"://下
+                tempgr = SKAction.repeatAction(gr1, count: moveCnt[i])
                 break
-            case 1://左
-                seq.append(gr2)
+            case "l"://左
+                tempgr = SKAction.repeatAction(gr2, count: moveCnt[i])
                 break
-            case 2://上
-                seq.append(gr3)
+            case "u"://上
+                tempgr = SKAction.repeatAction(gr3, count: moveCnt[i])
                 break
-            case 3://右
-                seq.append(gr4)
+            case "r"://右
+                tempgr = SKAction.repeatAction(gr4, count: moveCnt[i])
+                break
+            case "w":
+                var Wtime:NSTimeInterval = NSTimeInterval(moveCnt[i])
+                tempgr = SKAction.waitForDuration(Wtime)
                 break
             default:
-                var Wtime:NSTimeInterval = NSTimeInterval(Gmove[i] - 3)
-                var wait:SKAction = SKAction.waitForDuration(Wtime)
-                seq.append(wait)
                 break
             }
+            seq.append(tempgr)
         }
         let moveseq:SKAction = SKAction.sequence(seq)
         var modemove:SKAction!
@@ -657,7 +679,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             modemove = SKAction.repeatAction(moveseq, count: Mcount)
         }
 
-        ghost.runAction(modemove)
+        ghosts[ghostnum-1].runAction(modemove)
     }
     
     func first(){
