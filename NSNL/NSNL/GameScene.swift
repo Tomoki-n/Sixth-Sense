@@ -52,9 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var cFlag:Bool = false
     var wFlag:Bool = false
     var scrView:UIScrollView!
-    var button1:UIButton!
-    var button2:UIButton!
-    var button3:UIButton!
+    var button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button11,button12,button13,button14,button15:UIButton!
     var centerB:UIButton!
     var del: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 //    var atarimuki:Int = -1
@@ -112,23 +110,73 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }
         
         button1 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button1.setImage(UIImage(named: "susunde.png"), forState: .Normal)
+        button1.setImage(UIImage(named: "massugudesu.png"), forState: .Normal)
         button1.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 40)
         button1.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button1.tag = 1
         button2 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button2.setImage(UIImage(named: "migihe.png"), forState: .Normal)
+        button2.setImage(UIImage(named: "migidesu.png"), forState: .Normal)
         button2.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 90)
         button2.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button2.tag = 2
         button3 = UIButton(frame: CGRectMake(0, 0, 100, 40))
-        button3.setImage(UIImage(named: "hidarihe.png"), forState: .Normal)
+        button3.setImage(UIImage(named: "hidaridesu.png"), forState: .Normal)
         button3.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 140)
         button3.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button3.tag = 3
+        button4 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button4.setImage(UIImage(named: "tukimasita.png"), forState: .Normal)
+        button4.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 190)
+        button4.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button4.tag = 4
+        button5 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button5.setImage(UIImage(named: "atosukosidayo.png"), forState: .Normal)
+        button5.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 240)
+        button5.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button5.tag = 5
+        button6 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button6.setImage(UIImage(named: "sukosimattene.png"), forState: .Normal)
+        button6.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 290)
+        button6.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button6.tag = 6
+        button7 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button7.setImage(UIImage(named: "gomenokoranaide.png"), forState: .Normal)
+        button7.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 340)
+        button7.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button7.tag = 7
+        button8 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button8.setImage(UIImage(named: "daijyoubu.png"), forState: .Normal)
+        button8.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 390)
+        button8.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button8.tag = 8
+        button9 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button9.setImage(UIImage(named: "matigaetadakedayo.png"), forState: .Normal)
+        button9.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 440)
+        button9.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button9.tag = 9
+        button10 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button10.setImage(UIImage(named: "nanikaarimasitaka.png"), forState: .Normal)
+        button10.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 490)
+        button10.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button10.tag = 10
+        button11 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button11.setImage(UIImage(named: "okoranaideyo.png"), forState: .Normal)
+        button11.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 540)
+        button11.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button11.tag = 11
+        button12 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button12.setImage(UIImage(named: "shinjirarenai.png"), forState: .Normal)
+        button12.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 590)
+        button12.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button12.tag = 12
+        button13 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+        button13.setImage(UIImage(named: "mousugudayo.png"), forState: .Normal)
+        button13.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 640)
+        button13.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+        button13.tag = 13
         
         centerB = UIButton(frame: CGRectMake(0, 0, 40, 40))
-        centerB.backgroundColor = UIColor.whiteColor()
+        centerB.setImage(UIImage(named: "return.png"), forState: .Normal)
         centerB.layer.position = CGPoint(x: 40, y: self.size.height - 40)
         centerB.addTarget(self, action: "oncenterB:", forControlEvents: .TouchUpInside)
         if SHOW_NUM == false{
@@ -137,7 +185,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         scrView.addSubview(button1)
         scrView.addSubview(button2)
         scrView.addSubview(button3)
-        
+        scrView.addSubview(button4)
+        scrView.addSubview(button5)
+        scrView.addSubview(button6)
+        scrView.addSubview(button7)
+        scrView.addSubview(button8)
+        scrView.addSubview(button9)
+        scrView.addSubview(button10)
+        scrView.addSubview(button11)
+        scrView.addSubview(button12)
+        scrView.addSubview(button13)
+            
+            
+            
+
+            
+            
         }
         
         world = SKSpriteNode()
