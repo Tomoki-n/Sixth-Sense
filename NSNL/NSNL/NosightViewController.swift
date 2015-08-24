@@ -34,7 +34,8 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     var bgmplayer:AVAudioPlayer?  //bgm音声を制御するための変数
     var ememyplayer:AVAudioPlayer?  //ememy音声を制御するための変数
     var efplayer:AVAudioPlayer?  //エフェクト音声を制御するための変数
-    
+    var walkplayer:AVAudioPlayer?  //歩く音声を制御するための変数
+    var plece:String = "rouka.mp3"
     
     func play(soundName:String,state:Int){
         let soundPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent(soundName)
@@ -86,6 +87,22 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             thePlayer.play()
         }
     }
+    func walkerplay(soundName:String,state:Int){
+        let soundPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent(soundName)
+        let url:NSURL? = NSURL.fileURLWithPath(soundPath)
+        walkplayer = AVAudioPlayer(contentsOfURL: url, error: nil)
+        // Optional Chainingを使う。
+        if let thePlayer = walkplayer {
+            
+            if(state==2){thePlayer.stop()}
+            if(state==1){thePlayer.numberOfLoops = -1}
+            thePlayer.prepareToPlay()
+            thePlayer.play()
+        }
+        
+        
+    }
+    
     
     override func canBecomeFirstResponder() -> Bool {
         return true
@@ -124,12 +141,17 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
   
 
 
-    @IBAction func SendGo(sender: UIButton) { sendMes("UP") }
+    @IBAction func SendGo(sender: UIButton) {
+        sendMes("UP")
+        walkerplay(plece, state: 1)
+        
+        
+    }
     
     
     @IBAction func SendUP(sender: UIButton) {
         sendMes("DOWN")
-        
+        walkerplay(plece, state: 2)
     }
     override func viewDidAppear(animated: Bool) {
         if (getid == 0){
@@ -192,6 +214,11 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         else if Getmsg == "29"{efplay("ef8.mp3",state: 0)}
         else if Getmsg == "30"{efplay("ef9.wav",state: 0)}
 
+        else if Getmsg == "hit"{
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+        }
+        else if Getmsg == "rouka"{self.plece = "rouka"}
+        else if Getmsg == "water"{self.plece = "water"}
         
         
     }
