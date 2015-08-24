@@ -151,7 +151,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     
     @IBAction func SendUP(sender: UIButton) {
         sendMes("DOWN")
-        walkerplay(plece, state: 2)
+        walkerplay("muon.mp3", state: 2)
     }
     override func viewDidAppear(animated: Bool) {
         if (getid == 0){
@@ -215,6 +215,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         else if Getmsg == "30"{efplay("ef9.wav",state: 0)}
 
         else if Getmsg == "hit"{
+            walkerplay("muon.mp3", state: 1)
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
         else if Getmsg == "rouka"{self.plece = "rouka"}
