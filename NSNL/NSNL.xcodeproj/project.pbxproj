@@ -32,6 +32,9 @@
 		985165911B8840DE005EDD8C /* light.png in Resources */ = {isa = PBXBuildFile; fileRef = 985165901B8840DE005EDD8C /* light.png */; };
 		98708E0E1B8987A50059EFCC /* mapchip2.png in Resources */ = {isa = PBXBuildFile; fileRef = 98708E0D1B8987A50059EFCC /* mapchip2.png */; };
 		98708E121B898BF20059EFCC /* Mapdata2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98708E111B898BF20059EFCC /* Mapdata2.csv */; };
+		98AF96C11B8AADDE0026A629 /* ghost1.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96BF1B8AADDE0026A629 /* ghost1.png */; };
+		98AF96C21B8AADDE0026A629 /* ghost2.png in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96C01B8AADDE0026A629 /* ghost2.png */; };
+		98AF96C41B8AB1A20026A629 /* physicdata2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 98AF96C31B8AB1A20026A629 /* physicdata2.csv */; };
 		FA517DF11B88545A00FD900B /* hidari.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA517DEE1B88545A00FD900B /* hidari.wav */; };
 		FA517DF21B88545A00FD900B /* mae.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA517DEF1B88545A00FD900B /* mae.wav */; };
 		FA517DF31B88545A00FD900B /* migi.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA517DF01B88545A00FD900B /* migi.wav */; };
@@ -95,6 +98,9 @@
 		985165901B8840DE005EDD8C /* light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light.png; sourceTree = "<group>"; };
 		98708E0D1B8987A50059EFCC /* mapchip2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapchip2.png; sourceTree = "<group>"; };
 		98708E111B898BF20059EFCC /* Mapdata2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mapdata2.csv; sourceTree = "<group>"; };
+		98AF96BF1B8AADDE0026A629 /* ghost1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ghost1.png; sourceTree = "<group>"; };
+		98AF96C01B8AADDE0026A629 /* ghost2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ghost2.png; sourceTree = "<group>"; };
+		98AF96C31B8AB1A20026A629 /* physicdata2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = physicdata2.csv; sourceTree = "<group>"; };
 		FA517DEE1B88545A00FD900B /* hidari.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hidari.wav; sourceTree = SOURCE_ROOT; };
 		FA517DEF1B88545A00FD900B /* mae.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = mae.wav; sourceTree = SOURCE_ROOT; };
 		FA517DF01B88545A00FD900B /* migi.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = migi.wav; sourceTree = SOURCE_ROOT; };
@@ -201,7 +207,13 @@
 		FAF454901B86F63D009DB6A2 /* Material */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				FA5AA5521B8AB186009BAB5D /* physicdata2.csv */,
+=======
+				98AF96C31B8AB1A20026A629 /* physicdata2.csv */,
+				98AF96BF1B8AADDE0026A629 /* ghost1.png */,
+				98AF96C01B8AADDE0026A629 /* ghost2.png */,
+>>>>>>> 0d444f1a6807cba9a21f64374504736755f8f3e4
 				98002AAE1B8AACF5009308DE /* Icon-60@2x.png */,
 				98002AAF1B8AACF5009308DE /* Icon-60@3x.png */,
 				98002AB01B8AACF5009308DE /* Icon-72.png */,
@@ -348,10 +360,12 @@
 				98002AC61B8AACF5009308DE /* Icon-Small-50.png in Resources */,
 				FA517DF11B88545A00FD900B /* hidari.wav in Resources */,
 				98002AC91B8AACF5009308DE /* Icon-Small@2x.png in Resources */,
+				98AF96C21B8AADDE0026A629 /* ghost2.png in Resources */,
 				98002ACA1B8AACF5009308DE /* Icon.png in Resources */,
 				FAF454741B86F58D009DB6A2 /* Images.xcassets in Resources */,
 				98002AC01B8AACF5009308DE /* Icon-72.png in Resources */,
 				FA517DF21B88545A00FD900B /* mae.wav in Resources */,
+				98AF96C11B8AADDE0026A629 /* ghost1.png in Resources */,
 				98708E0E1B8987A50059EFCC /* mapchip2.png in Resources */,
 				FAF454951B86F66D009DB6A2 /* chara02.gif in Resources */,
 				98002AC81B8AACF5009308DE /* Icon-Small.png in Resources */,
@@ -378,6 +392,7 @@
 				98002ACD1B8AACF5009308DE /* iTunesArtwork@2x in Resources */,
 				98002ABF1B8AACF5009308DE /* Icon-60@3x.png in Resources */,
 				9851658B1B872A86005EDD8C /* migihe.png in Resources */,
+				98AF96C41B8AB1A20026A629 /* physicdata2.csv in Resources */,
 				FAF454971B86F66D009DB6A2 /* Mapdata1.csv in Resources */,
 				98002ACC1B8AACF5009308DE /* iTunesArtwork in Resources */,
 			);

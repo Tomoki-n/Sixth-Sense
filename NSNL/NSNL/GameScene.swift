@@ -20,6 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     let R_SIZE:CGFloat = 31.0
     let C_SIZE:CGFloat = 24.0
     let MAP_COLS:CGFloat = 8.0
+    let GHOST_SIZE:CGFloat = 32.0
     let TILE_SIZE:CGFloat = 32.0
     let SCALE:CGFloat = 0.75
     var map_row:Int = 52
@@ -59,6 +60,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 //    var atarimuki:Int = -1
     var myImage:SKSpriteNode!
     var mapimage:SKSpriteNode!
+    var ghost:SKSpriteNode!
+    var gr1:SKAction!
+    var gr2:SKAction!
+    var gr3:SKAction!
+    var gr4:SKAction!
+    var move:[CGFloat] = []
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -147,8 +154,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         
         //        self.addChild(myLabel)
         if SHOW_NUM == false{
-        Map_Create()
-        Makewalker()
+            Map_Create()
+            Makewalker()
+            MakeGhost()
+            ghostMove([8,1,5,2,5,3,5,0],mode: "R")
         }else{
             Map_Number()
         }
@@ -219,18 +228,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
 
     
     func Map_Create(){
+        var mr:Int = Int(tilesheet.size().height / TILE_SIZE)
+        var mc:Int = Int(tilesheet.size().width / TILE_SIZE)
         for i in 0..<map_row{
-            println()
             for j in 0..<map_columm{
                 let p:Int = self.map[i][j].toInt()!
                 let q:Int = self.physic_map[i][j].toInt()!
                 
                 var x:CGFloat = CGFloat(CGFloat(p % Int(self.MAP_COLS)) * TILE_SIZE / tilesheet.size().width)
-                var y:CGFloat = CGFloat(CGFloat(p / Int(self.MAP_COLS)) * TILE_SIZE / tilesheet.size().height)
+                var y:CGFloat = CGFloat(CGFloat((mr-1) - (p / Int(self.MAP_COLS))) * TILE_SIZE / tilesheet.size().height)
                 var w:CGFloat = CGFloat(TILE_SIZE / tilesheet.size().width)
                 var h:CGFloat = CGFloat(TILE_SIZE / tilesheet.size().height)
                 
-                print(q)
+                println(y)
                 
                 var Rect:CGRect = CGRectMake(x, y, w, h)
                 var tile:SKTexture = SKTexture(rect: Rect, inTexture: self.tilesheet)
@@ -368,7 +378,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func MakeGhost(){
-        var clotharmor:SKTexture = SKTexture(imageNamed: "chara02.gif")
+        var clotharmor:SKTexture = SKTexture(imageNamed: "ghost1.png")
         var textures0:NSMutableArray = NSMutableArray()
         var textures1:NSMutableArray = NSMutableArray()
         var textures2:NSMutableArray = NSMutableArray()
@@ -380,22 +390,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         var texture3:SKTexture!
         
         for row1 in 0..<4{
-            for col1 in 3..<7{
+            for col1 in 0..<4{
                 var x:CGFloat = 0
                 var y:CGFloat = 0
                 var w:CGFloat = 0
                 var h:CGFloat = 0
                 
-                if(col1 != 6){
-                    x = CGFloat(CGFloat(col1) * self.C_SIZE / clotharmor.size().width)
-                    y = CGFloat(CGFloat(row1) * self.R_SIZE / clotharmor.size().height)
-                    w = CGFloat(C_SIZE / clotharmor.size().width)
-                    h = CGFloat(R_SIZE / clotharmor.size().height)
+                if(col1 != 3){
+                    x = CGFloat(CGFloat(col1) * self.GHOST_SIZE / clotharmor.size().width)
+                    y = CGFloat(CGFloat(row1) * self.GHOST_SIZE / clotharmor.size().height)
+                    w = CGFloat(GHOST_SIZE / clotharmor.size().width)
+                    h = CGFloat(GHOST_SIZE / clotharmor.size().height)
                 }else{
-                    x = CGFloat(4 * self.C_SIZE / clotharmor.size().width)
-                    y = CGFloat(CGFloat(row1) * self.R_SIZE / clotharmor.size().height)
-                    w = CGFloat(C_SIZE / clotharmor.size().width)
-                    h = CGFloat(R_SIZE / clotharmor.size().height)
+                    x = CGFloat(1 * self.GHOST_SIZE / clotharmor.size().width)
+                    y = CGFloat(CGFloat(row1) * self.GHOST_SIZE / clotharmor.size().height)
+                    w = CGFloat(GHOST_SIZE / clotharmor.size().width)
+                    h = CGFloat(GHOST_SIZE / clotharmor.size().height)
                 }
                 
                 
@@ -423,56 +433,77 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             }
         }
         
-        self.walker = SKSpriteNode(texture: texture1)
-        self.walker.position = CGPoint(x: self.size.width * 2 / 5, y: self.size.height/2)
-        self.walker.size = CGSizeMake(self.walker.size.width * self.CHARA_SCALE, self.walker.size.height * self.CHARA_SCALE)
-        self.walker.zPosition = 1.0
-        
-        myImage.position = self.walker.position
-        myImage.zPosition = 2.0
-        self.addChild(myImage)
-        
-        walker.physicsBody = SKPhysicsBody(texture: texture1, size: walker.frame.size)
-        walker.physicsBody!.affectedByGravity = false
-        walker.physicsBody!.restitution = 1.0
-        walker.physicsBody!.linearDamping = 0
-        walker.physicsBody!.friction = 0
-        walker.physicsBody!.allowsRotation = false
-        walker.physicsBody!.usesPreciseCollisionDetection = true
-        walker.physicsBody?.categoryBitMask = WalkerCategory
-        walker.physicsBody?.contactTestBitMask = WallCategory
-        
-        //        self.walker.physicsBody = SKPhysicsBody(texture: texture1, size: walker.frame.size)
-        //        self.walker.physicsBody!.allowsRotation = false
-        //        self.walker.physicsBody?.categoryBitMask = WalkerCategory
-        //        self.walker.physicsBody?.contactTestBitMask = WallCategory
-        self.world.addChild(walker)
+        self.ghost = SKSpriteNode(texture: texture1)
+        self.ghost.position = CGPoint(x: self.size.width, y: self.size.height / 2)
+        self.ghost.size = CGSizeMake(self.ghost.size.width * self.CHARA_SCALE, self.ghost.size.height * self.CHARA_SCALE)
+        self.ghost.zPosition = 1.0
         
         
-        var Dwalk:SKAction = SKAction.animateWithTextures(textures1 as [AnyObject], timePerFrame: 0.2)
-        var Lwalk:SKAction = SKAction.animateWithTextures(textures0 as [AnyObject], timePerFrame: 0.2)
-        var Uwalk:SKAction = SKAction.animateWithTextures(textures3 as [AnyObject], timePerFrame: 0.2)
-        var Rwalk:SKAction = SKAction.animateWithTextures(textures2 as [AnyObject], timePerFrame: 0.2)
+        ghost.physicsBody = SKPhysicsBody(texture: texture1, size: ghost.frame.size)
+        ghost.physicsBody!.affectedByGravity = false
+        ghost.physicsBody!.restitution = 1.0
+        ghost.physicsBody!.linearDamping = 0
+        ghost.physicsBody!.friction = 0
+        ghost.physicsBody!.allowsRotation = false
+        ghost.physicsBody!.usesPreciseCollisionDetection = true
+        ghost.physicsBody?.categoryBitMask = WalkerCategory
+        ghost.physicsBody?.contactTestBitMask = WallCategory
+        
+        self.world.addChild(ghost)
+        
+        
+        var Dwalk:SKAction = SKAction.animateWithTextures(textures3 as [AnyObject], timePerFrame: 0.2)
+        var Lwalk:SKAction = SKAction.animateWithTextures(textures2 as [AnyObject], timePerFrame: 0.2)
+        var Uwalk:SKAction = SKAction.animateWithTextures(textures0 as [AnyObject], timePerFrame: 0.2)
+        var Rwalk:SKAction = SKAction.animateWithTextures(textures1 as [AnyObject], timePerFrame: 0.2)
         
         var Down:SKAction = SKAction.moveByX(0, y: -80, duration: 0.8)
         var Left:SKAction = SKAction.moveByX(-80, y: 0, duration: 0.8)
         var Up:SKAction = SKAction.moveByX(0, y: 80, duration: 0.8)
         var Right:SKAction = SKAction.moveByX(80, y: 0, duration: 0.8)
         
-        shita = SKAction.repeatActionForever(Down)
-        hidari = SKAction.repeatActionForever(Left)
-        ue = SKAction.repeatActionForever(Up)
-        migi = SKAction.repeatActionForever(Right)
+        gr1 = SKAction.group([Dwalk,Down])
+        gr2 = SKAction.group([Lwalk,Left])
+        gr3 = SKAction.group([Uwalk,Up])
+        gr4 = SKAction.group([Rwalk,Right])
         
-        Dw = SKAction.repeatAction(Dwalk, count: 1)
-        Lw = SKAction.repeatAction(Lwalk, count: 1)
-        Uw = SKAction.repeatAction(Uwalk, count: 1)
-        Rw = SKAction.repeatAction(Rwalk, count: 1)
-        
-        Dw2 = SKAction.repeatActionForever(Dwalk)
-        Lw2 = SKAction.repeatActionForever(Lwalk)
-        Uw2 = SKAction.repeatActionForever(Uwalk)
-        Rw2 = SKAction.repeatActionForever(Rwalk)
+    }
+    
+    func ghostMove(var Gmove:[CGFloat], var mode:String){
+        var seq:[SKAction] = []
+        for i in 0..<Gmove.count{
+            switch(Gmove[i]){
+            case 0://下
+                seq.append(gr1)
+                break
+            case 1://左
+                seq.append(gr2)
+                break
+            case 2://上
+                seq.append(gr3)
+                break
+            case 3://右
+                seq.append(gr4)
+                break
+            default:
+                var Wtime:NSTimeInterval = NSTimeInterval(Gmove[i] - 3)
+                var wait:SKAction = SKAction.waitForDuration(Wtime)
+                seq.append(wait)
+                break
+            }
+        }
+        let moveseq:SKAction = SKAction.sequence(seq)
+        var modemove:SKAction!
+        if mode == "R"{//無限リピート
+            modemove = SKAction.repeatActionForever(moveseq)
+        }else if mode == "N"{//１回だけ
+            modemove = moveseq
+        }else{//回数指定
+            var Mcount:Int = mode.toInt()!
+            modemove = SKAction.repeatAction(moveseq, count: Mcount)
+        }
+
+        ghost.runAction(modemove)
     }
     
     func first(){
@@ -525,6 +556,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         println(self.myImage.position)
         println(self.walker.position)
         println(self.world.position)
+        
     }
     
     override func update(currentTime: CFTimeInterval) {
