@@ -275,14 +275,12 @@
 		FAF454901B86F63D009DB6A2 /* Material */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				98AF96C51B8B08970026A629 /* mapchip3.png */,
 				98AF96C71B8B08A70026A629 /* layer1.csv */,
 				98AF96C81B8B08A70026A629 /* layer2.csv */,
 				98AF96C91B8B08A70026A629 /* layer3.csv */,
 				98AF96CD1B8B08B00026A629 /* tlayer1.csv */,
 				98AF96CE1B8B08B00026A629 /* tlayer2.csv */,
-=======
 				FA1660C21B8B05B20093F492 /* 10.png */,
 				FA1660C31B8B05B20093F492 /* 11.png */,
 				FA1660C41B8B05B20093F492 /* 12.png */,
@@ -297,7 +295,6 @@
 				FA1660CD1B8B05B30093F492 /* 112.png */,
 				FA1660DA1B8B05BA0093F492 /* 113.png */,
 				FA1660DC1B8B0B500093F492 /* 114.png */,
->>>>>>> 1fbf79c1f611bc1a3f766a5969541fbe3cd1673f
 				FA5AA5521B8AB186009BAB5D /* physicdata2.csv */,
 				98AF96D11B8B0C2D0026A629 /* physicdata3.csv */,
 				98AF96C31B8AB1A20026A629 /* physicdata2.csv */,
@@ -458,12 +455,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
+
 				98AF96CA1B8B08A70026A629 /* layer1.csv in Resources */,
 				FA16609C1B8AF9550093F492 /* 12.png in Resources */,
-=======
 				FA1660CE1B8B05B30093F492 /* 10.png in Resources */,
->>>>>>> 1fbf79c1f611bc1a3f766a5969541fbe3cd1673f
 				98002AAB1B8AAC5E009308DE /* Main.storyboard in Resources */,
 				98002AC61B8AACF5009308DE /* Icon-Small-50.png in Resources */,
 				FA517DF11B88545A00FD900B /* hidari.wav in Resources */,
@@ -519,30 +514,21 @@
 				98002AC31B8AACF5009308DE /* Icon-76@2x.png in Resources */,
 				FA1660D91B8B05B30093F492 /* 112.png in Resources */,
 				9851658D1B872A8D005EDD8C /* susunde.png in Resources */,
-<<<<<<< HEAD
 				FA1660A01B8AF9550093F492 /* 16.png in Resources */,
 				98AF96D21B8B0C2D0026A629 /* physicdata3.csv in Resources */,
-=======
->>>>>>> 1fbf79c1f611bc1a3f766a5969541fbe3cd1673f
 				FA1660B81B8AFBFC0093F492 /* 4.wav in Resources */,
 				98002AC51B8AACF5009308DE /* Icon-Small-40@2x.png in Resources */,
 				FA1660CF1B8B05B30093F492 /* 11.png in Resources */,
 				98002ACD1B8AACF5009308DE /* iTunesArtwork@2x in Resources */,
-<<<<<<< HEAD
 				98AF96CF1B8B08B00026A629 /* tlayer1.csv in Resources */,
 				FA16609B1B8AF9550093F492 /* 11.png in Resources */,
-=======
->>>>>>> 1fbf79c1f611bc1a3f766a5969541fbe3cd1673f
 				98002ABF1B8AACF5009308DE /* Icon-60@3x.png in Resources */,
 				98AF96C41B8AB1A20026A629 /* physicdata2.csv in Resources */,
 				FA1660DF1B8B0BE90093F492 /* 14.wav in Resources */,
 				FA1660BD1B8AFBFC0093F492 /* 9.wav in Resources */,
-<<<<<<< HEAD
 				98AF96D01B8B08B00026A629 /* tlayer2.csv in Resources */,
 				FA1660A71B8AF9550093F492 /* 113.png in Resources */,
-=======
 				FA1660D21B8B05B30093F492 /* 14.png in Resources */,
->>>>>>> 1fbf79c1f611bc1a3f766a5969541fbe3cd1673f
 				FAF454971B86F66D009DB6A2 /* Mapdata1.csv in Resources */,
 				98002ACC1B8AACF5009308DE /* iTunesArtwork in Resources */,
 				FA1660D41B8B05B30093F492 /* 16.png in Resources */,
