@@ -159,49 +159,39 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     
     
     func Receive(Getmsg :String){
-        if Getmsg=="1"{
-            play("1.wav",state: 0)
-        }
-        else if Getmsg == "2"{
-            play("2.wav",state: 0)
-        }
-        else if Getmsg == "3"{
-            play("3.wav",state: 0)
-        }
-        else if Getmsg == "4"{
-            play("4.wav",state: 0)
-        }
-        else if Getmsg == "5"{
-            play("5.wav",state: 0)
-        }
-        else if Getmsg == "6"{
-            play("6.wav",state: 0)
-        }
-        else if Getmsg == "7"{
-            play("7.wav",state: 0)
-        }
-        else if Getmsg == "8"{
-            play("8.wav",state: 0)
-        }
-        else if Getmsg == "9"{
-            play("9.wav",state: 0)
-        }
-        else if Getmsg == "10"{
-            play("10.wav",state: 0)
-        }
-        else if Getmsg == "11"{
-            play("11.wav",state: 0)
-        }
-        else if Getmsg == "12"{
-            play("12.wav",state: 0)
-        }
-        else if Getmsg == "13"{
-            play("13.wav",state: 0)
-        }
-        else if Getmsg == "14"{
-            play("14.wav",state: 0)
-        }
+        if Getmsg=="1"{play("1.wav",state: 0)}
+        else if Getmsg == "2"{play("2.wav",state: 0)}
+        else if Getmsg == "3"{play("3.wav",state: 0)}
+        else if Getmsg == "4"{play("4.wav",state: 0)}
+        else if Getmsg == "5"{play("5.wav",state: 0)}
+        else if Getmsg == "6"{play("6.wav",state: 0)}
+        else if Getmsg == "7"{play("7.wav",state: 0)}
+        else if Getmsg == "8"{play("8.wav",state: 0)}
+        else if Getmsg == "9"{play("9.wav",state: 0)}
+        else if Getmsg == "10"{play("10.wav",state: 0)}
+        else if Getmsg == "11"{play("11.wav",state: 0)}
+        else if Getmsg == "12"{play("12.wav",state: 0)}
+        else if Getmsg == "13"{play("13.wav",state: 0)}
+        else if Getmsg == "14"{play("14.wav",state: 0)}
+      
+        else if Getmsg == "15"{ememyplay("e1.wav",state: 0)}
+        else if Getmsg == "16"{ememyplay("e2.wav",state: 0)}
+        else if Getmsg == "17"{ememyplay("e3.wav",state: 0)}
+        else if Getmsg == "18"{ememyplay("e4.mp3",state: 0)}
+        else if Getmsg == "19"{ememyplay("e5.mp3",state: 0)}
+        else if Getmsg == "20"{ememyplay("e6.mp3",state: 0)}
+        else if Getmsg == "21"{ememyplay("e7.mp3",state: 0)}
         
+        else if Getmsg == "22"{efplay("ef1.wav",state: 0)}
+        else if Getmsg == "23"{efplay("ef2.m4a",state: 0)}
+        else if Getmsg == "24"{efplay("ef3.m4a",state: 0)}
+        else if Getmsg == "25"{efplay("ef4.m4a",state: 0)}
+        else if Getmsg == "26"{efplay("ef5.mp3",state: 0)}
+        else if Getmsg == "27"{efplay("ef6.mp3",state: 0)}
+        else if Getmsg == "28"{efplay("ef7.mp3",state: 0)}
+        else if Getmsg == "29"{efplay("ef8.mp3",state: 0)}
+        else if Getmsg == "30"{efplay("ef9.wav",state: 0)}
+
         
         
     }
@@ -279,7 +269,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             prevpos = nowpos
         }
     
-        if heading >= 0 && heading <= 89 {
+        if heading >= 5 && heading <= 84 {
             if prevpos >= 0 && prevpos<=89 { }
             else {
                 prevpos = Int(heading)
@@ -287,7 +277,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             }
         }
         
-        else if heading >= 90 && heading <= 179 {
+        else if heading >= 95 && heading <= 174 {
             if prevpos >= 90 && prevpos<=179 { }
             else {
                 prevpos = Int(heading)
@@ -295,7 +285,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             }
         }
     
-        else if heading >= 180 && heading <= 269 {
+        else if heading >= 185 && heading <= 264 {
             if prevpos >= 180 && prevpos<=269 { }
             else {
                 prevpos = Int(heading)
@@ -303,7 +293,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             }
         }
     
-        else if heading >= 270 && heading <= 359 {
+        else if heading >= 275 && heading <= 354 {
             if prevpos >= 270 && prevpos <= 359{ }
             else {
                 prevpos = Int(heading)
