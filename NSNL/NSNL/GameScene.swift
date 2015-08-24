@@ -308,6 +308,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             secondBody.categoryBitMask & WallCategory != 0 {
                 atarimuki = soutai
                 println("HIT")
+                del.controller.sendMes("hit")
         }
     }
     
@@ -720,16 +721,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
             println(atarimuki)
             switch(atarimuki){
             case 0:
-                walker.runAction(SKAction.moveByX(0, y: 20, duration: 0.2))
+                walker.runAction(SKAction.moveByX(0, y: -10, duration: 0.2))
                 break
             case 1:
-                walker.runAction(SKAction.moveByX(20, y: 0, duration: 0.2))
+                walker.runAction(SKAction.moveByX(-10, y: 0, duration: 0.2))
                 break
             case 2:
-                walker.runAction(SKAction.moveByX(0, y: -20, duration: 0.2))
+                walker.runAction(SKAction.moveByX(0, y: 10, duration: 0.2))
                 break
             case 3:
-                walker.runAction(SKAction.moveByX(-20, y: 0, duration: 0.2))
+                walker.runAction(SKAction.moveByX(10, y: 0, duration: 0.2))
                 break
             default:
                 break
