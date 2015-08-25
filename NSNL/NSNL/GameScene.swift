@@ -77,6 +77,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     var move:[CGFloat] = []
     var ghosts:[SKSpriteNode] = []
     var ghost_count:Int = 0
+    var button:[UIButton] = []
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -222,6 +223,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         button14.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 690)
         button14.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
         button14.tag = 14
+        
+        for i in 0..<5{
+            button1 = UIButton(frame: CGRectMake(0, 0, 100, 40))
+            button1.setImage(UIImage(named: "15.png"), forState: .Normal)
+            button1.layer.position = CGPoint(x: scrView.frame.size.width / 2, y: 40 + 50 * CGFloat(i))
+            button1.addTarget(self, action: "onbutton:", forControlEvents: .TouchUpInside)
+            button1.tag = i
+        }
         
         centerB = UIButton(frame: CGRectMake(0, 0, 40, 40))
         centerB.setImage(UIImage(named: "return.png"), forState: .Normal)
@@ -790,6 +799,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 break
             }
         }
+        
         
         
         
