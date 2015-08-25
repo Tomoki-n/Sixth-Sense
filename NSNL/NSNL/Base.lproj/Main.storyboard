@@ -4,6 +4,52 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
+        <!--Score2 View Controller-->
+        <scene sceneID="K4Z-Fg-5hr">
+            <objects>
+                <viewController storyboardIdentifier="s2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8BD-4G-bfy" customClass="Score2ViewController" customModule="NSNL" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VKo-dm-Mnq"/>
+                        <viewControllerLayoutGuide type="bottom" id="zyc-vt-k4d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gNE-9U-BtX">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L5O-eT-gEo">
+                                <rect key="frame" x="11" y="296" width="163" height="66"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="YfQ-nB-50S" kind="modal" id="rLu-sz-z9p"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top2.png" translatesAutoresizingMaskIntoConstraints="NO" id="2OL-DQ-30n">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clear.png" translatesAutoresizingMaskIntoConstraints="NO" id="jKX-Rh-bBF">
+                                <rect key="frame" x="94" y="139" width="226" height="38"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0000 .sec" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJB-uC-r9Y">
+                                <rect key="frame" x="149" y="199" width="116" height="38"/>
+                                <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="22"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="time" destination="SJB-uC-r9Y" id="AaG-qX-h52"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vBc-E3-VPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="416.5" y="1188.5"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="CtS-rA-C9T">
             <objects>
@@ -67,17 +113,6 @@
                                     <segue destination="LVB-YS-i5n" kind="modal" id="ETl-yt-s8Y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YI7-ms-sut">
-                                <rect key="frame" x="392" y="312" width="149" height="35"/>
-                                <fontDescription key="fontDescription" name="Superclarendon-Regular" family="Superclarendon" pointSize="19"/>
-                                <state key="normal" title="HI-SCORE">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Qju-L9-DZB" kind="modal" id="dAA-sE-csZ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -91,7 +126,7 @@
         <!--Score View Controller-->
         <scene sceneID="tTd-4B-PSO">
             <objects>
-                <viewController id="Qju-L9-DZB" customClass="ScoreViewController" customModule="NSNL" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="s1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qju-L9-DZB" customClass="ScoreViewController" customModule="NSNL" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uN6-KN-Kq9"/>
                         <viewControllerLayoutGuide type="bottom" id="GDx-q3-khW"/>
@@ -100,68 +135,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="leader.png" translatesAutoresizingMaskIntoConstraints="NO" id="ElL-sf-lrW">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="top2.png" translatesAutoresizingMaskIntoConstraints="NO" id="yQ5-tA-ArG">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSS-18-gEJ">
-                                <rect key="frame" x="16" y="296" width="151" height="71"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Geq-gB-Qz5">
+                                <rect key="frame" x="8" y="298" width="168" height="69"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="YfQ-nB-50S" kind="modal" id="qVe-Ec-VHe"/>
+                                    <segue destination="YfQ-nB-50S" kind="modal" id="Vv0-iK-oZ8"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="秒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDp-Le-MXq">
-                                <rect key="frame" x="272" y="99" width="38" height="31"/>
-                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="秒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iT-kh-CtP">
-                                <rect key="frame" x="296" y="168" width="38" height="31"/>
-                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="秒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axt-5S-aDc">
-                                <rect key="frame" x="322" y="237" width="38" height="31"/>
-                                <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9E-Gl-ij7">
-                                <rect key="frame" x="150" y="173" width="148" height="28.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMO-2b-Mfd">
-                                <rect key="frame" x="208" y="238" width="115" height="28.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2S-Zg-yIn">
-                                <rect key="frame" x="116" y="99" width="148" height="28.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="over.png" translatesAutoresizingMaskIntoConstraints="NO" id="7B3-fz-gbl">
+                                <rect key="frame" x="131" y="42" width="405" height="313"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="first" destination="E2S-Zg-yIn" id="Fpg-eO-RHJ"/>
-                        <outlet property="second" destination="r9E-Gl-ij7" id="UhS-wD-Shm"/>
-                        <outlet property="third" destination="bMO-2b-Mfd" id="dj9-PV-xkZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ozf-EX-XcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="184.5" y="1016.5"/>
+            <point key="canvasLocation" x="-378.5" y="1103.5"/>
         </scene>
         <!--Nosight View Controller-->
         <scene sceneID="SCX-bq-6nw">
@@ -175,15 +172,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvZ-tB-sLu">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="384"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <state key="normal">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTE-fJ-q4p">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <color key="backgroundColor" red="0.75104561237373735" green="0.75104561237373735" blue="0.75104561237373735" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title=" ">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="SendGo:" destination="zMN-he-m64" eventType="touchDown" id="JsF-oD-MVC"/>
-                                    <action selector="SendUP:" destination="zMN-he-m64" eventType="touchUpInside" id="1UO-Yl-zZj"/>
+                                    <action selector="SendGo:" destination="zMN-he-m64" eventType="touchDown" id="KJn-Bb-GeZ"/>
+                                    <action selector="SendUP:" destination="zMN-he-m64" eventType="touchUpInside" id="GyZ-jX-qM6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -198,7 +195,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="leader.png" width="2088" height="1180"/>
+        <image name="clear.png" width="859" height="120"/>
+        <image name="over.png" width="480" height="480"/>
         <image name="top.jpg" width="1920" height="1080"/>
+        <image name="top2.png" width="2418" height="1362"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Vv0-iK-oZ8"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -100,6 +100,12 @@
 		FA5AA54F1B8AA913009BAB5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5AA54E1B8AA913009BAB5D /* UIKit.framework */; };
 		FA5AA5511B8AB021009BAB5D /* thunder.wav in Resources */ = {isa = PBXBuildFile; fileRef = FA5AA5501B8AB021009BAB5D /* thunder.wav */; };
 		FA5AA5531B8AB186009BAB5D /* physicdata2.csv in Resources */ = {isa = PBXBuildFile; fileRef = FA5AA5521B8AB186009BAB5D /* physicdata2.csv */; };
+		FA65C8631B8BD47F005F1AF3 /* gata.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA65C8621B8BD47F005F1AF3 /* gata.mp3 */; };
+		FA65C8651B8BF503005F1AF3 /* top2.png in Resources */ = {isa = PBXBuildFile; fileRef = FA65C8641B8BF503005F1AF3 /* top2.png */; };
+		FA65C8671B8BF651005F1AF3 /* clear.png in Resources */ = {isa = PBXBuildFile; fileRef = FA65C8661B8BF651005F1AF3 /* clear.png */; };
+		FA65C8691B8BF739005F1AF3 /* Score2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65C8681B8BF739005F1AF3 /* Score2ViewController.swift */; };
+		FA65C86B1B8BFA0D005F1AF3 /* over.png in Resources */ = {isa = PBXBuildFile; fileRef = FA65C86A1B8BFA0D005F1AF3 /* over.png */; };
+		FA65C86D1B8BFA8A005F1AF3 /* don.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FA65C86C1B8BFA8A005F1AF3 /* don.mp3 */; };
 		FAEA233D1B8BA38E00CEFA2A /* daremo.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAEA23371B8BA38E00CEFA2A /* daremo.wav */; };
 		FAEA233E1B8BA38E00CEFA2A /* daruma.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAEA23381B8BA38E00CEFA2A /* daruma.wav */; };
 		FAEA233F1B8BA38E00CEFA2A /* hdaremo.wav in Resources */ = {isa = PBXBuildFile; fileRef = FAEA23391B8BA38E00CEFA2A /* hdaremo.wav */; };
@@ -231,6 +237,12 @@
 		FA5AA54E1B8AA913009BAB5D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FA5AA5501B8AB021009BAB5D /* thunder.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = thunder.wav; sourceTree = SOURCE_ROOT; };
 		FA5AA5521B8AB186009BAB5D /* physicdata2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = physicdata2.csv; sourceTree = SOURCE_ROOT; };
+		FA65C8621B8BD47F005F1AF3 /* gata.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gata.mp3; sourceTree = "<group>"; };
+		FA65C8641B8BF503005F1AF3 /* top2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = top2.png; sourceTree = "<group>"; };
+		FA65C8661B8BF651005F1AF3 /* clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clear.png; sourceTree = SOURCE_ROOT; };
+		FA65C8681B8BF739005F1AF3 /* Score2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score2ViewController.swift; sourceTree = "<group>"; };
+		FA65C86A1B8BFA0D005F1AF3 /* over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = over.png; sourceTree = SOURCE_ROOT; };
+		FA65C86C1B8BFA8A005F1AF3 /* don.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = don.mp3; sourceTree = SOURCE_ROOT; };
 		FAEA23371B8BA38E00CEFA2A /* daremo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = daremo.wav; sourceTree = "<group>"; };
 		FAEA23381B8BA38E00CEFA2A /* daruma.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = daruma.wav; sourceTree = "<group>"; };
 		FAEA23391B8BA38E00CEFA2A /* hdaremo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hdaremo.wav; sourceTree = "<group>"; };
@@ -318,6 +330,7 @@
 				FAF4548D1B86F629009DB6A2 /* NosightViewController.swift */,
 				FAF454A91B88075B009DB6A2 /* NumTypes+Conversion.swift */,
 				FA599AAF1B8B6EE000B159DF /* ScoreViewController.swift */,
+				FA65C8681B8BF739005F1AF3 /* Score2ViewController.swift */,
 				FAF454701B86F58D009DB6A2 /* Main.storyboard */,
 				FAF454731B86F58D009DB6A2 /* Images.xcassets */,
 				FAF454901B86F63D009DB6A2 /* Material */,
@@ -338,8 +351,13 @@
 		FAF454901B86F63D009DB6A2 /* Material */ = {
 			isa = PBXGroup;
 			children = (
+				FA65C8621B8BD47F005F1AF3 /* gata.mp3 */,
+				FA65C86C1B8BFA8A005F1AF3 /* don.mp3 */,
+				FA65C86A1B8BFA0D005F1AF3 /* over.png */,
+				FA65C8661B8BF651005F1AF3 /* clear.png */,
 				FAEA23431B8BABBD00CEFA2A /* stop.png */,
 				FAEA23371B8BA38E00CEFA2A /* daremo.wav */,
+				FA65C8641B8BF503005F1AF3 /* top2.png */,
 				FAEA23381B8BA38E00CEFA2A /* daruma.wav */,
 				FAEA23391B8BA38E00CEFA2A /* hdaremo.wav */,
 				FAEA233A1B8BA38E00CEFA2A /* hdaruma.wav */,
@@ -583,11 +601,14 @@
 				98AF96E41B8B1E0A0026A629 /* e2.wav in Resources */,
 				FAEA23421B8BA38E00CEFA2A /* mdaruma.wav in Resources */,
 				FA1660371B8AE86A0093F492 /* return.png in Resources */,
+				FA65C8631B8BD47F005F1AF3 /* gata.mp3 in Resources */,
 				FA1660B61B8AFBFC0093F492 /* 2.wav in Resources */,
 				FAF4546B1B86F58D009DB6A2 /* GameScene.sks in Resources */,
 				FA1660B51B8AFBFC0093F492 /* 1.wav in Resources */,
 				FA1660D51B8B05B30093F492 /* 17.png in Resources */,
 				98002AC71B8AACF5009308DE /* Icon-Small-50@2x.png in Resources */,
+				FA65C8651B8BF503005F1AF3 /* top2.png in Resources */,
+				FA65C86D1B8BFA8A005F1AF3 /* don.mp3 in Resources */,
 				98AF97031B8B80040026A629 /* layer2.csv in Resources */,
 				FAEA23441B8BABBD00CEFA2A /* stop.png in Resources */,
 				98002AC11B8AACF5009308DE /* Icon-72@2x.png in Resources */,
@@ -605,6 +626,7 @@
 				FA1660D61B8B05B30093F492 /* 18.png in Resources */,
 				98002ACB1B8AACF5009308DE /* Icon@2x.png in Resources */,
 				98AF970C1B8B84850026A629 /* ghost3.png in Resources */,
+				FA65C8671B8BF651005F1AF3 /* clear.png in Resources */,
 				FA1660BA1B8AFBFC0093F492 /* 6.wav in Resources */,
 				FAF454961B86F66D009DB6A2 /* mapchip1.png in Resources */,
 				98002AC41B8AACF5009308DE /* Icon-Small-40.png in Resources */,
@@ -648,6 +670,7 @@
 				FAEA23401B8BA38E00CEFA2A /* hdaruma.wav in Resources */,
 				FAF454971B86F66D009DB6A2 /* Mapdata1.csv in Resources */,
 				98002ACC1B8AACF5009308DE /* iTunesArtwork in Resources */,
+				FA65C86B1B8BFA0D005F1AF3 /* over.png in Resources */,
 				FA1660D41B8B05B30093F492 /* 16.png in Resources */,
 				FAEA233D1B8BA38E00CEFA2A /* daremo.wav in Resources */,
 				FA1660DB1B8B05BA0093F492 /* 113.png in Resources */,
@@ -670,6 +693,7 @@
 			files = (
 				FAF4546D1B86F58D009DB6A2 /* GameScene.swift in Sources */,
 				FA599AB01B8B6EE000B159DF /* ScoreViewController.swift in Sources */,
+				FA65C8691B8BF739005F1AF3 /* Score2ViewController.swift in Sources */,
 				FAF4546F1B86F58D009DB6A2 /* GameViewController.swift in Sources */,
 				FAF454691B86F58D009DB6A2 /* AppDelegate.swift in Sources */,
 				FAF4548F1B86F629009DB6A2 /* NosightViewController.swift in Sources */,

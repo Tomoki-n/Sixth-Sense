@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var upflag:Bool = false
     var downflag:Bool = false
     var gameset:Bool = false
+    var clear:Bool = false
+    var gd:Bool = false
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

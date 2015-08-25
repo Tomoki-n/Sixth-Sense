@@ -212,17 +212,28 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
             
     }
     
+    
+    
     func onUpdate(timer : NSTimer){
-        if(appDelegate.gameset){
+        if(appDelegate.gameset && appDelegate.clear){
+            appDelegate.gameset = false
+            appDelegate.clear = false
+            
+            sendMes("clear")
+            
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "s1" )
+            self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+            
+        }
+        
+        else if(appDelegate.gameset){
+            
+            sendMes("over")
             appDelegate.gameset = false
             // 遷移するViewを定義する.
-            let mySecondViewController: UIViewController = ScoreViewController()
-        
-            // アニメーションを設定する.
-            mySecondViewController.modalTransitionStyle = UIModalTransitionStyle.PartialCurl
-        
-            // Viewの移動する.
-            self.presentViewController(mySecondViewController, animated: true, completion: nil)
+            
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "s1" )
+            self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
         }
         appDelegate.cnt += 0.1
         //println(appDelegate.cnt)

@@ -358,12 +358,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
         }else if firstBody.categoryBitMask & WalkerCategory != 0 &&
             secondBody.categoryBitMask & GhostCategory != 0{
                 println("DEAD")
+               
+                if (!del.gd) {
+                    del.gameset = true
+                    del.gd = true
+                }
                 
-        }else if firstBody.categoryBitMask & WalkerCategory != 0 &&
+        
+        }else if
+            firstBody.categoryBitMask & WalkerCategory != 0 &&
             secondBody.categoryBitMask & GoalCategory != 0{
                 
                 println("END")
-                let ud = NSUserDefaults.standardUserDefaults()
+                
+              
+                //let ud = NSUserDefaults.standardUserDefaults()
         /*
                 //空の配列を用意
                 var scores: [Float] = []
@@ -406,7 +415,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                     
                 }
 */
-                del.gameset = true
+                
+                if (!del.gd) {
+                    del.gameset = true
+                    del.clear = true
+                    del.gd = true
+                }
         }
         
         
@@ -867,7 +881,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        myAlialLabel.text = "TIME:" + String(stringInterpolationSegment: Int(del.cnt))
+        myAlialLabel.text = "TIME:" + " " + String(stringInterpolationSegment: Int(del.cnt))
         
         
         if walker.position.x <= zahyou(21, tiley: 0).x{
@@ -883,9 +897,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate{
                 dis2Flag = true
             }
         }
-        
-        if walker.position.x >= zahyou(65, tiley: 0).x && walker.position.y >= zahyou(0, tiley: 27).y && walker.position.y <= zahyou(0, tiley: 30).y{
+
+        if walker.position.x >= zahyou(65, tiley: 0).x && walker.position.y >= zahyou(0, tiley: 27).y && walker.position.y <= zahyou(0, tiley: 20).y{
             if dis3Flag == false{
+        //        println("test")
+                sendmes("37")
                 dis3Flag = true
             }
         }

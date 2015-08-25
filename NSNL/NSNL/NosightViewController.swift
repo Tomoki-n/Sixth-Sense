@@ -36,6 +36,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     var efplayer:AVAudioPlayer?  //エフェクト音声を制御するための変数
     var walkplayer:AVAudioPlayer?  //歩く音声を制御するための変数
     var plece:String = "rouka.mp3"
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     func play(soundName:String,state:Int){
         let soundPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent(soundName)
@@ -220,6 +221,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         else if Getmsg == "34"{efplay("hdaremo.wav",state: 0)}
         else if Getmsg == "35"{efplay("mdaruma.wav",state: 0)}
         else if Getmsg == "36"{efplay("mdaruma.wav",state: 0)}
+        else if Getmsg == "37"{efplay("gata.mp3",state: 0)}
         else if Getmsg == "999"{play("stop.wav", state: 0)}
             
         else if Getmsg == "hit"{
@@ -228,6 +230,25 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         }
         else if Getmsg == "rouka"{self.plece = "rouka"}
         else if Getmsg == "water"{self.plece = "water"}
+        else if Getmsg == "over"{
+         
+            appDelegate.gameset = false
+            // 遷移するViewを定義する.
+          
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "s1" )
+            self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+            
+        }
+    
+        else if Getmsg == "clear"{
+            appDelegate.gameset = false
+            appDelegate.clear = false
+            1
+            2
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "s2" )
+            self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+        }
+        
         
         
     }
