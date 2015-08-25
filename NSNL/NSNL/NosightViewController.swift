@@ -36,6 +36,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     var efplayer:AVAudioPlayer?  //エフェクト音声を制御するための変数
     var walkplayer:AVAudioPlayer?  //歩く音声を制御するための変数
     var plece:String = "rouka.mp3"
+    var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     func play(soundName:String,state:Int){
         let soundPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent(soundName)
@@ -203,7 +204,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         else if Getmsg == "19"{ememyplay("e5.mp3",state: 0)}
         else if Getmsg == "20"{ememyplay("e6.mp3",state: 0)}
         else if Getmsg == "21"{ememyplay("e7.mp3",state: 0)}
-        
+
         else if Getmsg == "22"{efplay("ef1.wav",state: 0)}
         else if Getmsg == "23"{efplay("ef2.m4a",state: 0)}
         else if Getmsg == "24"{efplay("ef3.m4a",state: 0)}
@@ -213,13 +214,47 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         else if Getmsg == "28"{efplay("ef7.mp3",state: 0)}
         else if Getmsg == "29"{efplay("ef8.mp3",state: 0)}
         else if Getmsg == "30"{efplay("ef9.wav",state: 0)}
-
+            
+        else if Getmsg == "31"{efplay("daruma.wav",state: 0)}
+        else if Getmsg == "32"{efplay("daremo.wav",state: 0)}
+        else if Getmsg == "33"{efplay("hdaruma.wav",state: 0)}
+        else if Getmsg == "34"{efplay("hdaremo.wav",state: 0)}
+        else if Getmsg == "35"{efplay("mdaruma.wav",state: 0)}
+        else if Getmsg == "36"{efplay("mdaruma.wav",state: 0)}
+        else if Getmsg == "37"{efplay("gata.mp3",state: 0)}
+        else if Getmsg == "999"{play("stop.wav", state: 0)}
+            
         else if Getmsg == "hit"{
             walkerplay("muon.mp3", state: 1)
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
         else if Getmsg == "rouka"{self.plece = "rouka"}
         else if Getmsg == "water"{self.plece = "water"}
+        else if Getmsg == "over"{
+         
+            appDelegate.gameset = false
+            // 遷移するViewを定義する.
+          
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "s1" )
+            
+            self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+            
+        }
+    
+        else if Getmsg == "clear"{
+            appDelegate.gameset = false
+            appDelegate.clear = false
+            
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "s2" )
+            
+            self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+        }
+        
+        else {
+          //  appDelegate.cnt = Float(Getmsg) as! Float
+            
+        }
+        
         
         
     }
@@ -285,6 +320,8 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
     
     func locationManager(manager:CLLocationManager, didUpdateHeading newHeading:CLHeading) {
           var heading:CLLocationDirection = newHeading.magneticHeading
+       
+        
         
         if prevpos == 999{
             nowpos = Int(heading)
@@ -304,7 +341,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
                 self.sendMes("0")
             }
         }
-        
+
         else if heading >= 95 && heading <= 174 {
             if prevpos >= 90 && prevpos<=179 { }
             else {
