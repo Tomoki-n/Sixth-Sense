@@ -13,19 +13,15 @@ import UIKit
 class Score2ViewController: UIViewController {
     
     
+    @IBAction func reset(sender: UIButton) {
+        
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
     @IBOutlet weak var time: UILabel!
     let ud = NSUserDefaults.standardUserDefaults()
     override func viewDidLoad() {
         super.viewDidLoad()
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        time.text = ""
-        var min:Int = Int(appDelegate.cnt) / 60
-        var sec:Int = Int(appDelegate.cnt) % 60
-        
-        
-        time.text = String(min) + "min" + String(sec) + "sec"
-        
-        
+              
         
         
     }

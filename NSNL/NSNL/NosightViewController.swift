@@ -236,6 +236,7 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
             // 遷移するViewを定義する.
           
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "s1" )
+            
             self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
             
         }
@@ -243,10 +244,15 @@ class NosightViewController: UIViewController, MCBrowserViewControllerDelegate,M
         else if Getmsg == "clear"{
             appDelegate.gameset = false
             appDelegate.clear = false
-            1
-            2
+            
             var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "s2" )
+            
             self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
+        }
+        
+        else {
+          //  appDelegate.cnt = Float(Getmsg) as! Float
+            
         }
         
         

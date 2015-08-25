@@ -13,6 +13,10 @@ import AVFoundation
 class ScoreViewController: UIViewController {
     
        
+    @IBAction func reset(sender: UIButton) {
+        
+         UIApplication.sharedApplication().keyWindow?.rootViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
     var player:AVAudioPlayer?  //音声を制御するための変数
 
     
@@ -26,18 +30,7 @@ class ScoreViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
        
-        var player:AVAudioPlayer?  //音声を制御するための変数
-        let soundPath = NSBundle.mainBundle().bundlePath.stringByAppendingPathComponent("don.mp3")
-        let url:NSURL? = NSURL.fileURLWithPath(soundPath)
-        player = AVAudioPlayer(contentsOfURL: url, error: nil)
-        // Optional Chainingを使う。
-        if let thePlayer = player {
-            
-            thePlayer.prepareToPlay()
-            thePlayer.play()
-            
-        }
-
+      
     }
     
     override func didReceiveMemoryWarning() {

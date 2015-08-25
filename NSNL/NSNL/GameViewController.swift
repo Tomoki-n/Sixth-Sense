@@ -219,9 +219,10 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate,MCSe
             appDelegate.gameset = false
             appDelegate.clear = false
             
+            sendMes(String(stringInterpolationSegment: appDelegate.cnt))
             sendMes("clear")
             
-            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "s1" )
+            var targetView: AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier( "s2" )
             self.presentViewController( targetView as! UIViewController, animated: true, completion: nil)
             
         }
